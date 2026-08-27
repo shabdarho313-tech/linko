@@ -75,10 +75,24 @@ input{
   font-size:16px;
 }
 
+.secondary{
+  background:#eee;
+  color:#111;
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  font-size:16px;
+}
+
 .error{
   color:#d33;
   margin-top:12px;
   word-break:break-word;
+}
+
+.success{
+  color:#16833b;
+  margin-top:12px;
 }
 
 .app{
@@ -223,6 +237,25 @@ input{
   margin-top:5px;
 }
 
+.admin-badge{
+  display:inline-block;
+  background:#111;
+  color:white;
+  padding:5px 9px;
+  border-radius:8px;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.admin-box{
+  border:2px solid #eee;
+}
+
+.danger{
+  background:#d33 !important;
+  color:white !important;
+}
+
 @media(max-width:600px){
   .cards{
     grid-template-columns:1fr;
@@ -332,10 +365,17 @@ input{
         </div>
 
 
-        <div class="card" onclick="openPage('usersPage')">
+        <!-- فقط ادمین -->
+
+        <div
+          class="card"
+          id="usersCard"
+          style="display:none"
+          onclick="openPage('usersPage')"
+        >
           <div class="icon">👥</div>
-          <h3>کاربران</h3>
-          <p>مشاهده کاربران</p>
+          <h3>مدیریت کاربران</h3>
+          <p>ساخت و مشاهده کاربران</p>
         </div>
 
       </div>
@@ -481,7 +521,7 @@ input{
     </div>
 
 
-    <!-- USERS -->
+    <!-- USERS / ADMIN -->
 
     <div class="page" id="usersPage">
 
@@ -489,9 +529,53 @@ input{
         ← بازگشت
       </button>
 
+
+      <!-- ساخت کاربر -->
+
+      <div class="box admin-box">
+
+        <h2>👑 مدیریت کاربران</h2>
+
+        <p style="margin-bottom:15px;color:#666">
+          از این قسمت می‌توانی برای افراد جدید
+          نام کاربری و رمز عبور بسازی.
+        </p>
+
+        <input
+          id="newUsername"
+          type="text"
+          placeholder="نام کاربری جدید"
+          autocomplete="off"
+        >
+
+        <br><br>
+
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="رمز عبور جدید"
+          autocomplete="new-password"
+        >
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="createUser()"
+        >
+          ➕ ساخت کاربر
+        </button>
+
+        <div id="createUserStatus" class="status"></div>
+
+      </div>
+
+
+      <!-- لیست کاربران -->
+
       <div class="box">
 
-        <h2>👥 کاربران</h2>
+        <h2>👥 کاربران Linko</h2>
 
         <div id="usersList">
           در حال دریافت...
@@ -570,6 +654,43 @@ let currentUser = null;
 
 
 /* ======================================
+   ADMIN
+====================================== */
+
+function isAdmin(){
+
+  if(!currentUser){
+    return false;
+  }
+
+  return Number(currentUser.id) === 1;
+
+}
+
+
+function updateAdminAccess(){
+
+  const usersCard =
+    document.getElementById("usersCard");
+
+  if(!usersCard){
+    return;
+  }
+
+  if(isAdmin()){
+
+    usersCard.style.display = "block";
+
+  }else{
+
+    usersCard.style.display = "none";
+
+  }
+
+}
+
+
+/* ======================================
    LOGIN
 ====================================== */
 
@@ -633,8 +754,11 @@ async function login(){
 
 
     currentUser = {
-      id: Number(user.id),
-      username: user.username
+
+      id:Number(user.id),
+
+      username:user.username
+
     };
 
 
@@ -655,6 +779,8 @@ async function login(){
     document.getElementById("homePage")
       .style.display="block";
 
+
+    updateAdminAccess();
 
     loadAll();
 
@@ -703,6 +829,20 @@ function logout(){
 
 function openPage(id){
 
+  /*
+    جلوگیری از ورود مستقیم کاربران عادی
+    به صفحه مدیریت کاربران
+  */
+
+  if(id==="usersPage" && !isAdmin()){
+
+    alert("این بخش فقط برای ادمین است.");
+
+    return;
+
+  }
+
+
   document.getElementById("homePage")
     .style.display="none";
 
@@ -745,7 +885,6 @@ async function loadPosts(){
 
   const box =
     document.getElementById("postsList");
-
 
   if(!box) return;
 
@@ -854,9 +993,13 @@ async function addPost(){
         method:"POST",
 
         body:JSON.stringify({
+
           title:title,
+
           instagram_url:url
+
         })
+
       }
     );
 
@@ -925,12 +1068,17 @@ async function addMyComment(){
     await db(
       "comments",
       {
+
         method:"POST",
 
         body:JSON.stringify({
+
           user_id:currentUser.id,
+
           instagram_comment_url:url
+
         })
+
       }
     );
 
@@ -1068,12 +1216,17 @@ async function deleteMyComment(commentId){
       await db(
         "rpc/delete_my_comment",
         {
+
           method:"POST",
 
           body:JSON.stringify({
+
             p_comment_id:Number(commentId),
+
             p_user_id:Number(currentUser.id)
+
           })
+
         }
       );
 
@@ -1114,7 +1267,7 @@ async function deleteMyComment(commentId){
 
 
 /* ======================================
-   LOAD COMMENTS FOR CURRENT USER
+   LOAD COMMENTS
 ====================================== */
 
 async function loadComments(){
@@ -1144,11 +1297,6 @@ async function loadComments(){
     const viewed =
       views.map(v=>Number(v.comment_id));
 
-
-    /*
-      هر کاربر کامنت خودش را در بخش
-      کامنت‌های دیده‌نشده نمی‌بیند.
-    */
 
     const unseen =
       comments.filter(c=>{
@@ -1233,13 +1381,19 @@ async function viewComment(id,url){
     await db(
       "comment_views",
       {
+
         method:"POST",
 
         body:JSON.stringify({
+
           comment_id:Number(id),
+
           user_id:Number(currentUser.id),
+
           viewed_at:new Date().toISOString()
+
         })
+
       }
     );
 
@@ -1266,7 +1420,7 @@ async function viewComment(id,url){
 
 
 /* ======================================
-   LOAD SEEN COMMENTS
+   LOAD SEEN
 ====================================== */
 
 async function loadSeen(){
@@ -1377,7 +1531,152 @@ async function loadSeen(){
 
 
 /* ======================================
-   USERS
+   CREATE USER — ADMIN ONLY
+====================================== */
+
+async function createUser(){
+
+  if(!isAdmin()){
+
+    alert("فقط ادمین اجازه ساخت کاربر دارد.");
+
+    return;
+
+  }
+
+
+  const username =
+    document.getElementById("newUsername")
+      .value.trim();
+
+  const password =
+    document.getElementById("newPassword")
+      .value;
+
+  const status =
+    document.getElementById("createUserStatus");
+
+
+  status.innerText="";
+
+
+  if(!username || !password){
+
+    status.className="status error";
+
+    status.innerText =
+      "نام کاربری و رمز عبور را وارد کن.";
+
+    return;
+
+  }
+
+
+  if(username.length < 3){
+
+    status.className="status error";
+
+    status.innerText =
+      "نام کاربری باید حداقل ۳ حرف داشته باشد.";
+
+    return;
+
+  }
+
+
+  if(password.length < 4){
+
+    status.className="status error";
+
+    status.innerText =
+      "رمز عبور باید حداقل ۴ کاراکتر داشته باشد.";
+
+    return;
+
+  }
+
+
+  try{
+
+    /*
+      بررسی می‌کنیم نام کاربری قبلاً وجود نداشته باشد.
+    */
+
+    const existing =
+      await db(
+        "users?select=id&username=eq."
+        + encodeURIComponent(username)
+        + "&limit=1"
+      );
+
+
+    if(existing.length > 0){
+
+      status.className="status error";
+
+      status.innerText =
+        "این نام کاربری قبلاً استفاده شده است.";
+
+      return;
+
+    }
+
+
+    /*
+      ساخت کاربر جدید
+    */
+
+    await db(
+      "users",
+      {
+
+        method:"POST",
+
+        body:JSON.stringify({
+
+          username:username,
+
+          password:password
+
+        })
+
+      }
+    );
+
+
+    document.getElementById("newUsername")
+      .value="";
+
+    document.getElementById("newPassword")
+      .value="";
+
+
+    status.className="status success";
+
+    status.innerText =
+      "کاربر با موفقیت ساخته شد ✅";
+
+
+    loadUsers();
+
+
+  }catch(e){
+
+    console.error(e);
+
+    status.className="status error";
+
+    status.innerText =
+      "ساخت کاربر انجام نشد: " +
+      e.message;
+
+  }
+
+}
+
+
+/* ======================================
+   LOAD USERS — ADMIN ONLY
 ====================================== */
 
 async function loadUsers(){
@@ -1389,11 +1688,26 @@ async function loadUsers(){
   if(!box) return;
 
 
+  /*
+    اگر ادمین نیست، حتی درخواست لیست کاربران
+    هم ارسال نمی‌شود.
+  */
+
+  if(!isAdmin()){
+
+    box.innerHTML =
+      '<div class="empty">این بخش فقط برای ادمین است.</div>';
+
+    return;
+
+  }
+
+
   try{
 
     const users =
       await db(
-        "users?select=id,username&order=username.asc"
+        "users?select=id,username&order=id.asc"
       );
 
 
@@ -1419,6 +1733,10 @@ async function loadUsers(){
       div.className="user";
 
 
+      const admin =
+        Number(user.id) === 1;
+
+
       div.innerHTML=`
 
         <strong>
@@ -1428,6 +1746,12 @@ async function loadUsers(){
         <div class="small">
           شناسه کاربر: ${Number(user.id)}
         </div>
+
+        ${
+          admin
+          ? '<div class="admin-badge">👑 ادمین</div>'
+          : '<div class="small">کاربر عادی</div>'
+        }
 
       `;
 
@@ -1463,10 +1787,14 @@ function copyLink(link){
     navigator.clipboard
       .writeText(link)
       .then(()=>{
+
         alert("لینک کپی شد ✅");
+
       })
       .catch(()=>{
+
         alert("کپی لینک انجام نشد.");
+
       });
 
   }else{
@@ -1512,10 +1840,22 @@ function escapeJS(text){
 function loadAll(){
 
   loadPosts();
+
   loadMyComments();
+
   loadComments();
+
   loadSeen();
-  loadUsers();
+
+  /*
+    فقط ادمین لیست کاربران را می‌گیرد.
+  */
+
+  if(isAdmin()){
+
+    loadUsers();
+
+  }
 
 }
 
