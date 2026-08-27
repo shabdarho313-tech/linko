@@ -6,511 +6,215 @@
 <title>Linko</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-  color:#222;
-  min-height:100vh;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-}
-
-input{
-  width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:15px;
-  outline:none;
-}
-
-.login{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.login-box{
-  background:white;
-  width:100%;
-  max-width:380px;
-  padding:35px 25px;
-  border-radius:22px;
-  text-align:center;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.logo{
-  font-size:40px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.login-box p{
-  color:#777;
-  margin-bottom:25px;
-}
-
-.login-box input{
-  margin-bottom:12px;
-}
-
-.primary{
-  background:#111;
-  color:white;
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  font-size:16px;
-}
-
-.error{
-  color:#d33;
-  margin-top:12px;
-}
-
-.app{
-  display:none;
-}
-
-.header{
-  background:#111;
-  color:white;
-  padding:16px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.header h1{
-  font-size:25px;
-}
-
-.logout{
-  background:white;
-  color:#111;
-  padding:9px 15px;
-  border-radius:10px;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:25px 20px;
-}
-
-.welcome{
-  margin-bottom:25px;
-}
-
-.welcome p{
-  color:#777;
-  margin-top:8px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-}
-
-.card{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,.06);
-  cursor:pointer;
-}
-
-.icon{
-  font-size:32px;
-  margin-bottom:12px;
-}
-
-.card h3{
-  margin-bottom:7px;
-}
-
-.card p{
-  color:#777;
-  font-size:14px;
-}
-
-.page{
-  display:none;
-}
-
-.back{
-  background:#ddd;
-  padding:10px 16px;
-  border-radius:10px;
-  margin-bottom:20px;
-}
-
-.box{
-  background:white;
-  padding:22px;
-  border-radius:18px;
-  margin-bottom:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.05);
-}
-
-.box h2{
-  margin-bottom:20px;
-}
-
-.item{
-  border:1px solid #eee;
-  border-radius:14px;
-  padding:16px;
-  margin-top:12px;
-}
-
-.item-title{
-  font-weight:bold;
-  margin-bottom:12px;
-}
-
-.item button{
-  background:#111;
-  color:white;
-  padding:10px 14px;
-  border-radius:9px;
-}
-
-.item a{
-  display:block;
-  color:#111;
-  margin-bottom:10px;
-}
-
-.empty{
-  color:#777;
-  padding:10px 0;
-}
-
-.status{
-  margin-top:12px;
-}
-
-.user{
-  padding:15px 0;
-  border-bottom:1px solid #eee;
-}
-
-.small{
-  color:#777;
-  font-size:13px;
-  margin-top:5px;
-}
-
-@media(max-width:600px){
-  .cards{
-    grid-template-columns:1fr;
-  }
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f5f5f5;color:#222;min-height:100vh}
+button{border:0;cursor:pointer}
+input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;font-size:15px;outline:none}
+.login{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}
+.login-box{background:white;width:100%;max-width:380px;padding:35px 25px;border-radius:22px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.logo{font-size:40px;font-weight:bold;margin-bottom:10px}
+.login-box p{color:#777;margin-bottom:25px}
+.login-box input{margin-bottom:12px}
+.primary{background:#111;color:white;width:100%;padding:14px;border-radius:12px;font-size:16px}
+.error{color:#d33;margin-top:12px;word-break:break-word}
+.app{display:none}
+.header{background:#111;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:25px}
+.logout{background:white;color:#111;padding:9px 15px;border-radius:10px}
+.container{max-width:900px;margin:auto;padding:25px 20px}
+.welcome{margin-bottom:25px}
+.welcome p{color:#777;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:white;padding:25px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.06);cursor:pointer}
+.icon{font-size:32px;margin-bottom:12px}
+.card h3{margin-bottom:7px}
+.card p{color:#777;font-size:14px}
+.page{display:none}
+.back{background:#ddd;padding:10px 16px;border-radius:10px;margin-bottom:20px}
+.box{background:white;padding:22px;border-radius:18px;margin-bottom:20px;box-shadow:0 5px 20px rgba(0,0,0,.05)}
+.box h2{margin-bottom:20px}
+.item{border:1px solid #eee;border-radius:14px;padding:16px;margin-top:12px}
+.item-title{font-weight:bold;margin-bottom:12px}
+.item button{background:#111;color:white;padding:10px 14px;border-radius:9px}
+.item a{display:block;color:#111;margin-bottom:10px}
+.empty{color:#777;padding:10px 0}
+.status{margin-top:12px}
+.user{padding:15px 0;border-bottom:1px solid #eee}
+.small{color:#777;font-size:13px;margin-top:5px}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 
 <body>
 
-
-<!-- LOGIN -->
-
 <div class="login" id="loginPage">
+<div class="login-box">
+<div class="logo">Linko</div>
+<p>ورود به Linko</p>
 
-  <div class="login-box">
+<input id="username" type="text" placeholder="نام کاربری">
+<input id="password" type="password" placeholder="رمز عبور">
 
-    <div class="logo">Linko</div>
+<button class="primary" onclick="login()">ورود</button>
 
-    <p>ورود به Linko</p>
-
-    <input
-      id="username"
-      type="text"
-      placeholder="نام کاربری"
-    >
-
-    <input
-      id="password"
-      type="password"
-      placeholder="رمز عبور"
-    >
-
-    <button class="primary" onclick="login()">
-      ورود
-    </button>
-
-    <div id="loginError" class="error"></div>
-
-  </div>
-
+<div id="loginError" class="error"></div>
 </div>
-
-
-<!-- APP -->
+</div>
 
 <div class="app" id="app">
 
-  <div class="header">
+<div class="header">
+<h1>Linko</h1>
+<button class="logout" onclick="logout()">خروج</button>
+</div>
 
-    <h1>Linko</h1>
+<div class="container">
 
-    <button class="logout" onclick="logout()">
-      خروج
-    </button>
+<div id="homePage">
 
-  </div>
+<div class="welcome">
+<h2 id="welcome">خوش آمدید 🌱</h2>
+<p>بخش موردنظر را انتخاب کنید.</p>
+</div>
 
+<div class="cards">
 
-  <div class="container">
+<div class="card" onclick="openPage('postsPage')">
+<div class="icon">📸</div>
+<h3>پست‌های اینستاگرام</h3>
+<p>مشاهده و ثبت پست‌ها</p>
+</div>
 
+<div class="card" onclick="openPage('myCommentsPage')">
+<div class="icon">💬</div>
+<h3>ثبت لینک کامنت من</h3>
+<p>ثبت لینک کامنت خودت</p>
+</div>
 
-    <!-- HOME -->
+<div class="card" onclick="openPage('commentsPage')">
+<div class="icon">🔗</div>
+<h3>لینک کامنت‌ها</h3>
+<p>کامنت‌های دیده‌نشده</p>
+</div>
 
-    <div id="homePage">
+<div class="card" onclick="openPage('seenPage')">
+<div class="icon">✅</div>
+<h3>کامنت‌های دیده‌شده</h3>
+<p>کامنت‌هایی که دیده‌ای</p>
+</div>
 
-      <div class="welcome">
+<div class="card" onclick="openPage('usersPage')">
+<div class="icon">👥</div>
+<h3>کاربران</h3>
+<p>مشاهده کاربران</p>
+</div>
 
-        <h2 id="welcome">
-          خوش آمدید 🌱
-        </h2>
+</div>
+</div>
 
-        <p>
-          بخش موردنظر را انتخاب کنید.
-        </p>
+<div class="page" id="postsPage">
 
-      </div>
+<button class="back" onclick="openPage('homePage')">← بازگشت</button>
 
+<div class="box">
+<h2>📸 پست‌های اینستاگرام</h2>
 
-      <div class="cards">
+<input id="postTitle" placeholder="عنوان پست">
+<br><br>
 
-        <div class="card" onclick="openPage('postsPage')">
-          <div class="icon">📸</div>
-          <h3>پست‌های اینستاگرام</h3>
-          <p>مشاهده و ثبت پست‌ها</p>
-        </div>
+<input id="postUrl" placeholder="لینک پست اینستاگرام">
+<br><br>
 
+<button class="primary" onclick="addPost()">➕ ثبت پست</button>
 
-        <div class="card" onclick="openPage('myCommentsPage')">
-          <div class="icon">💬</div>
-          <h3>ثبت لینک کامنت من</h3>
-          <p>ثبت لینک کامنت خودت</p>
-        </div>
+<div id="postStatus" class="status"></div>
+</div>
 
-
-        <div class="card" onclick="openPage('commentsPage')">
-          <div class="icon">🔗</div>
-          <h3>لینک کامنت‌ها</h3>
-          <p>کامنت‌های دیده‌نشده</p>
-        </div>
-
-
-        <div class="card" onclick="openPage('seenPage')">
-          <div class="icon">✅</div>
-          <h3>کامنت‌های دیده‌شده</h3>
-          <p>کامنت‌هایی که دیده‌ای</p>
-        </div>
-
-
-        <div class="card" onclick="openPage('usersPage')">
-          <div class="icon">👥</div>
-          <h3>کاربران</h3>
-          <p>مشاهده کاربران</p>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- POSTS -->
-
-    <div class="page" id="postsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>📸 پست‌های اینستاگرام</h2>
-
-        <input
-          id="postTitle"
-          placeholder="عنوان پست"
-        >
-
-        <br><br>
-
-        <input
-          id="postUrl"
-          placeholder="لینک پست اینستاگرام"
-        >
-
-        <br><br>
-
-        <button
-          class="primary"
-          onclick="addPost()">
-          ➕ ثبت پست
-        </button>
-
-        <div id="postStatus" class="status"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>پست‌ها</h2>
-
-        <div id="postsList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- MY COMMENTS -->
-
-    <div class="page" id="myCommentsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>💬 ثبت لینک کامنت من</h2>
-
-        <p style="margin-bottom:15px;color:#666">
-          لینک کامنت خودت را وارد کن:
-        </p>
-
-        <input
-          id="myCommentUrl"
-          placeholder="https://www.instagram.com/..."
-        >
-
-        <br><br>
-
-        <button
-          class="primary"
-          onclick="addMyComment()">
-          🟢 ثبت لینک
-        </button>
-
-        <div id="myCommentStatus" class="status"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>کامنت‌های من</h2>
-
-        <div id="myCommentsList">
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- COMMENTS -->
-
-    <div class="page" id="commentsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>🔗 لینک کامنت‌ها</h2>
-
-        <div id="commentsList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- SEEN -->
-
-    <div class="page" id="seenPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>✅ کامنت‌های دیده‌شده</h2>
-
-        <div id="seenList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- USERS -->
-
-    <div class="page" id="usersPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>👥 کاربران</h2>
-
-        <div id="usersList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </div>
+<div class="box">
+<h2>پست‌ها</h2>
+<div id="postsList">در حال دریافت...</div>
+</div>
 
 </div>
 
+<div class="page" id="myCommentsPage">
+
+<button class="back" onclick="openPage('homePage')">← بازگشت</button>
+
+<div class="box">
+
+<h2>💬 ثبت لینک کامنت من</h2>
+
+<p style="margin-bottom:15px;color:#666">
+لینک کامنت خودت را وارد کن:
+</p>
+
+<input id="myCommentUrl" placeholder="https://www.instagram.com/...">
+
+<br><br>
+
+<button class="primary" onclick="addMyComment()">
+🟢 ثبت لینک
+</button>
+
+<div id="myCommentStatus" class="status"></div>
+
+</div>
+
+<div class="box">
+<h2>کامنت‌های من</h2>
+<div id="myCommentsList"></div>
+</div>
+
+</div>
+
+<div class="page" id="commentsPage">
+
+<button class="back" onclick="openPage('homePage')">← بازگشت</button>
+
+<div class="box">
+<h2>🔗 لینک کامنت‌ها</h2>
+<div id="commentsList">در حال دریافت...</div>
+</div>
+
+</div>
+
+<div class="page" id="seenPage">
+
+<button class="back" onclick="openPage('homePage')">← بازگشت</button>
+
+<div class="box">
+<h2>✅ کامنت‌های دیده‌شده</h2>
+<div id="seenList">در حال دریافت...</div>
+</div>
+
+</div>
+
+<div class="page" id="usersPage">
+
+<button class="back" onclick="openPage('homePage')">← بازگشت</button>
+
+<div class="box">
+<h2>👥 کاربران</h2>
+<div id="usersList">در حال دریافت...</div>
+</div>
+
+</div>
+
+</div>
+</div>
 
 <script>
 
-/* ======================================
+/* ==============================
    SUPABASE
-====================================== */
+============================== */
 
 const SUPABASE_URL =
 "https://btgeluoiwpivnjnfptzz.supabase.co";
 
-
 /*
-   اینجا کلید Publishable خودت را قرار بده.
+   کلید Publishable خودت را اینجا نگه دار.
 */
 
 const SUPABASE_KEY =
@@ -519,803 +223,729 @@ const SUPABASE_KEY =
 
 async function db(path, options={}){
 
-  const response = await fetch(
-    SUPABASE_URL + "/rest/v1/" + path,
-    {
-      ...options,
+const response = await fetch(
+SUPABASE_URL + "/rest/v1/" + path,
+{
+...options,
 
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + SUPABASE_KEY,
-        "Content-Type":"application/json",
-        "Prefer":"return=representation",
-        ...(options.headers || {})
-      }
-    }
-  );
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer " + SUPABASE_KEY,
+"Content-Type":"application/json",
+"Prefer":"return=representation",
+...(options.headers || {})
+}
+}
+);
 
+const text = await response.text();
 
-  if(!response.ok){
+if(!response.ok){
 
-    const error =
-      await response.text();
+throw new Error(
+"HTTP " + response.status + ": " + text
+);
 
-    throw new Error(error);
+}
 
-  }
-
-
-  const text =
-    await response.text();
-
-  return text ? JSON.parse(text) : [];
+return text ? JSON.parse(text) : [];
 
 }
 
 
-/* ======================================
-   USER
-====================================== */
+/* ==============================
+   LOGIN
+============================== */
 
-let currentUser = null;
+let currentUser=null;
 
 
 async function login(){
 
-  const username =
-    document.getElementById("username")
-      .value.trim();
+const username =
+document.getElementById("username").value.trim();
 
-  const password =
-    document.getElementById("password")
-      .value;
+const password =
+document.getElementById("password").value;
 
-  const error =
-    document.getElementById("loginError");
+const error =
+document.getElementById("loginError");
 
-  error.innerText="";
+error.innerText="";
 
 
-  if(!username || !password){
+if(!username || !password){
 
-    error.innerText =
-      "نام کاربری و رمز عبور را وارد کن.";
+error.innerText=
+"نام کاربری و رمز عبور را وارد کن.";
 
-    return;
-  }
-
-
-  try{
-
-    const users =
-      await db(
-        "users?select=id,username,password&username=eq."
-        + encodeURIComponent(username)
-      );
-
-
-    if(
-      users.length===0 ||
-      users[0].password!==password
-    ){
-
-      error.innerText =
-        "نام کاربری یا رمز عبور اشتباه است.";
-
-      return;
-    }
-
-
-    currentUser=users[0];
-
-
-    document.getElementById("loginPage")
-      .style.display="none";
-
-    document.getElementById("app")
-      .style.display="block";
-
-
-    document.getElementById("welcome")
-      .innerText =
-      "خوش آمدید " +
-      currentUser.username +
-      " 🌱";
-
-
-    loadAll();
-
-
-  }catch(e){
-
-    console.error(e);
-
-    error.innerText =
-      "خطا در اتصال به دیتابیس.";
-
-  }
+return;
 
 }
 
+
+try{
+
+const users=await db(
+"users?select=id,username,password&username=eq."
++encodeURIComponent(username)
+);
+
+
+if(users.length===0){
+
+error.innerText=
+"این نام کاربری پیدا نشد.";
+
+return;
+
+}
+
+
+if(users[0].password!==password){
+
+error.innerText=
+"رمز عبور اشتباه است.";
+
+return;
+
+}
+
+
+currentUser=users[0];
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("app")
+.style.display="block";
+
+document.getElementById("welcome")
+.innerText=
+"خوش آمدید "+currentUser.username+" 🌱";
+
+loadAll();
+
+
+}catch(e){
+
+console.error(e);
+
+error.innerText=
+"خطای واقعی: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
+   LOGOUT
+============================== */
 
 function logout(){
 
-  currentUser=null;
+currentUser=null;
 
-  document.getElementById("app")
-    .style.display="none";
+document.getElementById("app")
+.style.display="none";
 
-  document.getElementById("loginPage")
-    .style.display="flex";
+document.getElementById("loginPage")
+.style.display="flex";
 
 }
 
 
-/* ======================================
+/* ==============================
    NAVIGATION
-====================================== */
+============================== */
 
 function openPage(id){
 
-  document.getElementById("homePage")
-    .style.display="none";
+document.getElementById("homePage")
+.style.display="none";
 
+document.querySelectorAll(".page")
+.forEach(p=>{
+p.style.display="none";
+});
 
-  document.querySelectorAll(".page")
-    .forEach(p=>{
-      p.style.display="none";
-    });
+document.getElementById(id)
+.style.display="block";
 
-
-  if(id==="homePage"){
-
-    document.getElementById("homePage")
-      .style.display="block";
-
-  }else{
-
-    document.getElementById(id)
-      .style.display="block";
-
-  }
-
-
-  loadAll();
+loadAll();
 
 }
 
 
-/* ======================================
+/* ==============================
    POSTS
-====================================== */
+============================== */
 
 async function loadPosts(){
 
-  const box =
-    document.getElementById("postsList");
+const box=
+document.getElementById("postsList");
 
-  try{
+try{
 
-    const posts =
-      await db(
-        "posts?select=id,title,instagram_url&order=id.asc"
-      );
+const posts=await db(
+"posts?select=id,title,instagram_url&order=id.asc"
+);
 
+box.innerHTML="";
 
-    box.innerHTML="";
+if(posts.length===0){
 
+box.innerHTML=
+'<div class="empty">هنوز پستی ثبت نشده است.</div>';
 
-    if(posts.length===0){
+return;
 
-      box.innerHTML =
-        '<div class="empty">هنوز پستی ثبت نشده است.</div>';
+}
 
-      return;
+posts.forEach((post,index)=>{
 
-    }
+const div=document.createElement("div");
 
+div.className="item";
 
-    posts.forEach((post,index)=>{
+div.innerHTML=`
 
-      const div =
-        document.createElement("div");
+<div class="item-title">
+${escapeHTML(post.title || "پست "+(index+1))}
+</div>
 
-      div.className="item";
+<a href="${escapeHTML(post.instagram_url)}"
+target="_blank">
+🔗 مشاهده پست
+</a>
 
+<button onclick="copyLink('${escapeJS(post.instagram_url)}')">
+کپی لینک
+</button>
 
-      div.innerHTML=`
+`;
 
-        <div class="item-title">
-          ${escapeHTML(
-            post.title || "پست "+(index+1)
-          )}
-        </div>
+box.appendChild(div);
 
-        <a
-          href="${escapeHTML(post.instagram_url)}"
-          target="_blank">
-          🔗 مشاهده پست
-        </a>
+});
 
-        <button
-          onclick="copyLink('${escapeJS(post.instagram_url)}')">
-          کپی لینک
-        </button>
+}catch(e){
 
-      `;
+console.error(e);
 
+box.innerText=
+"خطا: "+e.message;
 
-      box.appendChild(div);
-
-    });
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا در دریافت پست‌ها.";
-
-  }
+}
 
 }
 
 
 async function addPost(){
 
-  const title =
-    document.getElementById("postTitle")
-      .value.trim();
+const title=
+document.getElementById("postTitle")
+.value.trim();
 
-  const url =
-    document.getElementById("postUrl")
-      .value.trim();
+const url=
+document.getElementById("postUrl")
+.value.trim();
 
-  const status =
-    document.getElementById("postStatus");
-
-
-  if(!title || !url){
-
-    status.innerText =
-      "عنوان و لینک را وارد کن.";
-
-    return;
-
-  }
+const status=
+document.getElementById("postStatus");
 
 
-  try{
+if(!title || !url){
 
-    await db(
-      "posts",
-      {
-        method:"POST",
+status.innerText=
+"عنوان و لینک را وارد کن.";
 
-        body:JSON.stringify({
-          title:title,
-          instagram_url:url
-        })
-      }
-    );
-
-
-    document.getElementById("postTitle")
-      .value="";
-
-    document.getElementById("postUrl")
-      .value="";
-
-
-    status.innerText =
-      "پست با موفقیت ثبت شد ✅";
-
-
-    loadPosts();
-
-
-  }catch(e){
-
-    console.error(e);
-
-    status.innerText =
-      "ثبت پست انجام نشد.";
-
-  }
+return;
 
 }
 
 
-/* ======================================
+try{
+
+await db("posts",{
+method:"POST",
+
+body:JSON.stringify({
+title:title,
+instagram_url:url
+})
+
+});
+
+
+document.getElementById("postTitle")
+.value="";
+
+document.getElementById("postUrl")
+.value="";
+
+status.innerText=
+"پست با موفقیت ثبت شد ✅";
+
+loadPosts();
+
+
+}catch(e){
+
+console.error(e);
+
+status.innerText=
+"خطا: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
    MY COMMENTS
-====================================== */
+============================== */
 
 async function addMyComment(){
 
-  if(!currentUser) return;
+if(!currentUser)return;
+
+const url=
+document.getElementById("myCommentUrl")
+.value.trim();
+
+const status=
+document.getElementById("myCommentStatus");
 
 
-  const url =
-    document.getElementById("myCommentUrl")
-      .value.trim();
+if(!url){
 
-  const status =
-    document.getElementById("myCommentStatus");
+status.innerText=
+"لینک کامنت را وارد کن.";
 
+return;
 
-  if(!url){
-
-    status.innerText =
-      "لینک کامنت را وارد کن.";
-
-    return;
-
-  }
+}
 
 
-  try{
+try{
 
-    /*
-      این کامنت به کاربر فعلی متصل می‌شود.
-      post_id فعلاً خالی می‌ماند.
-    */
+await db("comments",{
+method:"POST",
 
-    await db(
-      "comments",
-      {
-        method:"POST",
+body:JSON.stringify({
+user_id:currentUser.id,
+instagram_comment_url:url
+})
 
-        body:JSON.stringify({
-          user_id:currentUser.id,
-          instagram_comment_url:url
-        })
-      }
-    );
+});
 
 
-    document.getElementById("myCommentUrl")
-      .value="";
+document.getElementById("myCommentUrl")
+.value="";
+
+status.innerText=
+"لینک کامنت ثبت شد ✅";
+
+loadMyComments();
 
 
-    status.innerText =
-      "لینک کامنت ثبت شد ✅";
+}catch(e){
 
+console.error(e);
 
-    loadMyComments();
+status.innerText=
+"خطا: "+e.message;
 
-
-  }catch(e){
-
-    console.error(e);
-
-    status.innerText =
-      "ثبت لینک انجام نشد.";
-
-  }
+}
 
 }
 
 
 async function loadMyComments(){
 
-  if(!currentUser) return;
+if(!currentUser)return;
+
+const box=
+document.getElementById("myCommentsList");
 
 
-  const box =
-    document.getElementById("myCommentsList");
+try{
+
+const comments=await db(
+"comments?select=id,instagram_comment_url&user_id=eq."
++encodeURIComponent(currentUser.id)
++"&order=id.desc"
+);
 
 
-  try{
-
-    const comments =
-      await db(
-        "comments?select=id,instagram_comment_url&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-        + "&order=id.desc"
-      );
+box.innerHTML="";
 
 
-    box.innerHTML="";
+if(comments.length===0){
 
+box.innerHTML=
+'<div class="empty">هنوز کامنتی ثبت نکرده‌ای.</div>';
 
-    if(comments.length===0){
-
-      box.innerHTML =
-        '<div class="empty">هنوز کامنتی ثبت نکرده‌ای.</div>';
-
-      return;
-
-    }
-
-
-    comments.forEach(comment=>{
-
-      const div =
-        document.createElement("div");
-
-      div.className="item";
-
-
-      div.innerHTML=`
-
-        <div class="item-title">
-          کامنت من
-        </div>
-
-        <a
-          href="${escapeHTML(comment.instagram_comment_url)}"
-          target="_blank">
-          🔗 مشاهده کامنت
-        </a>
-
-      `;
-
-
-      box.appendChild(div);
-
-    });
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا در دریافت کامنت‌ها.";
-
-  }
+return;
 
 }
 
 
-/* ======================================
+comments.forEach(comment=>{
+
+const div=
+document.createElement("div");
+
+div.className="item";
+
+div.innerHTML=`
+
+<div class="item-title">
+کامنت من
+</div>
+
+<a href="${escapeHTML(comment.instagram_comment_url)}"
+target="_blank">
+🔗 مشاهده کامنت
+</a>
+
+`;
+
+box.appendChild(div);
+
+});
+
+
+}catch(e){
+
+console.error(e);
+
+box.innerText=
+"خطا: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
    COMMENTS
-====================================== */
+============================== */
 
 async function loadComments(){
 
-  const box =
-    document.getElementById("commentsList");
+if(!currentUser)return;
+
+const box=
+document.getElementById("commentsList");
 
 
-  if(!currentUser) return;
+try{
+
+const comments=await db(
+"comments?select=id,instagram_comment_url&order=id.asc"
+);
 
 
-  try{
-
-    const comments =
-      await db(
-        "comments?select=id,instagram_comment_url&order=id.asc"
-      );
+const views=await db(
+"comment_views?select=comment_id&user_id=eq."
++encodeURIComponent(currentUser.id)
+);
 
 
-    const views =
-      await db(
-        "comment_views?select=comment_id&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-      );
+const viewed=
+views.map(v=>Number(v.comment_id));
 
 
-    const viewed =
-      views.map(v=>Number(v.comment_id));
+const unseen=
+comments.filter(
+c=>!viewed.includes(Number(c.id))
+);
 
 
-    const unseen =
-      comments.filter(
-        c=>!viewed.includes(Number(c.id))
-      );
+box.innerHTML="";
 
 
-    box.innerHTML="";
+if(unseen.length===0){
 
+box.innerHTML=
+'<div class="empty">کامنت دیده‌نشده‌ای وجود ندارد. 🌱</div>';
 
-    if(unseen.length===0){
-
-      box.innerHTML =
-        '<div class="empty">کامنت دیده‌نشده‌ای وجود ندارد. 🌱</div>';
-
-      return;
-
-    }
-
-
-    unseen.forEach((comment,index)=>{
-
-      const div =
-        document.createElement("div");
-
-      div.className="item";
-
-
-      div.innerHTML=`
-
-        <div class="item-title">
-          کامنت ${index+1}
-        </div>
-
-        <button
-          onclick="viewComment(${comment.id},'${escapeJS(comment.instagram_comment_url)}')">
-          🔗 مشاهده کامنت
-        </button>
-
-      `;
-
-
-      box.appendChild(div);
-
-    });
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا در دریافت کامنت‌ها.";
-
-  }
+return;
 
 }
 
 
-/* ======================================
+unseen.forEach((comment,index)=>{
+
+const div=
+document.createElement("div");
+
+div.className="item";
+
+div.innerHTML=`
+
+<div class="item-title">
+کامنت ${index+1}
+</div>
+
+<button
+onclick="viewComment(${comment.id},'${escapeJS(comment.instagram_comment_url)}')">
+🔗 مشاهده کامنت
+</button>
+
+`;
+
+box.appendChild(div);
+
+});
+
+
+}catch(e){
+
+console.error(e);
+
+box.innerText=
+"خطا: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
    VIEW COMMENT
-====================================== */
+============================== */
 
 async function viewComment(id,url){
 
-  if(!currentUser) return;
+if(!currentUser)return;
 
 
-  try{
+try{
 
-    await db(
-      "comment_views",
-      {
-        method:"POST",
+await db("comment_views",{
+method:"POST",
 
-        body:JSON.stringify({
-          comment_id:id,
-          user_id:currentUser.id,
-          viewed_at:new Date().toISOString()
-        })
-      }
-    );
+body:JSON.stringify({
+comment_id:id,
+user_id:currentUser.id,
+viewed_at:new Date().toISOString()
+})
 
-  }catch(e){
+});
 
-    /*
-      اگر قبلاً ثبت شده باشد،
-      باز هم لینک را باز می‌کنیم.
-    */
+}catch(e){
 
-    console.log(e);
-
-  }
-
-
-  window.open(url,"_blank");
-
-
-  loadComments();
-  loadSeen();
+console.log(e);
 
 }
 
 
-/* ======================================
-   SEEN COMMENTS
-====================================== */
+window.open(url,"_blank");
+
+loadComments();
+loadSeen();
+
+}
+
+
+/* ==============================
+   SEEN
+============================== */
 
 async function loadSeen(){
 
-  const box =
-    document.getElementById("seenList");
+if(!currentUser)return;
+
+const box=
+document.getElementById("seenList");
 
 
-  if(!currentUser) return;
+try{
+
+const views=await db(
+"comment_views?select=comment_id,viewed_at&user_id=eq."
++encodeURIComponent(currentUser.id)
++"&order=viewed_at.desc"
+);
 
 
-  try{
-
-    const views =
-      await db(
-        "comment_views?select=comment_id&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-        + "&order=viewed_at.desc"
-      );
+box.innerHTML="";
 
 
-    box.innerHTML="";
+if(views.length===0){
 
+box.innerHTML=
+'<div class="empty">هنوز کامنتی ندیده‌ای.</div>';
 
-    if(views.length===0){
-
-      box.innerHTML =
-        '<div class="empty">هنوز کامنتی ندیده‌ای.</div>';
-
-      return;
-
-    }
-
-
-    for(let i=0;i<views.length;i++){
-
-      const id=views[i].comment_id;
-
-
-      const comments =
-        await db(
-          "comments?select=id,instagram_comment_url&id=eq."+id
-        );
-
-
-      if(comments.length===0) continue;
-
-
-      const comment=comments[0];
-
-
-      const div =
-        document.createElement("div");
-
-      div.className="item";
-
-
-      div.innerHTML=`
-
-        <div class="item-title">
-          کامنت ${i+1}
-        </div>
-
-        <button
-          onclick="window.open('${escapeJS(comment.instagram_comment_url)}','_blank')">
-          🔗 مشاهده دوباره
-        </button>
-
-      `;
-
-
-      box.appendChild(div);
-
-    }
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا در دریافت کامنت‌های دیده‌شده.";
-
-  }
+return;
 
 }
 
 
-/* ======================================
+for(let i=0;i<views.length;i++){
+
+const comments=await db(
+"comments?select=id,instagram_comment_url&id=eq."
++views[i].comment_id
+);
+
+
+if(comments.length===0)continue;
+
+
+const comment=comments[0];
+
+const div=
+document.createElement("div");
+
+div.className="item";
+
+div.innerHTML=`
+
+<div class="item-title">
+کامنت ${i+1}
+</div>
+
+<button
+onclick="window.open('${escapeJS(comment.instagram_comment_url)}','_blank')">
+🔗 مشاهده دوباره
+</button>
+
+`;
+
+box.appendChild(div);
+
+}
+
+
+}catch(e){
+
+console.error(e);
+
+box.innerText=
+"خطا: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
    USERS
-====================================== */
+============================== */
 
 async function loadUsers(){
 
-  const box =
-    document.getElementById("usersList");
+const box=
+document.getElementById("usersList");
 
 
-  try{
+try{
 
-    const users =
-      await db(
-        "profiles?select=id,username,role&order=username.asc"
-      );
-
-
-    box.innerHTML="";
+const users=await db(
+"profiles?select=id,username,role&order=username.asc"
+);
 
 
-    if(users.length===0){
-
-      box.innerHTML =
-        '<div class="empty">کاربری وجود ندارد.</div>';
-
-      return;
-
-    }
+box.innerHTML="";
 
 
-    users.forEach(user=>{
+if(users.length===0){
 
-      const div =
-        document.createElement("div");
+box.innerHTML=
+'<div class="empty">کاربری وجود ندارد.</div>';
 
-      div.className="user";
-
-
-      div.innerHTML=`
-
-        <strong>
-          ${escapeHTML(user.username)}
-        </strong>
-
-        <div class="small">
-          نقش: ${escapeHTML(user.role || "user")}
-        </div>
-
-      `;
-
-
-      box.appendChild(div);
-
-    });
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا در دریافت کاربران.";
-
-  }
+return;
 
 }
 
 
-/* ======================================
-   COPY
-====================================== */
+users.forEach(user=>{
+
+const div=
+document.createElement("div");
+
+div.className="user";
+
+div.innerHTML=`
+
+<strong>
+${escapeHTML(user.username)}
+</strong>
+
+<div class="small">
+نقش: ${escapeHTML(user.role || "user")}
+</div>
+
+`;
+
+box.appendChild(div);
+
+});
+
+
+}catch(e){
+
+console.error(e);
+
+box.innerText=
+"خطا: "+e.message;
+
+}
+
+}
+
+
+/* ==============================
+   HELPERS
+============================== */
 
 function copyLink(link){
 
-  navigator.clipboard
-    .writeText(link)
-    .then(()=>{
-      alert("لینک کپی شد ✅");
-    });
+navigator.clipboard
+.writeText(link)
+.then(()=>{
+alert("لینک کپی شد ✅");
+});
 
 }
 
 
-/* ======================================
-   SECURITY
-====================================== */
-
 function escapeHTML(text){
 
-  return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 function escapeJS(text){
 
-  return String(text)
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+return String(text)
+.replaceAll("\\","\\\\")
+.replaceAll("'","\\'")
+.replaceAll("\n","\\n")
+.replaceAll("\r","\\r");
 
 }
 
 
-/* ======================================
-   LOAD
-====================================== */
-
 function loadAll(){
 
-  loadPosts();
-  loadMyComments();
-  loadComments();
-  loadSeen();
-  loadUsers();
+loadPosts();
+loadMyComments();
+loadComments();
+loadSeen();
+loadUsers();
 
 }
 
