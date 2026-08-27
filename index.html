@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linko</title>
+  <title>Linko | ورود</title>
 
   <style>
     * {
@@ -14,86 +14,138 @@
     }
 
     body {
-      background: #f5f5f5;
-      color: #222;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
     }
 
-    header {
-      background: #111;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 30px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .card {
+    .login-box {
+      width: 90%;
+      max-width: 380px;
       background: white;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      padding: 35px 25px;
+      border-radius: 22px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       text-align: center;
     }
 
-    .card h2 {
-      margin-bottom: 15px;
+    .logo {
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .card p {
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 25px;
+    .subtitle {
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      text-align: right;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #777;
     }
 
     button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
       background: #111;
       color: white;
-      border: none;
-      padding: 14px 30px;
-      border-radius: 12px;
-      font-size: 16px;
+      font-size: 17px;
       cursor: pointer;
+      margin-top: 5px;
     }
 
     button:hover {
       opacity: 0.85;
+    }
+
+    #message {
+      margin-top: 15px;
+      color: #d33;
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Linko</h1>
-  </header>
+  <div class="login-box">
 
-  <div class="container">
-    <div class="card">
-      <h2>به Linko خوش آمدید 🌱</h2>
+    <div class="logo">Linko</div>
 
-      <p>
-        اینجا صفحه اصلی اپلیکیشن Linko است.
-        به‌زودی امکانات بیشتری به این صفحه اضافه می‌شود.
-      </p>
-
-      <button onclick="showMessage()">
-        شروع
-      </button>
+    <div class="subtitle">
+      برای ورود اطلاعات خود را وارد کنید
     </div>
+
+    <input
+      type="text"
+      id="username"
+      placeholder="نام کاربری"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="رمز عبور"
+    >
+
+    <button onclick="login()">
+      ورود
+    </button>
+
+    <div id="message">
+      نام کاربری یا رمز عبور اشتباه است.
+    </div>
+
   </div>
 
   <script>
-    function showMessage() {
-      alert("به Linko خوش آمدید! ❤️");
+    function login() {
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      // اطلاعات آزمایشی
+      const correctUsername = "admin";
+      const correctPassword = "1234";
+
+      if (username === correctUsername && password === correctPassword) {
+
+        message.style.display = "none";
+
+        document.body.innerHTML = `
+          <div style="
+            text-align:center;
+            padding:60px 20px;
+            font-family:Arial;
+          ">
+            <h1>خوش آمدید 🌱</h1>
+            <p style="margin-top:20px;">
+              ورود با موفقیت انجام شد.
+            </p>
+          </div>
+        `;
+
+      } else {
+
+        message.style.display = "block";
+
+      }
     }
   </script>
 
