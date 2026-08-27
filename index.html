@@ -210,6 +210,7 @@ input{
 
 .status{
   margin-top:12px;
+  word-break:break-word;
 }
 
 .user{
@@ -283,7 +284,6 @@ input{
 
   <div class="container">
 
-
     <!-- HOME -->
 
     <div id="homePage">
@@ -320,7 +320,7 @@ input{
         <div class="card" onclick="openPage('commentsPage')">
           <div class="icon">🔗</div>
           <h3>لینک کامنت‌ها</h3>
-          <p>کامنت‌های دیده‌نشده</p>
+          <p>کامنت‌های دیگر کاربران</p>
         </div>
 
 
@@ -431,6 +431,7 @@ input{
         <h2>کامنت‌های من</h2>
 
         <div id="myCommentsList">
+          در حال دریافت...
         </div>
 
       </div>
@@ -449,6 +450,10 @@ input{
       <div class="box">
 
         <h2>🔗 لینک کامنت‌ها</h2>
+
+        <p style="color:#777;margin-bottom:15px">
+          اینجا کامنت‌های سایر کاربران نمایش داده می‌شود.
+        </p>
 
         <div id="commentsList">
           در حال دریافت...
@@ -499,7 +504,6 @@ input{
       </div>
 
     </div>
-
 
   </div>
 
@@ -635,7 +639,7 @@ async function login(){
       " 🌱";
 
 
-    loadAll();
+    openPage("homePage");
 
 
   }catch(e){
@@ -669,6 +673,11 @@ function logout(){
 
 function openPage(id){
 
+  if(!currentUser && id !== "homePage"){
+    return;
+  }
+
+
   document.getElementById("homePage")
     .style.display="none";
 
@@ -679,11 +688,45 @@ function openPage(id){
     });
 
 
-  document.getElementById(id)
-    .style.display="block";
+  if(id==="homePage"){
+
+    document.getElementById("homePage")
+      .style.display="block";
+
+    return;
+  }
 
 
-  loadAll();
+  const page =
+    document.getElementById(id);
+
+
+  if(page){
+
+    page.style.display="block";
+
+  }
+
+
+  if(id==="postsPage"){
+    loadPosts();
+  }
+
+  if(id==="myCommentsPage"){
+    loadMyComments();
+  }
+
+  if(id==="commentsPage"){
+    loadComments();
+  }
+
+  if(id==="seenPage"){
+    loadSeen();
+  }
+
+  if(id==="usersPage"){
+    loadUsers();
+  }
 
 }
 
@@ -696,6 +739,9 @@ async function loadPosts(){
 
   const box =
     document.getElementById("postsList");
+
+  box.innerHTML =
+    '<div class="empty">در حال دریافت...</div>';
 
 
   try{
@@ -758,8 +804,10 @@ async function loadPosts(){
 
     console.error(e);
 
-    box.innerText =
-      "خطا: " + e.message;
+    box.innerHTML =
+      '<div class="empty">خطا: ' +
+      escapeHTML(e.message) +
+      '</div>';
 
   }
 
@@ -866,7 +914,7 @@ async function addMyComment(){
         method:"POST",
 
         body:JSON.stringify({
-          user_id:currentUser.id,
+          user_id:Number(currentUser.id),
           instagram_comment_url:url
         })
       }
@@ -905,11 +953,15 @@ async function loadMyComments(){
     document.getElementById("myCommentsList");
 
 
+  box.innerHTML =
+    '<div class="empty">در حال دریافت...</div>';
+
+
   try{
 
     const comments =
       await db(
-        "comments?select=id,instagram_comment_url&user_id=eq."
+        "comments?select=id,user_id,instagram_comment_url&user_id=eq."
         + encodeURIComponent(currentUser.id)
         + "&order=id.desc"
       );
@@ -950,7 +1002,7 @@ async function loadMyComments(){
 
         <button
           class="delete-button"
-          onclick="deleteMyComment(${comment.id})">
+          onclick="deleteMyComment(${Number(comment.id)})">
           🗑️ حذف کامنت
         </button>
 
@@ -966,8 +1018,10 @@ async function loadMyComments(){
 
     console.error(e);
 
-    box.innerText =
-      "خطا: " + e.message;
+    box.innerHTML =
+      '<div class="empty">خطا: ' +
+      escapeHTML(e.message) +
+      '</div>';
 
   }
 
@@ -994,29 +1048,15 @@ async function deleteMyComment(commentId){
 
   try{
 
-    const result =
-      await db(
-        "rpc/delete_my_comment",
-        {
-          method:"POST",
-
-          body:JSON.stringify({
-            p_comment_id:commentId,
-            p_user_id:currentUser.id
-          })
-        }
-      );
-
-
-    if(result === false){
-
-      alert(
-        "این کامنت متعلق به این کاربر نیست یا قبلاً حذف شده."
-      );
-
-      return;
-
-    }
+    await db(
+      "comments?id=eq."
+      + encodeURIComponent(commentId)
+      + "&user_id=eq."
+      + encodeURIComponent(currentUser.id),
+      {
+        method:"DELETE"
+      }
+    );
 
 
     alert("کامنت با موفقیت حذف شد ✅");
@@ -1042,7 +1082,7 @@ async function deleteMyComment(commentId){
 
 
 /* ======================================
-   COMMENTS
+   COMMENTS FOR OTHER USERS
 ====================================== */
 
 async function loadComments(){
@@ -1054,11 +1094,20 @@ async function loadComments(){
   if(!currentUser) return;
 
 
+  box.innerHTML =
+    '<div class="empty">در حال دریافت...</div>';
+
+
   try{
+
+    /*
+      user_id را هم می‌گیریم تا بتوانیم
+      کامنت‌های خود کاربر را حذف کنیم.
+    */
 
     const comments =
       await db(
-        "comments?select=id,instagram_comment_url&order=id.asc"
+        "comments?select=id,user_id,instagram_comment_url&order=id.asc"
       );
 
 
@@ -1073,10 +1122,29 @@ async function loadComments(){
       views.map(v=>Number(v.comment_id));
 
 
+    /*
+      فقط کامنت‌های کاربران دیگر
+      و کامنت‌هایی که هنوز ندیده‌ایم.
+    */
+
     const unseen =
-      comments.filter(
-        c=>!viewed.includes(Number(c.id))
-      );
+      comments.filter(comment => {
+
+        const ownerId =
+          Number(comment.user_id);
+
+        const commentId =
+          Number(comment.id);
+
+        const isMyComment =
+          ownerId === Number(currentUser.id);
+
+        const alreadyViewed =
+          viewed.includes(commentId);
+
+        return !isMyComment && !alreadyViewed;
+
+      });
 
 
     box.innerHTML="";
@@ -1085,7 +1153,7 @@ async function loadComments(){
     if(unseen.length===0){
 
       box.innerHTML =
-        '<div class="empty">کامنت دیده‌نشده‌ای وجود ندارد. 🌱</div>';
+        '<div class="empty">فعلاً کامنت جدیدی از کاربران دیگر وجود ندارد. 🌱</div>';
 
       return;
 
@@ -1108,7 +1176,7 @@ async function loadComments(){
 
         <button
           onclick="viewComment(
-            ${comment.id},
+            ${Number(comment.id)},
             '${escapeJS(comment.instagram_comment_url)}'
           )">
           🔗 مشاهده کامنت
@@ -1126,8 +1194,10 @@ async function loadComments(){
 
     console.error(e);
 
-    box.innerText =
-      "خطا: " + e.message;
+    box.innerHTML =
+      '<div class="empty">خطا: ' +
+      escapeHTML(e.message) +
+      '</div>';
 
   }
 
@@ -1145,14 +1215,18 @@ async function viewComment(id,url){
 
   try{
 
+    /*
+      user_id در comment_views اکنون bigint است.
+    */
+
     await db(
       "comment_views",
       {
         method:"POST",
 
         body:JSON.stringify({
-          comment_id:id,
-          user_id:currentUser.id,
+          comment_id:Number(id),
+          user_id:Number(currentUser.id),
           viewed_at:new Date().toISOString()
         })
       }
@@ -1160,7 +1234,15 @@ async function viewComment(id,url){
 
   }catch(e){
 
-    console.log(e);
+    /*
+      اگر قبلاً دیده شده باشد،
+      لینک همچنان باز می‌شود.
+    */
+
+    console.log(
+      "comment_views:",
+      e.message
+    );
 
   }
 
@@ -1187,6 +1269,10 @@ async function loadSeen(){
   if(!currentUser) return;
 
 
+  box.innerHTML =
+    '<div class="empty">در حال دریافت...</div>';
+
+
   try{
 
     const views =
@@ -1210,16 +1296,19 @@ async function loadSeen(){
     }
 
 
+    let shown=0;
+
+
     for(let i=0;i<views.length;i++){
 
       const id =
-        views[i].comment_id;
+        Number(views[i].comment_id);
 
 
       const comments =
         await db(
-          "comments?select=id,instagram_comment_url&id=eq."
-          + id
+          "comments?select=id,instagram_comment_url,user_id&id=eq."
+          + encodeURIComponent(id)
         );
 
 
@@ -1228,6 +1317,22 @@ async function loadSeen(){
 
       const comment =
         comments[0];
+
+
+      /*
+        اگر کامنت متعلق به خود کاربر باشد،
+        در بخش کامنت‌های دیده‌شده هم نشان نمی‌دهیم.
+      */
+
+      if(
+        Number(comment.user_id) ===
+        Number(currentUser.id)
+      ){
+        continue;
+      }
+
+
+      shown++;
 
 
       const div =
@@ -1240,7 +1345,7 @@ async function loadSeen(){
       div.innerHTML=`
 
         <div class="item-title">
-          کامنت ${i+1}
+          کامنت ${shown}
         </div>
 
         <button
@@ -1259,145 +1364,18 @@ async function loadSeen(){
     }
 
 
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا: " + e.message;
-
-  }
-
-}
-
-
-/* ======================================
-   USERS
-====================================== */
-
-async function loadUsers(){
-
-  const box =
-    document.getElementById("usersList");
-
-
-  try{
-
-    const users =
-      await db(
-        "profiles?select=id,username,role&order=username.asc"
-      );
-
-
-    box.innerHTML="";
-
-
-    if(users.length===0){
+    if(shown===0){
 
       box.innerHTML =
-        '<div class="empty">کاربری وجود ندارد.</div>';
-
-      return;
+        '<div class="empty">هنوز کامنتی از کاربران دیگر ندیده‌ای.</div>';
 
     }
 
 
-    users.forEach(user=>{
-
-      const div =
-        document.createElement("div");
-
-
-      div.className="user";
-
-
-      div.innerHTML=`
-
-        <strong>
-          ${escapeHTML(user.username)}
-        </strong>
-
-        <div class="small">
-          نقش: ${escapeHTML(user.role || "user")}
-        </div>
-
-      `;
-
-
-      box.appendChild(div);
-
-    });
-
-
   }catch(e){
 
     console.error(e);
 
-    box.innerText =
-      "خطا: " + e.message;
-
-  }
-
-}
-
-
-/* ======================================
-   COPY
-====================================== */
-
-function copyLink(link){
-
-  navigator.clipboard
-    .writeText(link)
-    .then(()=>{
-      alert("لینک کپی شد ✅");
-    });
-
-}
-
-
-/* ======================================
-   SECURITY HELPERS
-====================================== */
-
-function escapeHTML(text){
-
-  return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-function escapeJS(text){
-
-  return String(text)
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
-
-}
-
-
-/* ======================================
-   LOAD ALL
-====================================== */
-
-function loadAll(){
-
-  loadPosts();
-  loadMyComments();
-  loadComments();
-  loadSeen();
-  loadUsers();
-
-}
-
-</script>
-
-</body>
-</html>
+    box.innerHTML =
+      '<div class="empty">خطا: ' +
+      escapeHTML(e.
