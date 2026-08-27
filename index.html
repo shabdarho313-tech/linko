@@ -1,326 +1,533 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linko</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linko</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f4f5;color:#222;min-height:100vh}
 
-    body {
-      background: #f5f5f5;
-      color: #222;
-      min-height: 100vh;
-    }
+button{border:0;cursor:pointer}
 
-    .login-page {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+.login-page{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px
+}
 
-    .login-box {
-      width: 100%;
-      max-width: 380px;
-      background: white;
-      padding: 35px 25px;
-      border-radius: 22px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      text-align: center;
-    }
+.login-box{
+background:white;
+width:100%;
+max-width:380px;
+padding:35px 25px;
+border-radius:22px;
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+text-align:center
+}
 
-    .logo {
-      font-size: 38px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+.logo{font-size:38px;font-weight:bold;margin-bottom:8px}
+.subtitle{color:#777;margin-bottom:28px}
 
-    .subtitle {
-      color: #777;
-      margin-bottom: 30px;
-    }
+input,textarea{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:15px;
+outline:none
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-    }
+textarea{min-height:90px;resize:vertical}
 
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      background: #111;
-      color: white;
-      font-size: 17px;
-      cursor: pointer;
-    }
+.primary{
+width:100%;
+padding:14px;
+border-radius:12px;
+background:#111;
+color:white;
+font-size:16px
+}
 
-    button:hover {
-      opacity: 0.85;
-    }
+#message{color:#d33;margin-top:12px;display:none}
 
-    #message {
-      margin-top: 15px;
-      color: #d33;
-      display: none;
-    }
+.dashboard{display:none;min-height:100vh}
 
-    .dashboard {
-      display: none;
-      min-height: 100vh;
-    }
+.topbar{
+background:#111;
+color:white;
+padding:16px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
 
-    .topbar {
-      background: #111;
-      color: white;
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.topbar h1{font-size:25px}
 
-    .topbar h1 {
-      font-size: 25px;
-    }
+.logout{
+background:white;
+color:#111;
+padding:9px 15px;
+border-radius:10px
+}
 
-    .logout {
-      width: auto;
-      padding: 9px 15px;
-      background: white;
-      color: #111;
-      font-size: 14px;
-    }
+.content{
+max-width:950px;
+margin:auto;
+padding:25px 20px
+}
 
-    .content {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+.welcome{margin-bottom:25px}
+.welcome p{color:#777;margin-top:8px}
 
-    .welcome {
-      margin-bottom: 25px;
-    }
+.cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px
+}
 
-    .welcome h2 {
-      margin-bottom: 8px;
-    }
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
+cursor:pointer
+}
 
-    .welcome p {
-      color: #777;
-    }
+.icon{font-size:30px;margin-bottom:12px}
+.card h3{margin-bottom:7px}
+.card p{color:#777;font-size:14px;line-height:1.7}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
+.page{display:none}
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-      cursor: pointer;
-      transition: 0.2s;
-    }
+.back{
+background:#ddd;
+padding:10px 16px;
+border-radius:10px;
+margin-bottom:20px
+}
 
-    .card:hover {
-      transform: translateY(-3px);
-    }
+.section{
+background:white;
+padding:22px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05)
+}
 
-    .icon {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
+.section h2{margin-bottom:18px}
 
-    .card h3 {
-      margin-bottom: 8px;
-    }
+.post{
+border:1px solid #eee;
+border-radius:14px;
+padding:18px;
+margin-top:15px
+}
 
-    .card p {
-      color: #777;
-      line-height: 1.7;
-      font-size: 14px;
-    }
+.post h3{margin-bottom:8px}
+.post p{color:#666;line-height:1.7;margin-bottom:10px}
 
-    @media (max-width: 600px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.post a{
+color:#111;
+font-weight:bold;
+text-decoration:none
+}
+
+.delete{
+background:#eee;
+padding:8px 13px;
+border-radius:8px;
+margin-top:12px
+}
+
+.user{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 0;
+border-bottom:1px solid #eee
+}
+
+.small{color:#777;font-size:13px}
+
+@media(max-width:600px){
+.cards{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- صفحه ورود -->
-  <div class="login-page" id="loginPage">
+<!-- LOGIN -->
 
-    <div class="login-box">
+<div class="login-page" id="loginPage">
 
-      <div class="logo">Linko</div>
+<div class="login-box">
 
-      <div class="subtitle">
-        برای ورود اطلاعات خود را وارد کنید
-      </div>
+<div class="logo">Linko</div>
 
-      <input
-        type="text"
-        id="username"
-        placeholder="نام کاربری"
-      >
+<div class="subtitle">
+برای ورود اطلاعات خود را وارد کنید
+</div>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="رمز عبور"
-      >
+<input id="username" type="text" placeholder="نام کاربری">
 
-      <button onclick="login()">
-        ورود
-      </button>
+<input id="password" type="password" placeholder="رمز عبور">
 
-      <div id="message">
-        نام کاربری یا رمز عبور اشتباه است.
-      </div>
+<button class="primary" onclick="login()">ورود</button>
 
-    </div>
+<div id="message">
+نام کاربری یا رمز عبور اشتباه است.
+</div>
 
-  </div>
+</div>
+</div>
 
 
-  <!-- داشبورد -->
-  <div class="dashboard" id="dashboard">
+<!-- DASHBOARD -->
 
-    <div class="topbar">
-      <h1>Linko</h1>
+<div class="dashboard" id="dashboard">
 
-      <button class="logout" onclick="logout()">
-        خروج
-      </button>
-    </div>
+<div class="topbar">
 
-    <div class="content">
+<h1>Linko</h1>
 
-      <div class="welcome">
-        <h2>خوش آمدید 🌱</h2>
-        <p>
-          به پنل Linko خوش آمدید. یک بخش را انتخاب کنید.
-        </p>
-      </div>
+<button class="logout" onclick="logout()">خروج</button>
 
-      <div class="cards">
-
-        <div class="card" onclick="comingSoon('پست‌های اینستاگرام')">
-          <div class="icon">📱</div>
-          <h3>پست‌های اینستاگرام</h3>
-          <p>
-            مشاهده و مدیریت پست‌های اینستاگرام
-          </p>
-        </div>
-
-        <div class="card" onclick="comingSoon('لینک کامنت‌ها')">
-          <div class="icon">🔗</div>
-          <h3>لینک کامنت‌ها</h3>
-          <p>
-            مشاهده و مدیریت لینک‌های کامنت
-          </p>
-        </div>
-
-        <div class="card" onclick="comingSoon('کاربران')">
-          <div class="icon">👥</div>
-          <h3>کاربران</h3>
-          <p>
-            مدیریت کاربران Linko
-          </p>
-        </div>
-
-        <div class="card" onclick="comingSoon('مدیریت')">
-          <div class="icon">⚙️</div>
-          <h3>مدیریت</h3>
-          <p>
-            تنظیمات و مدیریت سیستم
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 
-  <script>
+<div class="content">
 
-    function login() {
+<!-- HOME -->
 
-      const username =
-        document.getElementById("username").value;
+<div id="homePage">
 
-      const password =
-        document.getElementById("password").value;
+<div class="welcome">
 
-      const message =
-        document.getElementById("message");
+<h2>خوش آمدید 🌱</h2>
 
-      const correctUsername = "admin";
-      const correctPassword = "1234";
+<p>
+به پنل Linko خوش آمدید.
+</p>
 
-      if (
-        username === correctUsername &&
-        password === correctPassword
-      ) {
-
-        document.getElementById("loginPage").style.display = "none";
-
-        document.getElementById("dashboard").style.display = "block";
-
-      } else {
-
-        message.style.display = "block";
-
-      }
-    }
+</div>
 
 
-    function logout() {
+<div class="cards">
 
-      document.getElementById("dashboard").style.display = "none";
-
-      document.getElementById("loginPage").style.display = "flex";
-
-      document.getElementById("username").value = "";
-
-      document.getElementById("password").value = "";
-
-      document.getElementById("message").style.display = "none";
-
-    }
+<div class="card" onclick="showPage('postsPage')">
+<div class="icon">📱</div>
+<h3>پست‌های اینستاگرام</h3>
+<p>مشاهده و مدیریت پست‌ها</p>
+</div>
 
 
-    function comingSoon(name) {
+<div class="card" onclick="showPage('commentsPage')">
+<div class="icon">🔗</div>
+<h3>لینک کامنت‌ها</h3>
+<p>مشاهده لینک‌های کامنت</p>
+</div>
 
-      alert(
-        "بخش «" + name + "» در مرحله بعد ساخته می‌شود."
-      );
 
-    }
+<div class="card" onclick="showPage('usersPage')">
+<div class="icon">👥</div>
+<h3>کاربران</h3>
+<p>مدیریت کاربران</p>
+</div>
 
-  </script>
+
+<div class="card" onclick="showPage('managePage')">
+<div class="icon">⚙️</div>
+<h3>مدیریت</h3>
+<p>تنظیمات Linko</p>
+</div>
+
+</div>
+</div>
+
+
+<!-- POSTS -->
+
+<div class="page" id="postsPage">
+
+<button class="back" onclick="showPage('homePage')">
+← بازگشت
+</button>
+
+<div class="section">
+
+<h2>📱 پست‌های اینستاگرام</h2>
+
+<input id="postTitle" placeholder="عنوان پست">
+
+<input id="postLink" placeholder="لینک پست اینستاگرام">
+
+<textarea id="postDescription" placeholder="توضیح پست"></textarea>
+
+<button class="primary" onclick="addPost()">
+➕ اضافه کردن پست
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>پست‌های ثبت‌شده</h2>
+
+<div id="postsList"></div>
+
+</div>
+
+</div>
+
+
+<!-- COMMENTS -->
+
+<div class="page" id="commentsPage">
+
+<button class="back" onclick="showPage('homePage')">
+← بازگشت
+</button>
+
+<div class="section">
+
+<h2>🔗 لینک کامنت‌ها</h2>
+
+<p>
+در این قسمت لینک‌های کامنت مربوط به پست‌ها نمایش داده می‌شوند.
+</p>
+
+<div id="commentsList"></div>
+
+</div>
+
+</div>
+
+
+<!-- USERS -->
+
+<div class="page" id="usersPage">
+
+<button class="back" onclick="showPage('homePage')">
+← بازگشت
+</button>
+
+<div class="section">
+
+<h2>👥 کاربران</h2>
+
+<div class="user">
+<div>
+<strong>admin</strong>
+<div class="small">مدیر سیستم</div>
+</div>
+
+<div>👑</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MANAGEMENT -->
+
+<div class="page" id="managePage">
+
+<button class="back" onclick="showPage('homePage')">
+← بازگشت
+</button>
+
+<div class="section">
+
+<h2>⚙️ مدیریت</h2>
+
+<p style="line-height:1.8;color:#666">
+این قسمت برای تنظیمات و مدیریت کامل Linko در مراحل بعدی توسعه داده می‌شود.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+
+const correctUsername="admin";
+const correctPassword="1234";
+
+
+function login(){
+
+const username=document.getElementById("username").value;
+const password=document.getElementById("password").value;
+
+if(username===correctUsername && password===correctPassword){
+
+document.getElementById("loginPage").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+}else{
+
+document.getElementById("message").style.display="block";
+
+}
+
+}
+
+
+function logout(){
+
+document.getElementById("dashboard").style.display="none";
+document.getElementById("loginPage").style.display="flex";
+
+document.getElementById("username").value="";
+document.getElementById("password").value="";
+
+}
+
+
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(page=>{
+page.style.display="none";
+});
+
+document.getElementById("homePage").style.display="none";
+
+if(pageId==="homePage"){
+
+document.getElementById("homePage").style.display="block";
+
+}else{
+
+document.getElementById(pageId).style.display="block";
+
+}
+
+}
+
+
+function addPost(){
+
+const title=document.getElementById("postTitle").value;
+const link=document.getElementById("postLink").value;
+const description=document.getElementById("postDescription").value;
+
+if(!title || !link){
+
+alert("لطفاً عنوان و لینک پست را وارد کنید.");
+return;
+
+}
+
+const posts=JSON.parse(localStorage.getItem("linkoPosts")||"[]");
+
+posts.push({
+title:title,
+link:link,
+description:description
+});
+
+localStorage.setItem("linkoPosts",JSON.stringify(posts));
+
+document.getElementById("postTitle").value="";
+document.getElementById("postLink").value="";
+document.getElementById("postDescription").value="";
+
+renderPosts();
+
+}
+
+
+function renderPosts(){
+
+const posts=JSON.parse(localStorage.getItem("linkoPosts")||"[]");
+
+const list=document.getElementById("postsList");
+
+list.innerHTML="";
+
+if(posts.length===0){
+
+list.innerHTML="<p style='color:#777'>هنوز پستی ثبت نشده است.</p>";
+return;
+
+}
+
+posts.forEach((post,index)=>{
+
+list.innerHTML+=`
+
+<div class="post">
+
+<h3>${escapeHTML(post.title)}</h3>
+
+<p>${escapeHTML(post.description)}</p>
+
+<a href="${escapeAttribute(post.link)}" target="_blank">
+مشاهده پست 🔗
+</a>
+
+<br>
+
+<button class="delete" onclick="deletePost(${index})">
+🗑️ حذف
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function deletePost(index){
+
+const posts=JSON.parse(localStorage.getItem("linkoPosts")||"[]");
+
+posts.splice(index,1);
+
+localStorage.setItem("linkoPosts",JSON.stringify(posts));
+
+renderPosts();
+
+}
+
+
+function escapeHTML(text){
+
+return String(text)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+
+function escapeAttribute(text){
+
+return String(text).replaceAll('"',"&quot;");
+
+}
+
+
+renderPosts();
+
+</script>
 
 </body>
 </html>
