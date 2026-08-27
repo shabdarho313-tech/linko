@@ -234,8 +234,6 @@ input{
 
 <body>
 
-<!-- LOGIN -->
-
 <div class="login" id="loginPage">
 
   <div class="login-box">
@@ -267,8 +265,6 @@ input{
 </div>
 
 
-<!-- APP -->
-
 <div class="app" id="app">
 
   <div class="header">
@@ -284,7 +280,6 @@ input{
 
   <div class="container">
 
-    <!-- HOME -->
 
     <div id="homePage">
 
@@ -320,7 +315,7 @@ input{
         <div class="card" onclick="openPage('commentsPage')">
           <div class="icon">🔗</div>
           <h3>لینک کامنت‌ها</h3>
-          <p>کامنت‌های دیگر کاربران</p>
+          <p>کامنت‌های سایر کاربران</p>
         </div>
 
 
@@ -341,8 +336,6 @@ input{
 
     </div>
 
-
-    <!-- POSTS -->
 
     <div class="page" id="postsPage">
 
@@ -392,8 +385,6 @@ input{
     </div>
 
 
-    <!-- MY COMMENTS -->
-
     <div class="page" id="myCommentsPage">
 
       <button class="back" onclick="openPage('homePage')">
@@ -431,15 +422,12 @@ input{
         <h2>کامنت‌های من</h2>
 
         <div id="myCommentsList">
-          در حال دریافت...
         </div>
 
       </div>
 
     </div>
 
-
-    <!-- COMMENTS -->
 
     <div class="page" id="commentsPage">
 
@@ -452,7 +440,7 @@ input{
         <h2>🔗 لینک کامنت‌ها</h2>
 
         <p style="color:#777;margin-bottom:15px">
-          اینجا کامنت‌های سایر کاربران نمایش داده می‌شود.
+          کامنت‌های سایر کاربران در اینجا نمایش داده می‌شود.
         </p>
 
         <div id="commentsList">
@@ -463,8 +451,6 @@ input{
 
     </div>
 
-
-    <!-- SEEN -->
 
     <div class="page" id="seenPage">
 
@@ -485,8 +471,6 @@ input{
     </div>
 
 
-    <!-- USERS -->
-
     <div class="page" id="usersPage">
 
       <button class="back" onclick="openPage('homePage')">
@@ -505,16 +489,13 @@ input{
 
     </div>
 
+
   </div>
 
 </div>
 
 
 <script>
-
-/* ======================================
-   SUPABASE
-====================================== */
 
 const SUPABASE_URL =
 "https://btgeluoiwpivnjnfptzz.supabase.co";
@@ -560,10 +541,6 @@ async function db(path, options={}){
 }
 
 
-/* ======================================
-   USER
-====================================== */
-
 let currentUser = null;
 
 
@@ -579,6 +556,7 @@ async function login(){
 
   const error =
     document.getElementById("loginError");
+
 
   error.innerText="";
 
@@ -612,7 +590,7 @@ async function login(){
     }
 
 
-    if(users[0].password !== password){
+    if(String(users[0].password) !== String(password)){
 
       error.innerText =
         "رمز عبور اشتباه است.";
@@ -664,19 +642,13 @@ function logout(){
   document.getElementById("loginPage")
     .style.display="flex";
 
+  document.getElementById("loginError")
+    .innerText="";
+
 }
 
 
-/* ======================================
-   NAVIGATION
-====================================== */
-
 function openPage(id){
-
-  if(!currentUser && id !== "homePage"){
-    return;
-  }
-
 
   document.getElementById("homePage")
     .style.display="none";
@@ -694,6 +666,7 @@ function openPage(id){
       .style.display="block";
 
     return;
+
   }
 
 
@@ -731,17 +704,10 @@ function openPage(id){
 }
 
 
-/* ======================================
-   POSTS
-====================================== */
-
 async function loadPosts(){
 
   const box =
     document.getElementById("postsList");
-
-  box.innerHTML =
-    '<div class="empty">در حال دریافت...</div>';
 
 
   try{
@@ -801,8 +767,6 @@ async function loadPosts(){
 
 
   }catch(e){
-
-    console.error(e);
 
     box.innerHTML =
       '<div class="empty">خطا: ' +
@@ -869,8 +833,6 @@ async function addPost(){
 
   }catch(e){
 
-    console.error(e);
-
     status.innerText =
       "خطا: " + e.message;
 
@@ -878,10 +840,6 @@ async function addPost(){
 
 }
 
-
-/* ======================================
-   MY COMMENTS
-====================================== */
 
 async function addMyComment(){
 
@@ -934,8 +892,6 @@ async function addMyComment(){
 
   }catch(e){
 
-    console.error(e);
-
     status.innerText =
       "خطا: " + e.message;
 
@@ -951,10 +907,6 @@ async function loadMyComments(){
 
   const box =
     document.getElementById("myCommentsList");
-
-
-  box.innerHTML =
-    '<div class="empty">در حال دریافت...</div>';
 
 
   try{
@@ -1016,8 +968,6 @@ async function loadMyComments(){
 
   }catch(e){
 
-    console.error(e);
-
     box.innerHTML =
       '<div class="empty">خطا: ' +
       escapeHTML(e.message) +
@@ -1028,22 +978,14 @@ async function loadMyComments(){
 }
 
 
-/* ======================================
-   DELETE MY COMMENT
-====================================== */
-
 async function deleteMyComment(commentId){
 
   if(!currentUser) return;
 
 
-  const confirmed =
-    confirm(
-      "مطمئنی می‌خواهی این کامنت را حذف کنی؟"
-    );
-
-
-  if(!confirmed) return;
+  if(!confirm("مطمئنی می‌خواهی این کامنت را حذف کنی؟")){
+    return;
+  }
 
 
   try{
@@ -1069,8 +1011,6 @@ async function deleteMyComment(commentId){
 
   }catch(e){
 
-    console.error(e);
-
     alert(
       "حذف کامنت انجام نشد:\n" +
       e.message
@@ -1081,10 +1021,6 @@ async function deleteMyComment(commentId){
 }
 
 
-/* ======================================
-   COMMENTS FOR OTHER USERS
-====================================== */
-
 async function loadComments(){
 
   const box =
@@ -1094,16 +1030,7 @@ async function loadComments(){
   if(!currentUser) return;
 
 
-  box.innerHTML =
-    '<div class="empty">در حال دریافت...</div>';
-
-
   try{
-
-    /*
-      user_id را هم می‌گیریم تا بتوانیم
-      کامنت‌های خود کاربر را حذف کنیم.
-    */
 
     const comments =
       await db(
@@ -1122,27 +1049,19 @@ async function loadComments(){
       views.map(v=>Number(v.comment_id));
 
 
-    /*
-      فقط کامنت‌های کاربران دیگر
-      و کامنت‌هایی که هنوز ندیده‌ایم.
-    */
-
     const unseen =
-      comments.filter(comment => {
+      comments.filter(comment=>{
 
-        const ownerId =
+        const owner =
           Number(comment.user_id);
 
-        const commentId =
+        const id =
           Number(comment.id);
 
-        const isMyComment =
-          ownerId === Number(currentUser.id);
-
-        const alreadyViewed =
-          viewed.includes(commentId);
-
-        return !isMyComment && !alreadyViewed;
+        return (
+          owner !== Number(currentUser.id) &&
+          !viewed.includes(id)
+        );
 
       });
 
@@ -1192,8 +1111,6 @@ async function loadComments(){
 
   }catch(e){
 
-    console.error(e);
-
     box.innerHTML =
       '<div class="empty">خطا: ' +
       escapeHTML(e.message) +
@@ -1204,20 +1121,12 @@ async function loadComments(){
 }
 
 
-/* ======================================
-   VIEW COMMENT
-====================================== */
-
 async function viewComment(id,url){
 
   if(!currentUser) return;
 
 
   try{
-
-    /*
-      user_id در comment_views اکنون bigint است.
-    */
 
     await db(
       "comment_views",
@@ -1234,15 +1143,7 @@ async function viewComment(id,url){
 
   }catch(e){
 
-    /*
-      اگر قبلاً دیده شده باشد،
-      لینک همچنان باز می‌شود.
-    */
-
-    console.log(
-      "comment_views:",
-      e.message
-    );
+    console.log(e.message);
 
   }
 
@@ -1256,10 +1157,6 @@ async function viewComment(id,url){
 }
 
 
-/* ======================================
-   SEEN COMMENTS
-====================================== */
-
 async function loadSeen(){
 
   const box =
@@ -1267,10 +1164,6 @@ async function loadSeen(){
 
 
   if(!currentUser) return;
-
-
-  box.innerHTML =
-    '<div class="empty">در حال دریافت...</div>';
 
 
   try{
@@ -1299,15 +1192,15 @@ async function loadSeen(){
     let shown=0;
 
 
-    for(let i=0;i<views.length;i++){
+    for(const view of views){
 
       const id =
-        Number(views[i].comment_id);
+        Number(view.comment_id);
 
 
       const comments =
         await db(
-          "comments?select=id,instagram_comment_url,user_id&id=eq."
+          "comments?select=id,user_id,instagram_comment_url&id=eq."
           + encodeURIComponent(id)
         );
 
@@ -1318,11 +1211,6 @@ async function loadSeen(){
       const comment =
         comments[0];
 
-
-      /*
-        اگر کامنت متعلق به خود کاربر باشد،
-        در بخش کامنت‌های دیده‌شده هم نشان نمی‌دهیم.
-      */
 
       if(
         Number(comment.user_id) ===
@@ -1374,8 +1262,119 @@ async function loadSeen(){
 
   }catch(e){
 
-    console.error(e);
+    box.innerHTML =
+      '<div class="empty">خطا: ' +
+      escapeHTML(e.message) +
+      '</div>';
+
+  }
+
+}
+
+
+async function loadUsers(){
+
+  const box =
+    document.getElementById("usersList");
+
+
+  try{
+
+    const users =
+      await db(
+        "profiles?select=id,username,role&order=username.asc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(users.length===0){
+
+      box.innerHTML =
+        '<div class="empty">کاربری وجود ندارد.</div>';
+
+      return;
+
+    }
+
+
+    users.forEach(user=>{
+
+      const div =
+        document.createElement("div");
+
+
+      div.className="user";
+
+
+      div.innerHTML=`
+
+        <strong>
+          ${escapeHTML(user.username)}
+        </strong>
+
+        <div class="small">
+          نقش: ${escapeHTML(user.role || "user")}
+        </div>
+
+      `;
+
+
+      box.appendChild(div);
+
+    });
+
+
+  }catch(e){
 
     box.innerHTML =
       '<div class="empty">خطا: ' +
-      escapeHTML(e.
+      escapeHTML(e.message) +
+      '</div>';
+
+  }
+
+}
+
+
+function copyLink(link){
+
+  navigator.clipboard
+    .writeText(link)
+    .then(()=>{
+      alert("لینک کپی شد ✅");
+    })
+    .catch(()=>{
+      alert("کپی لینک انجام نشد.");
+    });
+
+}
+
+
+function escapeHTML(text){
+
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+function escapeJS(text){
+
+  return String(text)
+    .replaceAll("\\","\\\\")
+    .replaceAll("'","\\'")
+    .replaceAll("\n","\\n")
+    .replaceAll("\r","\\r");
+
+}
+
+</script>
+
+</body>
+</html>
