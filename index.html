@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linko | ورود</title>
+  <title>Linko</title>
 
   <style>
     * {
@@ -14,15 +14,21 @@
     }
 
     body {
+      background: #f5f5f5;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    .login-page {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #f5f5f5;
+      padding: 20px;
     }
 
     .login-box {
-      width: 90%;
+      width: 100%;
       max-width: 380px;
       background: white;
       padding: 35px 25px;
@@ -49,12 +55,7 @@
       border: 1px solid #ddd;
       border-radius: 12px;
       font-size: 16px;
-      text-align: right;
       outline: none;
-    }
-
-    input:focus {
-      border-color: #777;
     }
 
     button {
@@ -66,7 +67,6 @@
       color: white;
       font-size: 17px;
       cursor: pointer;
-      margin-top: 5px;
     }
 
     button:hover {
@@ -78,68 +78,216 @@
       color: #d33;
       display: none;
     }
+
+    .dashboard {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      background: #111;
+      color: white;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar h1 {
+      font-size: 25px;
+    }
+
+    .logout {
+      width: auto;
+      padding: 9px 15px;
+      background: white;
+      color: #111;
+      font-size: 14px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .welcome {
+      margin-bottom: 25px;
+    }
+
+    .welcome h2 {
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #777;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #777;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="login-box">
+  <!-- صفحه ورود -->
+  <div class="login-page" id="loginPage">
 
-    <div class="logo">Linko</div>
+    <div class="login-box">
 
-    <div class="subtitle">
-      برای ورود اطلاعات خود را وارد کنید
-    </div>
+      <div class="logo">Linko</div>
 
-    <input
-      type="text"
-      id="username"
-      placeholder="نام کاربری"
-    >
+      <div class="subtitle">
+        برای ورود اطلاعات خود را وارد کنید
+      </div>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="رمز عبور"
-    >
+      <input
+        type="text"
+        id="username"
+        placeholder="نام کاربری"
+      >
 
-    <button onclick="login()">
-      ورود
-    </button>
+      <input
+        type="password"
+        id="password"
+        placeholder="رمز عبور"
+      >
 
-    <div id="message">
-      نام کاربری یا رمز عبور اشتباه است.
+      <button onclick="login()">
+        ورود
+      </button>
+
+      <div id="message">
+        نام کاربری یا رمز عبور اشتباه است.
+      </div>
+
     </div>
 
   </div>
 
+
+  <!-- داشبورد -->
+  <div class="dashboard" id="dashboard">
+
+    <div class="topbar">
+      <h1>Linko</h1>
+
+      <button class="logout" onclick="logout()">
+        خروج
+      </button>
+    </div>
+
+    <div class="content">
+
+      <div class="welcome">
+        <h2>خوش آمدید 🌱</h2>
+        <p>
+          به پنل Linko خوش آمدید. یک بخش را انتخاب کنید.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card" onclick="comingSoon('پست‌های اینستاگرام')">
+          <div class="icon">📱</div>
+          <h3>پست‌های اینستاگرام</h3>
+          <p>
+            مشاهده و مدیریت پست‌های اینستاگرام
+          </p>
+        </div>
+
+        <div class="card" onclick="comingSoon('لینک کامنت‌ها')">
+          <div class="icon">🔗</div>
+          <h3>لینک کامنت‌ها</h3>
+          <p>
+            مشاهده و مدیریت لینک‌های کامنت
+          </p>
+        </div>
+
+        <div class="card" onclick="comingSoon('کاربران')">
+          <div class="icon">👥</div>
+          <h3>کاربران</h3>
+          <p>
+            مدیریت کاربران Linko
+          </p>
+        </div>
+
+        <div class="card" onclick="comingSoon('مدیریت')">
+          <div class="icon">⚙️</div>
+          <h3>مدیریت</h3>
+          <p>
+            تنظیمات و مدیریت سیستم
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
   <script>
+
     function login() {
 
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const message = document.getElementById("message");
+      const username =
+        document.getElementById("username").value;
 
-      // اطلاعات آزمایشی
+      const password =
+        document.getElementById("password").value;
+
+      const message =
+        document.getElementById("message");
+
       const correctUsername = "admin";
       const correctPassword = "1234";
 
-      if (username === correctUsername && password === correctPassword) {
+      if (
+        username === correctUsername &&
+        password === correctPassword
+      ) {
 
-        message.style.display = "none";
+        document.getElementById("loginPage").style.display = "none";
 
-        document.body.innerHTML = `
-          <div style="
-            text-align:center;
-            padding:60px 20px;
-            font-family:Arial;
-          ">
-            <h1>خوش آمدید 🌱</h1>
-            <p style="margin-top:20px;">
-              ورود با موفقیت انجام شد.
-            </p>
-          </div>
-        `;
+        document.getElementById("dashboard").style.display = "block";
 
       } else {
 
@@ -147,6 +295,31 @@
 
       }
     }
+
+
+    function logout() {
+
+      document.getElementById("dashboard").style.display = "none";
+
+      document.getElementById("loginPage").style.display = "flex";
+
+      document.getElementById("username").value = "";
+
+      document.getElementById("password").value = "";
+
+      document.getElementById("message").style.display = "none";
+
+    }
+
+
+    function comingSoon(name) {
+
+      alert(
+        "بخش «" + name + "» در مرحله بعد ساخته می‌شود."
+      );
+
+    }
+
   </script>
 
 </body>
