@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>لینکو | Linco</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>لینکو</title>
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -15,9 +27,16 @@
 
 body{
   min-height:100vh;
+
   color:#302b3d;
+
   background:
-    radial-gradient(circle at top right,#eee7ff 0,#faf7ff 38%,#f7f8fc 100%);
+    radial-gradient(
+      circle at top right,
+      #eee7ff 0,
+      #faf7ff 38%,
+      #f7f8fc 100%
+    );
 }
 
 button{
@@ -31,330 +50,762 @@ button:hover{
   transform:translateY(-2px);
 }
 
-input,textarea,select{
+input,
+select{
   width:100%;
-  padding:14px 16px;
-  border:1px solid #e6dff2;
-  border-radius:15px;
-  font-size:15px;
-  outline:none;
-  background:#fff;
-  color:#302b3d;
-  transition:.2s ease;
-  margin-bottom:12px;
-}
 
-textarea{
-  min-height:100px;
-  resize:vertical;
+  padding:14px 16px;
+
+  border:1px solid #e6dff2;
+
+  border-radius:15px;
+
+  font-size:15px;
+
+  outline:none;
+
+  background:#fff;
+
+  color:#302b3d;
+
+  transition:.2s ease;
 }
 
 input:focus,
-textarea:focus,
 select:focus{
+
   border-color:#a78bfa;
-  box-shadow:0 0 0 4px rgba(167,139,250,.13);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(167,139,250,.13);
 }
 
 ::placeholder{
   color:#aaa3b5;
 }
 
-/* ================= LOGIN ================= */
+
+/* =========================================
+   LOGIN
+========================================= */
 
 .login{
+
   min-height:100vh;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
   padding:24px;
+
   position:relative;
+
   overflow:hidden;
 }
 
 .login::before,
 .login::after{
+
   content:"";
+
   position:absolute;
+
   border-radius:50%;
+
   filter:blur(3px);
+
   z-index:0;
 }
 
 .login::before{
+
   width:360px;
   height:360px;
+
   background:#e9ddff;
+
   top:-140px;
   right:-120px;
+
   opacity:.8;
 }
 
 .login::after{
+
   width:330px;
   height:330px;
+
   background:#ffe2ef;
+
   bottom:-150px;
   left:-120px;
+
   opacity:.75;
 }
 
 .login-box{
+
   position:relative;
+
   z-index:1;
+
   width:100%;
+
   max-width:410px;
+
   padding:44px 30px 34px;
+
   border-radius:30px;
+
   text-align:center;
-  background:rgba(255,255,255,.9);
+
+  background:
+    rgba(255,255,255,.88);
+
   backdrop-filter:blur(18px);
+
   box-shadow:
-    0 25px 70px rgba(83,63,120,.15),
-    0 5px 20px rgba(83,63,120,.06);
-  border:1px solid rgba(255,255,255,.9);
+    0 25px 70px
+    rgba(83,63,120,.15),
+
+    0 5px 20px
+    rgba(83,63,120,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.9);
 }
 
+
+/* LOGO */
+
 .logo{
+
   width:78px;
   height:78px;
+
   margin:0 auto 17px;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   border-radius:24px;
-  background:linear-gradient(135deg,#8b5cf6,#c084fc);
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b5cf6,
+      #c084fc
+    );
+
   color:#fff;
+
   font-size:27px;
+
   font-weight:bold;
-  box-shadow:0 14px 30px rgba(139,92,246,.28);
+
+  box-shadow:
+    0 14px 30px
+    rgba(139,92,246,.28);
 }
 
 .login-box h1{
+
   font-size:27px;
+
   margin-bottom:8px;
+
+  color:#30283e;
 }
 
 .login-box p{
+
   color:#938b9e;
+
   margin-bottom:27px;
+
   font-size:14px;
 }
 
+.login-box input{
+  margin-bottom:12px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
 .primary{
+
   width:100%;
+
   padding:14px;
+
   border-radius:15px;
-  background:linear-gradient(135deg,#8b5cf6,#b06cf7);
+
+  background:
+    linear-gradient(
+      135deg,
+      #8b5cf6,
+      #b06cf7
+    );
+
   color:#fff;
+
   font-size:16px;
+
   font-weight:bold;
-  box-shadow:0 10px 25px rgba(139,92,246,.23);
+
+  box-shadow:
+    0 10px 25px
+    rgba(139,92,246,.23);
+}
+
+.primary:hover{
+
+  box-shadow:
+    0 15px 32px
+    rgba(139,92,246,.30);
 }
 
 .secondary{
+
   background:#f1edf7;
+
   color:#4e465a;
+
   padding:10px 14px;
+
   border-radius:11px;
 }
 
 .error{
+
   color:#d94b70;
+
   margin-top:13px;
+
+  word-break:break-word;
+
   font-size:14px;
-  line-height:1.8;
 }
 
 .success{
+
   color:#15966a;
+
   margin-top:13px;
+
   font-size:14px;
-  line-height:1.8;
 }
 
-/* ================= APP ================= */
+
+/* =========================================
+   APP
+========================================= */
 
 .app{
+
   display:none;
+
   min-height:100vh;
 }
 
 .header{
+
   position:sticky;
+
   top:0;
+
   z-index:20;
-  background:rgba(255,255,255,.9);
+
+  background:
+    rgba(255,255,255,.88);
+
   backdrop-filter:blur(18px);
+
+  color:#302b3d;
+
   padding:15px 22px;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
-  border-bottom:1px solid #eee8f5;
+
+  border-bottom:
+    1px solid #eee8f5;
 }
 
 .header h1{
+
   font-size:25px;
+
   font-weight:800;
-  background:linear-gradient(135deg,#7c3aed,#c084fc);
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #c084fc
+    );
+
   -webkit-background-clip:text;
+
   -webkit-text-fill-color:transparent;
 }
 
 .logout{
+
   background:#f2edf7;
+
   color:#625a6d;
+
   padding:9px 16px;
+
   border-radius:12px;
+
   font-size:13px;
+
   font-weight:bold;
 }
 
+.logout:hover{
+  background:#e9e2f1;
+}
+
 .container{
+
   max-width:940px;
+
   margin:auto;
+
   padding:30px 20px 50px;
 }
 
-/* ================= HOME ================= */
+
+/* =========================================
+   HOME
+========================================= */
 
 .welcome{
+
   margin-bottom:28px;
 }
 
 .welcome h2{
+
   font-size:25px;
+
   margin-bottom:8px;
+
+  color:#342d40;
 }
 
 .welcome p{
+
   color:#938c9e;
+
   margin-top:8px;
+
   font-size:14px;
-  line-height:1.8;
 }
 
 .cards{
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:18px;
 }
 
 .card{
+
   position:relative;
+
   overflow:hidden;
-  background:rgba(255,255,255,.94);
+
+  background:
+    rgba(255,255,255,.92);
+
   padding:25px;
+
   border-radius:23px;
-  box-shadow:0 8px 30px rgba(75,58,100,.07);
+
+  box-shadow:
+    0 8px 30px
+    rgba(75,58,100,.07);
+
   cursor:pointer;
-  border:1px solid #eee8f5;
-  transition:.25s ease;
+
+  border:
+    1px solid #eee8f5;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.card::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:105px;
+  height:105px;
+
+  border-radius:50%;
+
+  background:#f5efff;
+
+  left:-42px;
+
+  bottom:-52px;
 }
 
 .card:hover{
+
   transform:translateY(-5px);
-  box-shadow:0 17px 38px rgba(75,58,100,.12);
+
+  box-shadow:
+    0 17px 38px
+    rgba(75,58,100,.12);
+
+  border-color:#d9c8f4;
 }
 
-.card h3{
-  margin-bottom:8px;
-  font-size:17px;
-}
+.card.admin-card{
 
-.card p{
-  color:#938c9e;
-  font-size:13px;
-  line-height:1.8;
+  border:
+    1px solid #dfcff7;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #faf5ff
+    );
 }
 
 .icon{
+
   width:58px;
   height:58px;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   border-radius:18px;
-  background:linear-gradient(135deg,#f0e8ff,#faeafa);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0e8ff,
+      #faeafa
+    );
+
   font-size:27px;
+
   margin-bottom:16px;
+
+  box-shadow:
+    0 7px 17px
+    rgba(139,92,246,.08);
 }
 
-/* ================= MY POST CARD ================= */
+.card h3{
 
-.my-post-card{
-  border:2px solid #f0b94b;
-  background:linear-gradient(145deg,#fffdf5,#fff8df);
+  margin-bottom:8px;
+
+  font-size:17px;
+
+  color:#393142;
 }
 
-.my-post-card .icon{
-  background:linear-gradient(135deg,#fff0bd,#ffe08a);
+.card p{
+
+  color:#938c9e;
+
+  font-size:13px;
+
+  line-height:1.7;
 }
 
-.my-post-card h3{
-  color:#9a6910;
+
+/* =========================================
+   OWN PAGE POST CARD
+========================================= */
+
+.own-post-card{
+
+  border:
+    1px solid #b9e8d5 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f0fff8
+    ) !important;
 }
 
-/* ================= PAGES ================= */
+.own-post-card::after{
+
+  background:#dcf8eb !important;
+}
+
+.own-post-card .icon{
+
+  background:
+    linear-gradient(
+      135deg,
+      #dff9ec,
+      #e9fff5
+    );
+
+  box-shadow:
+    0 7px 17px
+    rgba(34,197,130,.10);
+}
+
+.own-post-card h3{
+  color:#28785b;
+}
+
+.own-post-card:hover{
+
+  border-color:
+    #91dabb !important;
+
+  box-shadow:
+    0 17px 38px
+    rgba(34,150,100,.12);
+}
+
+
+/* =========================================
+   PAGES
+========================================= */
 
 .page{
   display:none;
 }
 
 .back{
+
   background:#fff;
+
   color:#655d70;
+
   padding:10px 16px;
+
   border-radius:13px;
+
   margin-bottom:20px;
-  border:1px solid #e8e1ef;
+
+  border:
+    1px solid #e8e1ef;
+
   font-size:14px;
+
+  box-shadow:
+    0 4px 13px
+    rgba(70,55,90,.05);
+}
+
+.back:hover{
+  background:#faf7fd;
 }
 
 .box{
-  background:rgba(255,255,255,.95);
+
+  background:
+    rgba(255,255,255,.94);
+
   padding:24px;
+
   border-radius:23px;
+
   margin-bottom:20px;
-  box-shadow:0 9px 30px rgba(75,58,100,.06);
-  border:1px solid #eee8f5;
+
+  box-shadow:
+    0 9px 30px
+    rgba(75,58,100,.06);
+
+  border:
+    1px solid #eee8f5;
 }
 
 .box h2{
-  margin-bottom:15px;
+
+  margin-bottom:20px;
+
   font-size:19px;
+
+  color:#393142;
 }
 
-.description{
-  color:#8c8495;
-  font-size:14px;
-  line-height:2;
-  margin-bottom:18px;
+
+/* =========================================
+   OWN POST BOX
+========================================= */
+
+.own-post-box{
+
+  border:
+    1px solid #b9e8d5 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5fffa
+    );
 }
 
-/* ================= ITEMS ================= */
+.own-post-box h2{
+  color:#28785b;
+}
+
+.own-post-item{
+
+  border:
+    1px solid #cdeee0;
+
+  background:#fbfffd;
+}
+
+.own-post-item:hover{
+
+  border-color:#9edfc3;
+
+  box-shadow:
+    0 8px 22px
+    rgba(34,150,100,.08);
+}
+
+.own-post-item .item-title{
+  color:#28785b;
+}
+
+.own-post-seen{
+  margin-top:28px;
+}
+
+.own-post-seen-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:#6c7780;
+
+  font-size:16px;
+
+  margin-bottom:14px;
+
+  padding-bottom:12px;
+
+  border-bottom:
+    1px solid #e5f1eb;
+}
+
+
+/* =========================================
+   ITEMS
+========================================= */
 
 .item{
-  border:1px solid #ece6f2;
+
+  position:relative;
+
+  border:
+    1px solid #ece6f2;
+
   border-radius:17px;
+
   padding:17px;
+
   margin-top:12px;
+
   background:#fdfcff;
+
+  transition:.2s ease;
+}
+
+.item:hover{
+
+  border-color:#ddcff0;
+
+  box-shadow:
+    0 8px 22px
+    rgba(75,58,100,.07);
+
+  transform:translateY(-1px);
 }
 
 .item-title{
+
   font-weight:bold;
-  margin-bottom:10px;
+
+  margin-bottom:12px;
+
   color:#403748;
+
   font-size:15px;
 }
 
+.item button{
+
+  background:#f1eaff;
+
+  color:#7647c7;
+
+  padding:9px 13px;
+
+  border-radius:10px;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+  margin-left:5px;
+
+  margin-bottom:5px;
+}
+
+.item button:hover{
+  background:#e9ddff;
+}
+
 .item a{
+
   display:block;
+
   color:#686071;
+
   margin-bottom:10px;
+
   word-break:break-all;
+
   text-decoration:none;
+
   line-height:1.7;
 }
 
@@ -362,110 +813,162 @@ select:focus{
   color:#814dcc;
 }
 
-.item button{
-  background:#f1eaff;
-  color:#7647c7;
-  padding:9px 13px;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:bold;
-  margin-left:5px;
-  margin-top:5px;
-}
+
+/* =========================================
+   DELETE
+========================================= */
 
 .delete-button{
+
   background:#fff0f3 !important;
+
   color:#d04b6a !important;
+
+  margin-top:10px;
+
   width:100%;
-  border:1px solid #ffd9e1;
-  margin-top:10px !important;
+
+  border:
+    1px solid #ffd9e1;
 }
+
+.delete-button:hover{
+  background:#ffe5eb !important;
+}
+
+.admin-delete{
+
+  background:#fff0f3 !important;
+
+  color:#c43d5c !important;
+
+  border-color:#ffd2dc !important;
+}
+
+
+/* =========================================
+   EMPTY / STATUS
+========================================= */
 
 .empty{
+
   color:#9b94a3;
+
   padding:18px 5px;
+
   text-align:center;
+
   font-size:14px;
 }
 
-/* ================= MY POSTS ================= */
+.status{
 
-.my-post-page{
-  background:linear-gradient(180deg,#fffdf5,#fffaf0);
+  margin-top:12px;
+
+  font-size:14px;
+
+  line-height:1.7;
 }
 
-.my-post-page .box{
-  border-color:#f0d48a;
+
+/* =========================================
+   USERS
+========================================= */
+
+.user{
+
+  padding:17px 4px;
+
+  border-bottom:
+    1px solid #eee9f3;
 }
 
-.my-post-title{
-  color:#9a6910;
+.user:last-child{
+  border-bottom:0;
 }
 
-.my-post-item{
-  border:2px solid #f0d48a;
-  background:#fffdf7;
+.small{
+
+  color:#9b94a3;
+
+  font-size:12px;
+
+  margin-top:6px;
 }
 
-.my-post-badge{
+.admin-label{
+
   display:inline-block;
-  background:#fff0b8;
-  color:#8c6415;
+
+  background:#eee4ff;
+
+  color:#7745c8;
+
   padding:5px 9px;
+
   border-radius:8px;
+
   font-size:11px;
-  margin-bottom:10px;
+
+  margin-top:8px;
+
   font-weight:bold;
 }
 
-/* ================= EDUCATION ================= */
+.user-label{
 
-.education-text{
-  color:#51495c;
-  font-size:14px;
-  line-height:2.2;
+  display:inline-block;
+
+  background:#f2eff5;
+
+  color:#746c7d;
+
+  padding:5px 9px;
+
+  border-radius:8px;
+
+  font-size:11px;
+
+  margin-top:8px;
 }
 
-.education-text h3{
-  color:#5d3fa3;
-  font-size:18px;
-  margin-top:25px;
-  margin-bottom:10px;
+.divider{
+
+  height:1px;
+
+  background:#eee9f3;
+
+  margin:20px 0;
 }
 
-.education-text .section-title{
-  color:#5d3fa3;
-  font-weight:bold;
-  font-size:17px;
-  margin-top:28px;
-  margin-bottom:10px;
+.danger{
+
+  background:#fff0f3 !important;
+
+  color:#b72f4f !important;
 }
 
-.education-text .example{
-  background:#f6f1ff;
-  border:1px solid #e2d6ff;
-  padding:15px;
-  border-radius:15px;
-  margin:12px 0;
+
+/* =========================================
+   FORM
+========================================= */
+
+.box input + br + br{
+  display:block;
 }
 
-.education-text .warning{
-  background:#fff7ed;
-  border:1px solid #fde0bd;
-  padding:15px;
-  border-radius:15px;
-  margin:12px 0;
+.box select{
+  appearance:auto;
 }
 
-.education-text .good{
-  background:#edfff7;
-  border:1px solid #c5f0dc;
-  padding:15px;
-  border-radius:15px;
-  margin:12px 0;
+.box .primary{
+  margin-top:2px;
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:700px){
 
@@ -504,95 +1007,137 @@ select:focus{
     border-radius:25px;
   }
 
-  .education-text{
-    font-size:13px;
-    line-height:2.1;
+}
+
+@media(max-width:380px){
+
+  .logo{
+    width:68px;
+    height:68px;
   }
+
+  .box h2{
+    font-size:17px;
+  }
+
+  input,
+  select{
+    font-size:14px;
+  }
+
 }
 
 html{
   scroll-behavior:smooth;
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= LOGIN ================= -->
 
-<section class="login" id="loginPage">
+<!-- =========================================
+     LOGIN
+========================================= -->
+
+<div
+  class="login"
+  id="loginPage"
+>
 
   <div class="login-box">
 
-    <div class="logo">LC</div>
+    <div class="logo">
+      LC
+    </div>
 
-    <h1>لینکو</h1>
+    <h1>
+      ورود به لینکو
+    </h1>
 
     <p>
-      برای ورود به لینکو وارد حساب خود شوید
+      برای ادامه وارد حساب خودت شو
     </p>
 
     <input
-      type="text"
       id="username"
+      type="text"
       placeholder="نام کاربری"
       autocomplete="username"
     >
 
     <input
-      type="password"
       id="password"
+      type="password"
       placeholder="رمز عبور"
       autocomplete="current-password"
     >
 
-    <button class="primary" onclick="login()">
+    <button
+      class="primary"
+      onclick="login()"
+    >
       ورود به لینکو
     </button>
 
-    <button
-      class="secondary"
-      style="margin-top:12px;width:100%;"
-      onclick="register()">
-      ساخت حساب جدید
-    </button>
-
-    <div id="loginMessage"></div>
+    <div
+      id="loginError"
+      class="error"
+    ></div>
 
   </div>
 
-</section>
+</div>
 
 
-<!-- ================= APP ================= -->
+<!-- =========================================
+     APP
+========================================= -->
 
-<div class="app" id="app">
+<div
+  class="app"
+  id="app"
+>
 
-  <header class="header">
 
-    <h1>لینکو</h1>
+  <!-- HEADER -->
 
-    <button class="logout" onclick="logout()">
+  <div class="header">
+
+    <h1>
+      لینکو
+    </h1>
+
+    <button
+      class="logout"
+      onclick="logout()"
+    >
       خروج
     </button>
 
-  </header>
+  </div>
 
 
-  <main class="container">
+  <div class="container">
 
-    <!-- ================= HOME ================= -->
 
-    <section id="homePage" class="page">
+    <!-- =====================================
+         HOME
+    ====================================== -->
+
+    <div id="homePage">
 
       <div class="welcome">
 
-        <h2>
-          سلام <span id="welcomeName"></span> 👋
+        <h2 id="welcome">
+          خوش آمدید 🌱
         </h2>
 
         <p>
-          به لینکو خوش آمدی؛ اینجا می‌توانی لینک‌های اینستاگرامی را با دیگر کاربران به اشتراک بگذاری.
+          بخش موردنظر را انتخاب کنید.
         </p>
 
       </div>
@@ -600,228 +1145,250 @@ html{
 
       <div class="cards">
 
-        <div class="card" onclick="showPage('postPage')">
 
-          <div class="icon">📣</div>
-
-          <h3>
-            اشتراک لینک پست
-          </h3>
-
-          <p>
-            لینک یک پست از اینستاگرام را اضافه کن تا دیگر کاربران بتوانند آن را ببینند.
-          </p>
-
-        </div>
-
-
-        <div class="card" onclick="showPage('commentPage')">
-
-          <div class="icon">💬</div>
-
-          <h3>
-            اشتراک لینک کامنت
-          </h3>
-
-          <p>
-            لینک کامنت خودت را ثبت کن تا سایر کاربران بتوانند آن را مشاهده کنند.
-          </p>
-
-        </div>
-
+        <!-- POSTS -->
 
         <div
-          class="card my-post-card"
-          onclick="showPage('myPostPage')">
+          class="card"
+          onclick="openPage('postsPage')"
+        >
 
-          <div class="icon">⭐</div>
+          <div class="icon">
+            📸
+          </div>
+
+          <h3>
+            پست‌های اینستاگرام
+          </h3>
+
+          <p>
+            پست‌های دیده‌نشده
+          </p>
+
+        </div>
+
+
+        <!-- MY COMMENTS -->
+
+        <div
+          class="card"
+          onclick="openPage('myCommentsPage')"
+        >
+
+          <div class="icon">
+            💬
+          </div>
+
+          <h3>
+            ثبت لینک کامنت من
+          </h3>
+
+          <p>
+            ثبت لینک کامنت خودت
+          </p>
+
+        </div>
+
+
+        <!-- COMMENTS -->
+
+        <div
+          class="card"
+          onclick="openPage('commentsPage')"
+        >
+
+          <div class="icon">
+            🔗
+          </div>
+
+          <h3>
+            لینک کامنت‌ها
+          </h3>
+
+          <p>
+            کامنت‌های دیده‌نشده
+          </p>
+
+        </div>
+
+
+        <!-- SEEN COMMENTS -->
+
+        <div
+          class="card"
+          onclick="openPage('seenPage')"
+        >
+
+          <div class="icon">
+            ✅
+          </div>
+
+          <h3>
+            کامنت‌های دیده‌شده
+          </h3>
+
+          <p>
+            کامنت‌هایی که دیده‌ای
+          </p>
+
+        </div>
+
+
+        <!-- SEEN POSTS -->
+
+        <div
+          class="card"
+          onclick="openPage('seenPostsPage')"
+        >
+
+          <div class="icon">
+            📚
+          </div>
+
+          <h3>
+            پست‌های دیده‌شده
+          </h3>
+
+          <p>
+            پست‌هایی که قبلاً دیده‌ای
+          </p>
+
+        </div>
+
+
+        <!-- =================================
+             OWN PAGE POST
+        ================================== -->
+
+        <div
+          class="card own-post-card"
+          onclick="openPage('ownPostsPage')"
+        >
+
+          <div class="icon">
+            📣
+          </div>
 
           <h3>
             لینک پست پیج خودم
           </h3>
 
           <p>
-            اگر در پیج خودت پستی منتشر کرده‌ای، لینک آن را اینجا قرار بده تا برای کاربران لینکو نمایش داده شود.
+            لینک پست خودت را بگذار تا بقیه ببینند
           </p>
 
         </div>
 
 
-        <div
-          class="card"
-          onclick="showPage('educationPage')">
+        <!-- ADMIN -->
 
-          <div class="icon">📚</div>
+        <div
+          class="card admin-card"
+          id="usersCard"
+          onclick="openAdminUsers()"
+          style="display:none"
+        >
+
+          <div class="icon">
+            👥
+          </div>
 
           <h3>
-            آموزش لینکو
+            کاربران
           </h3>
 
           <p>
-            آموزش کامل استفاده از لینکو را اینجا بخوان.
+            مدیریت کاربران
           </p>
 
         </div>
 
+
       </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= POST PAGE ================= -->
+    <!-- =====================================
+         POSTS PAGE
+    ====================================== -->
 
-    <section id="postPage" class="page">
+    <div
+      class="page"
+      id="postsPage"
+    >
 
-      <button class="back" onclick="showPage('homePage')">
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
         ← بازگشت
       </button>
 
+
       <div class="box">
 
         <h2>
-          📣 اشتراک لینک پست
+          📸 پست‌های اینستاگرام
         </h2>
-
-        <p class="description">
-          اینجا لینک یک پست اینستاگرامی را قرار بده.
-        </p>
 
         <input
-          type="url"
-          id="postLink"
-          placeholder="https://www.instagram.com/p/..."
+          id="postTitle"
+          placeholder="عنوان پست"
         >
 
-        <button class="primary" onclick="addPost()">
-          افزودن لینک پست
-        </button>
-
-        <div id="postMessage"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>
-          لینک‌های پست‌های ثبت‌شده
-        </h2>
-
-        <div id="postList"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= COMMENT PAGE ================= -->
-
-    <section id="commentPage" class="page">
-
-      <button class="back" onclick="showPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2>
-          💬 اشتراک لینک کامنت
-        </h2>
-
-        <p class="description">
-          اگر زیر یک پست اینستاگرامی کامنتی گذاشته‌ای، لینک همان کامنت را اینجا قرار بده.
-        </p>
+        <br><br>
 
         <input
-          type="url"
-          id="commentLink"
-          placeholder="لینک مستقیم کامنت اینستاگرام"
+          id="postUrl"
+          placeholder="لینک پست اینستاگرام"
         >
 
-        <button class="primary" onclick="addComment()">
-          افزودن لینک کامنت
-        </button>
-
-        <div id="commentMessage"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>
-          کامنت‌های ثبت‌شده
-        </h2>
-
-        <div id="commentList"></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= MY POST PAGE ================= -->
-
-    <section id="myPostPage" class="page my-post-page">
-
-      <button class="back" onclick="showPage('homePage')">
-        ← بازگشت
-      </button>
-
-      <div class="box">
-
-        <h2 class="my-post-title">
-          ⭐ لینک پست پیج خودم
-        </h2>
-
-        <p class="description">
-          این قسمت مخصوص پست‌هایی است که خودت در پیج اینستاگرامت منتشر کرده‌ای.
-          لینک پستت را قرار بده تا برای همه کاربران لینکو نمایش داده شود.
-          فقط خودت می‌توانی لینک خودت را از لینکو حذف کنی.
-        </p>
-
-        <input
-          type="url"
-          id="myPostLink"
-          placeholder="لینک پست پیج خودت"
-        >
+        <br><br>
 
         <button
           class="primary"
-          style="background:linear-gradient(135deg,#d99b20,#f0c75e);"
-          onclick="addMyPost()">
-
-          انتشار لینک برای همه
-
+          onclick="addPost()"
+        >
+          ➕ ثبت پست
         </button>
 
-        <div id="myPostMessage"></div>
+        <div
+          id="postStatus"
+          class="status"
+        ></div>
 
       </div>
 
 
       <div class="box">
 
-        <h2 class="my-post-title">
-          پست‌های پیج کاربران
+        <h2>
+          پست‌های دیده‌نشده
         </h2>
 
-        <p class="description">
-          لینک‌هایی که کاربران در این بخش ثبت کرده‌اند، در این قسمت برای همه نمایش داده می‌شوند.
-        </p>
-
-        <div id="myPostList"></div>
+        <div id="postsList">
+          در حال دریافت...
+        </div>
 
       </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= EDUCATION PAGE ================= -->
+    <!-- =====================================
+         SEEN POSTS
+    ====================================== -->
 
-    <section id="educationPage" class="page">
+    <div
+      class="page"
+      id="seenPostsPage"
+    >
 
-      <button class="back" onclick="showPage('homePage')">
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
         ← بازگشت
       </button>
 
@@ -829,485 +1396,464 @@ html{
       <div class="box">
 
         <h2>
-          📚 آموزش کامل استفاده از لینکو
+          📚 پست‌های دیده‌شده
         </h2>
 
-
-        <div class="education-text">
-
-          <p>
-            به <b>لینکو</b> خوش آمدی 🌱
-          </p>
-
-          <p>
-            لینکو محلی برای به اشتراک گذاشتن لینک پست‌ها و کامنت‌های اینستاگرام بین کاربران است تا کاربران بتوانند در معرفی و افزایش فعالیت روی آن‌ها به یکدیگر کمک کنند.
-          </p>
-
-          <p>
-            کار با لینکو خیلی ساده است. فقط کافی است بدانیم هر بخش چه کاربردی دارد.
-          </p>
-
-
-          <div class="section-title">
-            🏠 صفحه اصلی لینکو
-          </div>
-
-          <p>
-            بعد از ورود، چند بخش اصلی را می‌بینی:
-          </p>
-
-
-          <div class="example">
-            <b>📸 پست‌های اینستاگرام</b>
-            <br>
-            اینجا لینک پست‌هایی قرار می‌گیرد که کاربران از اینستاگرام در لینکو ثبت کرده‌اند.
-            <br><br>
-            مثلاً اگر در اینستاگرام یک پست جالب از یک پیج دیدی و می‌خواهی آن پست را برای فعالیت و معرفی در اختیار کاربران لینکو قرار بدهی، می‌توانی لینک همان پست را در این بخش ثبت کنی.
-          </div>
-
-
-          <div class="example">
-            <b>💬 ثبت لینک کامنت من</b>
-            <br>
-            اگر زیر یک پست اینستاگرامی کامنتی برای تبلیغ گذاشته‌ای، می‌توانی لینک همان کامنت را اینجا ثبت کنی.
-            <br><br>
-            سپس سایر کاربران لینکو می‌توانند آن کامنت را پیدا کنند و روی آن فعالیت انجام دهند.
-          </div>
-
-
-          <div class="example">
-            <b>🔗 لینک کامنت‌ها</b>
-            <br>
-            در این قسمت کامنت‌هایی را می‌بینی که سایر کاربران در (ثبت لینک کامنت من) لینکو ثبت کرده‌اند.
-            <br><br>
-            با ورود به هر مورد، می‌توانی کامنت را در اینستاگرام مشاهده کنی و فعالیت موردنظر را روی آن انجام بدهی.
-            <br><br>
-            هر کامنتی که روش بزنی از این قسمت حذف میشه و وارد بخش کامنت های دیده شده میشه.
-          </div>
-
-
-          <div class="example">
-            <b>✅ کامنت‌های دیده‌شده</b>
-            <br>
-            کامنت‌هایی که قبلاً از طریق لینکو مشاهده کرده‌ای، در این بخش قرار می‌گیرند تا گیج نشی.
-          </div>
-
-
-          <div class="example">
-            <b>📚 پست‌های دیده‌شده</b>
-            <br>
-            پست‌هایی که قبلاً از طریق لینکو مشاهده کرده‌ای، در این قسمت قرار می‌گیرند تا گیج نشی.
-          </div>
-
-
-          <div class="example">
-            <b>⭐ پست‌های پیج خودم</b>
-            <br>
-            اگر در پیج خودت پستی منتشر کرده‌ای، می‌توانی لینک آن را در بخش «لینک پست پیج خودم» قرار بدهی.
-            <br><br>
-            این لینک برای کاربران لینکو نمایش داده می‌شود و فقط خودت می‌توانی لینک ثبت‌شده توسط خودت را حذف کنی.
-          </div>
-
-
-          <div class="section-title">
-            1️⃣ چگونه یک پست اینستاگرام را در لینکو ثبت کنیم؟
-          </div>
-
-          <p>
-            فرض کن در اینستاگرام یک پست از یک پیج پیدا کرده‌ای و می‌خواهی آن پست را در اختیار کاربران لینکو قرار بدهی.
-          </p>
-
-          <p>
-            <b>مرحله ۱:</b>
-            وارد پست موردنظر در اینستاگرام شو.
-            <br><br>
-
-            <b>مرحله ۲:</b>
-            گزینه اشتراک‌گذاری یا منوی مربوط به پست را باز کن.
-            <br><br>
-
-            <b>مرحله ۳:</b>
-            گزینه <b>Copy link / کپی لینک</b> را بزن.
-            <br><br>
-
-            <b>مرحله ۴:</b>
-            وارد لینکو شو و بخش:
-            <br>
-            📸 <b>پست‌های اینستاگرام</b>
-            <br><br>
-
-            <b>مرحله ۵:</b>
-            برای پست یک عنوان کوتاه بنویس
-            (مثلا میتونی بنویسی موضوعش چیه)
-            <br><br>
-
-            <b>مرحله ۶:</b>
-            لینک پست را در قسمت لینک قرار بده.
-            (paste کن)
-            <br><br>
-
-            <b>مرحله ۷:</b>
-            روی <b>➕ ثبت پست</b> بزن.
-          </p>
-
-          <div class="good">
-            تمام! 🎉
-            <br>
-            حالا آن پست در لینکو قرار گرفته و کاربران دیگر می‌توانند آن را ببینند و فعالیت مربوط به آن را انجام دهند.
-          </div>
-
-
-          <div class="section-title">
-            💡 عنوان پست را چه بنویسیم؟ (پیشنهادی)
-          </div>
-
-          <p>
-            عنوان فقط برای این است که وقتی کاربران در لینکو پست را می‌بینند، بدانند با چه چیزی روبه‌رو هستند.
-            <br><br>
-            عنوان را کوتاه و واضح بنویس.
-            <br><br>
-
-            مثلاً:
-            <br>
-            <b>پست آموزشی</b>
-            <br>
-            <b>پست معرفی محصول</b>
-            <br>
-            <b>پست جدید پیج</b>
-            <br>
-            <b>پست درباره آموزش عربی</b>
-            <br><br>
-
-            لازم نیست عنوان شامل توضیحات طولانی باشد.
-          </p>
-
-
-          <div class="section-title">
-            2️⃣ چگونه لینک کامنت خودمان را ثبت کنیم؟
-          </div>
-
-          <p>
-            این بخش مربوط به کامنتی است که <b>خودت در اینستاگرام گذاشته‌ای.</b>
-            <br><br>
-
-            مثلاً فرض کن در اینستاگرام یک پست را پیدا کرده‌ای و زیر آن پست، یک کامنت مرتبط برای معرفی امام ع نوشته‌ای.
-            <br><br>
-
-            حالا می‌توانی لینک همان کامنت را در لینکو ثبت کنی.
-          </p>
-
-          <p>
-            <b>۱.</b> وارد اینستاگرام شو.
-            <br><br>
-            <b>۲.</b> کامنتی را که خودت گذاشته‌ای پیدا کن.
-            <br><br>
-            <b>۳.</b> لینک همان کامنت را کپی کن.
-            <br><br>
-            <b>۴.</b> وارد لینکو شو.
-            <br><br>
-            <b>۵.</b> بخش:
-            <br>
-            💬 <b>ثبت لینک کامنت من</b>
-            <br><br>
-            <b>۶.</b> لینک کامنت را وارد کن.
-            <br><br>
-            <b>۷.</b> روی <b>🟢 ثبت لینک</b> بزن.
-          </p>
-
-          <p>
-            بعد از ثبت، کامنت تو در اختیار سایر کاربران لینکو قرار می‌گیرد.
-          </p>
-
-
-          <div class="section-title">
-            🔗 3️⃣ با لینک کامنت‌های دیگران چه کار کنیم؟
-          </div>
-
-          <p>
-            حالا نوبت به بخش:
-            <br>
-            <b>🔗 لینک کامنت‌ها</b>
-            <br><br>
-
-            می‌رسد.
-            <br><br>
-
-            در این قسمت، لینک کامنت‌هایی را می‌بینی که کاربران دیگر در لینکو ثبت کرده‌اند.
-          </p>
-
-          <p>
-            روی:
-            <br>
-            <b>🔗 مشاهده کامنت</b>
-            <br><br>
-            بزن.
-            <br><br>
-
-            لینکو تو را به کامنت مربوطه در اینستاگرام می‌برد.
-            <br><br>
-
-            حالا می‌توانی روی همان کامنت فعالیت انجام بدهی.
-          </p>
-
-
-          <div class="example">
-            <b>💬 ریپلای کردن</b>
-            <br>
-            به کامنت پاسخ بدهی تا یک پاسخ جدید زیر آن ایجاد شود.
-            <br><br>
-
-            <b>👍 تأیید یا حمایت</b>
-            <br>
-            در صورت مناسب بودن، با یک تعامل مناسب از کامنت حمایت کنی.
-            <br><br>
-
-            <b>❓ سؤال پرسیدن</b>
-            <br>
-            یک سؤال مرتبط درباره موضوع کامنت بپرسی تا یک گفت‌وگو زیر آن شکل بگیرد.
-          </div>
-
-          <p>
-            هدف این بخش این است که کامنت‌هایی که کاربران در لینکو ثبت کرده‌اند، فقط دیده نشوند؛ بلکه کاربران دیگر روی آن‌ها فعالیت کنند و با ایجاد ریپلای و گفت‌وگو، فعالیت بیشتری زیر کامنت شکل بگیرد.
-          </p>
-
-
-          <div class="section-title">
-            🔄 سیستم لینکو چطور کار می‌کند؟
-          </div>
-
-          <p>
-            برای اینکه خیلی راحت متوجه شوی، یک مثال بزنیم:
-          </p>
-
-          <div class="example">
-
-            👤 <b>نفر اول</b>
-            <br>
-            در اینستاگرام یک پست از یک پیج را پیدا می‌کند.
-            <br>
-            لینک آن پست را در <b>📸 پست‌های اینستاگرام</b> لینکو قرار می‌دهد.
-
-            <br><br>
-            ⬇️
-
-            <br><br>
-
-            👥 <b>کاربران دیگر</b>
-            <br>
-            پست را در لینکو می‌بینند و وارد لینک آن در اینستاگرام می‌شوند و فعالیت موردنظر را انجام می‌دهند.
-
-            <br><br>
-            ⬇️
-
-            <br><br>
-
-            👤 <b>نفر اول یا یک کاربر دیگر</b>
-            <br>
-            در اینستاگرام زیر یک پست، یک کامنت تبلیغاتی مرتبط می‌گذارد.
-
-            <br><br>
-            ⬇️
-
-            <br><br>
-
-            لینک آن کامنت را در:
-            <br>
-            <b>💬 ثبت لینک کامنت من</b>
-            <br>
-            قرار می‌دهد.
-
-            <br><br>
-            ⬇️
-
-            <br><br>
-
-            👥 <b>کاربران دیگر</b>
-            <br>
-            به قسمت:
-            <br>
-            <b>🔗 لینک کامنت‌ها</b>
-            <br>
-            می‌روند.
-            <br><br>
-
-            کامنت را باز می‌کنند و روی آن <b>ریپلای، تأیید یا سؤال مرتبط</b> انجام می‌دهند.
-          </div>
-
-          <p>
-            به این شکل، کاربران لینکو در معرفی امام ع و ایجاد فعالیت روی کامنت‌های یکدیگر مشارکت می‌کنند. 🌱
-          </p>
-
-
-          <div class="section-title">
-            👀 پست‌های دیده‌شده یعنی چه؟
-          </div>
-
-          <p>
-            لینکو پست‌هایی را که مشاهده کرده‌ای برای حساب تو ثبت می‌کند.
-            <br><br>
-
-            بنابراین وقتی یک پست را از بخش <b>📸 پست‌های اینستاگرام</b> باز می‌کنی، دیگر لازم نیست همان پست دوباره در فهرست پست‌های دیده‌نشده برایت نمایش داده شود.
-            <br><br>
-
-            اگر بعداً خواستی دوباره آن را پیدا کنی، به:
-            <br>
-            <b>📚 پست‌های دیده‌شده</b>
-            <br>
-            برو.
-          </p>
-
-
-          <div class="section-title">
-            ✅ کامنت‌های دیده‌شده
-          </div>
-
-          <p>
-            همین سیستم برای کامنت‌ها هم وجود دارد.
-            <br><br>
-
-            وقتی یک کامنت را از بخش:
-            <br>
-            <b>🔗 لینک کامنت‌ها</b>
-            <br>
-            مشاهده می‌کنی، لینکو آن را برای حساب تو به‌عنوان دیده‌شده ثبت می‌کند.
-            <br><br>
-
-            بعداً می‌توانی آن را در:
-            <br>
-            <b>✅ کامنت‌های دیده‌شده</b>
-            <br>
-            پیدا کنی.
-          </p>
-
-
-          <div class="section-title">
-            🗑️ حذف پست یا کامنت
-          </div>
-
-          <p>
-            اگر خودت یک لینک پست در لینکو ثبت کرده‌ای و دیگر نمی‌خواهی در فهرست باشد، می‌توانی آن را حذف کنی.
-            <br><br>
-
-            برای کامنت‌هایی که خودت ثبت کرده‌ای نیز می‌توانی از گزینه:
-            <br>
-            <b>🗑️ حذف کامنت</b>
-            <br>
-            استفاده کنی.
-          </p>
-
-
-          <div class="section-title">
-            ✍️ هنگام نوشتن کامنت و ریپلای به چه چیزهایی توجه کنیم؟
-          </div>
-
-          <div class="good">
-
-            برای اینکه فعالیت‌ها طبیعی، مفید و محترمانه باشند:
-
-            <br><br>
-
-            ✅ متن را مرتبط با موضوع پست یا کامنت بنویس.
-            <br>
-            ✅ اگر سؤال می‌پرسی، سؤال واقعاً مربوط به موضوع باشد.
-            <br>
-            ✅ اگر ریپلای می‌کنی، پاسخ با کامنت قبلی ارتباط داشته باشد.
-            <br>
-            ✅ از توهین، محتوای نامناسب و اطلاعات نادرست خودداری کن.
-            <br>
-            ✅ متن‌های تکراری و بی‌ربط را به‌صورت انبوه ارسال نکن.
-            <br>
-            ✅ قوانین اینستاگرام و قوانین صفحه‌ای که در آن فعالیت می‌کنی را رعایت کن.
-
-          </div>
-
-
-          <div class="warning">
-
-            ❌ از کامنت‌های کاملاً بی‌ربط و مزاحم استفاده نکن.
-            <br>
-            ❌ برای جلب توجه، اطلاعات دروغ یا ادعاهای گمراه‌کننده ننویس.
-            <br>
-            ❌ فعالیت را به شکل اسپم انجام نده.
-
-          </div>
-
-
-          <p>
-            رعایت این موارد باعث می‌شود فعالیت کاربران برای دیگران هم تجربه بهتری ایجاد کند.
-          </p>
-
-
-          <div class="section-title">
-            ⭐ خلاصه لینکو
-          </div>
-
-          <p>
-            اگر بخواهیم خیلی ساده بگوییم:
-            <br><br>
-
-            📸 <b>پست دیدی؟</b>
-            <br>
-            <b>لینک پست را در لینکو ثبت کن.</b>
-
-            <br><br>
-
-            💬 <b>کامنت تبلیغاتی گذاشتی؟</b>
-            <br>
-            <b>لینک همان کامنت را در لینکو ثبت کن.</b>
-
-            <br><br>
-
-            🔗 <b>کامنت دیگران را دیدی؟</b>
-            <br>
-            <b>وارد کامنت شو و فعالیت موردنظر را روی آن انجام بده.</b>
-
-            <br><br>
-
-            📚 <b>چیزی را قبلاً دیده‌ای؟</b>
-            <br>
-            <b>از بخش پست‌ها و کامنت‌های دیده‌شده دوباره پیدایش کن.</b>
-          </p>
-
-          <div class="example">
-            <b>همین! 🌱</b>
-            <br><br>
-            لینکو یعنی همکاری کاربران برای معرفی پست‌ها و ایجاد فعالیت روی کامنت‌ها.
-          </div>
-
+        <div id="seenPostsList">
+          در حال دریافت...
         </div>
 
       </div>
 
-    </section>
+    </div>
 
-  </main>
+
+    <!-- =====================================
+         MY COMMENTS
+    ====================================== -->
+
+    <div
+      class="page"
+      id="myCommentsPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <div class="box">
+
+        <h2>
+          💬 ثبت لینک کامنت من
+        </h2>
+
+        <p
+          style="
+            margin-bottom:15px;
+            color:#7d8491;
+            line-height:1.8;
+          "
+        >
+          لینک کامنت خودت را وارد کن:
+        </p>
+
+        <input
+          id="myCommentUrl"
+          placeholder="https://www.instagram.com/..."
+        >
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="addMyComment()"
+        >
+          🟢 ثبت لینک
+        </button>
+
+        <div
+          id="myCommentStatus"
+          class="status"
+        ></div>
+
+      </div>
+
+
+      <div class="box">
+
+        <h2>
+          کامنت‌های من
+        </h2>
+
+        <div id="myCommentsList"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         COMMENTS
+    ====================================== -->
+
+    <div
+      class="page"
+      id="commentsPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <div class="box">
+
+        <h2>
+          🔗 لینک کامنت‌ها
+        </h2>
+
+        <div id="commentsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         SEEN COMMENTS
+    ====================================== -->
+
+    <div
+      class="page"
+      id="seenPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <div class="box">
+
+        <h2>
+          ✅ کامنت‌های دیده‌شده
+        </h2>
+
+        <div id="seenList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         OWN PAGE POSTS
+    ====================================== -->
+
+    <div
+      class="page"
+      id="ownPostsPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <!-- ADD -->
+
+      <div class="box own-post-box">
+
+        <h2>
+          📣 لینک پست پیج خودم
+        </h2>
+
+        <p
+          style="
+            margin-bottom:15px;
+            color:#718078;
+            line-height:1.9;
+          "
+        >
+          اگر در پیج خودت یک پست منتشر کرده‌ای،
+          لینک همان پست را اینجا قرار بده تا
+          برای همه کاربران لینکو نمایش داده شود.
+        </p>
+
+        <input
+          id="ownPostTitle"
+          placeholder="عنوان پست"
+        >
+
+        <br><br>
+
+        <input
+          id="ownPostUrl"
+          placeholder="لینک پست پیج خودت"
+        >
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="addOwnPost()"
+        >
+          📣 ثبت لینک پست
+        </button>
+
+        <div
+          id="ownPostStatus"
+          class="status"
+        ></div>
+
+      </div>
+
+
+      <!-- ALL POSTS -->
+
+      <div class="box">
+
+        <h2>
+          📣 پست‌های کاربران
+        </h2>
+
+        <div id="ownPostsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+
+      <!-- SEEN -->
+
+      <div class="box own-post-seen">
+
+        <div class="own-post-seen-title">
+          👀
+          <span>
+            پست‌هایی که قبلاً دیده شده‌اند
+          </span>
+        </div>
+
+        <div id="seenOwnPostsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ADMIN USERS
+    ====================================== -->
+
+    <div
+      class="page"
+      id="usersPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <!-- CREATE USER -->
+
+      <div class="box">
+
+        <h2>
+          👤 ساخت کاربر جدید
+        </h2>
+
+        <input
+          id="newUsername"
+          placeholder="نام کاربری جدید"
+        >
+
+        <br><br>
+
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="رمز عبور جدید"
+        >
+
+        <br><br>
+
+        <select id="newRole">
+
+          <option value="user">
+            کاربر عادی
+          </option>
+
+          <option value="admin">
+            ادمین
+          </option>
+
+        </select>
+
+        <br><br>
+
+        <button
+          class="primary"
+          onclick="createUser()"
+        >
+          ➕ ساخت کاربر
+        </button>
+
+        <div
+          id="createUserStatus"
+          class="status"
+        ></div>
+
+      </div>
+
+
+      <!-- USERS -->
+
+      <div class="box">
+
+        <h2>
+          👥 کاربران
+        </h2>
+
+        <div id="usersList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+
+      <!-- ADMIN POSTS -->
+
+      <div class="box">
+
+        <h2>
+          🗑️ مدیریت پست‌ها
+        </h2>
+
+        <div id="adminPostsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+
+      <!-- ADMIN COMMENTS -->
+
+      <div class="box">
+
+        <h2>
+          🗑️ مدیریت کامنت‌ها
+        </h2>
+
+        <div id="adminCommentsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+
+      <!-- ADMIN OWN POSTS -->
+
+      <div class="box">
+
+        <h2>
+          📣 مدیریت لینک پست‌های پیج
+        </h2>
+
+        <div id="adminOwnPostsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
 
 </div>
 
 
 <script>
 
-/* ================= SAFE DATA ================= */
 
-function loadData(key){
+/* =========================================
+   SUPABASE
+========================================= */
+
+const SUPABASE_URL =
+  "https://btgeluoiwpivnjnfptzz.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_ImlRAdr3gKdANgrQcKYbGg_cxiXCAm6";
+
+
+/* =========================================
+   DATABASE REQUEST
+========================================= */
+
+async function db(
+  path,
+  options={}
+){
+
+  const response =
+    await fetch(
+      SUPABASE_URL +
+      "/rest/v1/" +
+      path,
+      {
+
+        ...options,
+
+        headers:{
+
+          "apikey":
+            SUPABASE_KEY,
+
+          "Content-Type":
+            "application/json",
+
+          "Prefer":
+            "return=representation",
+
+          ...(options.headers || {})
+
+        }
+
+      }
+    );
+
+
+  const text =
+    await response.text();
+
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " +
+      response.status +
+      ": " +
+      text
+    );
+
+  }
+
+
+  if(!text){
+    return [];
+  }
+
 
   try{
 
-    const data = localStorage.getItem(key);
+    return JSON.parse(text);
 
-    if(!data){
-      return [];
-    }
-
-    const parsed = JSON.parse(data);
-
-    return Array.isArray(parsed) ? parsed : [];
-
-  }catch(error){
-
-    console.warn("داده خراب بود:",key);
-
-    localStorage.removeItem(key);
+  }catch(e){
 
     return [];
 
@@ -1316,219 +1862,294 @@ function loadData(key){
 }
 
 
-let users = loadData("linco_users");
-let posts = loadData("linco_posts");
-let comments = loadData("linco_comments");
-let myPosts = loadData("linco_my_posts");
+/* =========================================
+   CURRENT USER
+========================================= */
 
-let currentUser =
-  localStorage.getItem("linco_current_user") || "";
+let currentUser = null;
 
 
-/* ================= START ================= */
+/* =========================================
+   LOGIN
+========================================= */
 
-window.addEventListener("DOMContentLoaded",function(){
+async function login(){
+
+  const username =
+    document
+      .getElementById("username")
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById("password")
+      .value;
+
+
+  const error =
+    document
+      .getElementById("loginError");
+
+
+  error.innerText="";
+
+
+  if(
+    !username ||
+    !password
+  ){
+
+    error.innerText =
+      "نام کاربری و رمز عبور را وارد کن.";
+
+    return;
+
+  }
+
 
   try{
 
-    if(currentUser){
+    const users =
+      await db(
+        "users?select=id,username,password,role" +
+        "&username=eq." +
+        encodeURIComponent(username) +
+        "&limit=1"
+      );
 
-      showApp();
 
-    }else{
+    if(
+      !users ||
+      users.length===0
+    ){
 
-      document.getElementById("loginPage").style.display="flex";
-      document.getElementById("app").style.display="none";
+      error.innerText =
+        "این نام کاربری پیدا نشد.";
+
+      return;
 
     }
 
-  }catch(error){
 
-    console.error(error);
+    const user =
+      users[0];
 
-    document.getElementById("loginPage").style.display="flex";
-    document.getElementById("app").style.display="none";
+
+    if(
+      String(user.password) !==
+      String(password)
+    ){
+
+      error.innerText =
+        "رمز عبور اشتباه است.";
+
+      return;
+
+    }
+
+
+    currentUser = {
+
+      id:
+        Number(user.id),
+
+      username:
+        user.username,
+
+      role:
+        user.role || "user"
+
+    };
+
+
+    document
+      .getElementById("loginPage")
+      .style.display="none";
+
+
+    document
+      .getElementById("app")
+      .style.display="block";
+
+
+    document
+      .getElementById("welcome")
+      .innerText =
+        "خوش آمدید " +
+        currentUser.username +
+        " 🌱";
+
+
+    document
+      .getElementById("homePage")
+      .style.display="block";
+
+
+    if(
+      currentUser.role === "admin"
+    ){
+
+      document
+        .getElementById("usersCard")
+        .style.display="block";
+
+    }else{
+
+      document
+        .getElementById("usersCard")
+        .style.display="none";
+
+    }
+
+
+    loadAll();
+
+  }catch(e){
+
+    console.error(e);
+
+    error.innerText =
+      "خطا در ورود: " +
+      e.message;
 
   }
-
-});
-
-
-/* ================= REGISTER ================= */
-
-function register(){
-
-  const username =
-    document.getElementById("username").value.trim();
-
-  const password =
-    document.getElementById("password").value.trim();
-
-  const message =
-    document.getElementById("loginMessage");
-
-
-  if(!username || !password){
-
-    message.className="error";
-    message.textContent="نام کاربری و رمز عبور را وارد کن.";
-    return;
-
-  }
-
-
-  if(username.length < 3){
-
-    message.className="error";
-    message.textContent="نام کاربری باید حداقل ۳ کاراکتر باشد.";
-    return;
-
-  }
-
-
-  if(users.some(u => u.username === username)){
-
-    message.className="error";
-    message.textContent="این نام کاربری قبلاً ثبت شده است.";
-    return;
-
-  }
-
-
-  users.push({
-    username:username,
-    password:password
-  });
-
-
-  localStorage.setItem(
-    "linco_users",
-    JSON.stringify(users)
-  );
-
-
-  currentUser=username;
-
-  localStorage.setItem(
-    "linco_current_user",
-    username
-  );
-
-
-  showApp();
 
 }
 
 
-/* ================= LOGIN ================= */
-
-function login(){
-
-  const username =
-    document.getElementById("username").value.trim();
-
-  const password =
-    document.getElementById("password").value.trim();
-
-  const message =
-    document.getElementById("loginMessage");
-
-
-  const user =
-    users.find(
-      u =>
-      u.username === username &&
-      u.password === password
-    );
-
-
-  if(!user){
-
-    message.className="error";
-
-    message.textContent=
-      "نام کاربری یا رمز عبور اشتباه است.";
-
-    return;
-
-  }
-
-
-  currentUser=username;
-
-  localStorage.setItem(
-    "linco_current_user",
-    username
-  );
-
-
-  showApp();
-
-}
-
-
-/* ================= APP ================= */
-
-function showApp(){
-
-  const loginPage =
-    document.getElementById("loginPage");
-
-  const app =
-    document.getElementById("app");
-
-  const welcomeName =
-    document.getElementById("welcomeName");
-
-
-  if(!loginPage || !app){
-    return;
-  }
-
-
-  loginPage.style.display="none";
-
-  app.style.display="block";
-
-
-  if(welcomeName){
-    welcomeName.textContent=currentUser;
-  }
-
-
-  showPage("homePage");
-
-}
-
-
-/* ================= LOGOUT ================= */
+/* =========================================
+   LOGOUT
+========================================= */
 
 function logout(){
 
-  localStorage.removeItem("linco_current_user");
-
-  currentUser="";
-
-  document.getElementById("app").style.display="none";
-
-  document.getElementById("loginPage").style.display="flex";
-
-}
+  currentUser=null;
 
 
-/* ================= PAGE ================= */
+  document
+    .getElementById("app")
+    .style.display="none";
 
-function showPage(pageId){
+
+  document
+    .getElementById("loginPage")
+    .style.display="flex";
+
+
+  document
+    .getElementById("username")
+    .value="";
+
+
+  document
+    .getElementById("password")
+    .value="";
+
+
+  document
+    .getElementById("loginError")
+    .innerText="";
+
 
   document
     .querySelectorAll(".page")
     .forEach(
-      p => p.style.display="none"
+      p=>{
+        p.style.display="none";
+      }
     );
 
 
+  document
+    .getElementById("homePage")
+    .style.display="block";
+
+}
+
+
+/* =========================================
+   ADMIN CHECK
+========================================= */
+
+function isAdmin(){
+
+  return currentUser &&
+    currentUser.role === "admin";
+
+}
+
+
+/* =========================================
+   ADMIN USERS PAGE
+========================================= */
+
+function openAdminUsers(){
+
+  if(!isAdmin()){
+
+    alert(
+      "این بخش فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  openPage("usersPage");
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+function openPage(id){
+
+  if(
+    id==="usersPage" &&
+    !isAdmin()
+  ){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("homePage")
+    .style.display="none";
+
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      p=>{
+        p.style.display="none";
+      }
+    );
+
+
+  if(id==="homePage"){
+
+    document
+      .getElementById("homePage")
+      .style.display="block";
+
+    return;
+
+  }
+
+
   const page =
-    document.getElementById(pageId);
+    document.getElementById(id);
 
 
   if(page){
@@ -1538,514 +2159,2942 @@ function showPage(pageId){
   }
 
 
-  if(pageId==="postPage"){
-    renderPosts();
-  }
-
-
-  if(pageId==="commentPage"){
-    renderComments();
-  }
-
-
-  if(pageId==="myPostPage"){
-    renderMyPosts();
-  }
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  loadAll();
 
 }
 
 
-/* ================= URL CHECK ================= */
+/* =========================================
+   ADD POST
+========================================= */
 
-function validInstagramLink(link){
+async function addPost(){
 
-  return /^https?:\/\/(www\.)?instagram\.com\//i
-    .test(link);
+  if(!currentUser){
 
-}
-
-
-/* ================= ADD POST ================= */
-
-function addPost(){
-
-  const input =
-    document.getElementById("postLink");
-
-  const message =
-    document.getElementById("postMessage");
-
-  const link =
-    input.value.trim();
-
-
-  if(!validInstagramLink(link)){
-
-    message.className="error";
-
-    message.textContent=
-      "لطفاً یک لینک معتبر اینستاگرام وارد کن.";
+    alert("ابتدا وارد شوید.");
 
     return;
 
   }
 
 
-  posts.unshift({
-
-    id:Date.now(),
-
-    link:link,
-
-    username:currentUser,
-
-    date:new Date().toLocaleString("fa-IR")
-
-  });
+  const title =
+    document
+      .getElementById("postTitle")
+      .value
+      .trim();
 
 
-  localStorage.setItem(
-    "linco_posts",
-    JSON.stringify(posts)
-  );
+  const url =
+    document
+      .getElementById("postUrl")
+      .value
+      .trim();
 
 
-  input.value="";
-
-  message.className="success";
-
-  message.textContent=
-    "لینک پست با موفقیت اضافه شد.";
-
-  renderPosts();
-
-}
+  const status =
+    document
+      .getElementById("postStatus");
 
 
-/* ================= RENDER POSTS ================= */
-
-function renderPosts(){
-
-  const list =
-    document.getElementById("postList");
+  status.innerText="";
 
 
-  if(!list){
-    return;
-  }
+  if(!title || !url){
 
-
-  if(posts.length===0){
-
-    list.innerHTML=
-      '<div class="empty">هنوز لینکی ثبت نشده است.</div>';
+    status.innerText =
+      "عنوان و لینک را وارد کن.";
 
     return;
 
   }
 
 
-  list.innerHTML=
-    posts.map(post => `
+  try{
 
-      <div class="item">
-
-        <div class="item-title">
-          📣 لینک پست
-        </div>
-
-        <a
-          href="${escapeHtml(post.link)}"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          ${escapeHtml(post.link)}
-
-        </a>
-
-        <div class="small">
-          ثبت‌شده توسط: ${escapeHtml(post.username)}
-        </div>
-
-        ${
-          post.username===currentUser
-          ?
-          `<button
-             class="delete-button"
-             onclick="deletePost(${post.id})">
-             حذف لینک من
-           </button>`
-          :
-          ""
-        }
-
-      </div>
-
-    `).join("");
-
-}
+    const existing =
+      await db(
+        "posts?select=id" +
+        "&instagram_url=eq." +
+        encodeURIComponent(url) +
+        "&limit=1"
+      );
 
 
-/* ================= DELETE POST ================= */
+    if(existing.length>0){
 
-function deletePost(id){
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
 
-  posts =
-    posts.filter(
-      post => post.id!==id ||
-      post.username!==currentUser
+      return;
+
+    }
+
+
+    await db(
+      "posts",
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify({
+
+            title:title,
+
+            instagram_url:url,
+
+            user_id:
+              currentUser.id
+
+          })
+
+      }
     );
 
 
-  localStorage.setItem(
-    "linco_posts",
-    JSON.stringify(posts)
-  );
+    document
+      .getElementById("postTitle")
+      .value="";
 
 
-  renderPosts();
+    document
+      .getElementById("postUrl")
+      .value="";
+
+
+    status.innerText =
+      "پست با موفقیت ثبت شد ✅";
+
+
+    loadPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+
+    if(
+      e.message.includes("23505") ||
+      e.message.includes("duplicate") ||
+      e.message.includes("unique")
+    ){
+
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
+
+    }else{
+
+      status.innerText =
+        "خطا: " +
+        e.message;
+
+    }
+
+  }
 
 }
 
 
-/* ================= ADD COMMENT ================= */
+/* =========================================
+   LOAD POSTS
+========================================= */
 
-function addComment(){
+async function loadPosts(){
 
-  const input =
-    document.getElementById("commentLink");
-
-  const message =
-    document.getElementById("commentMessage");
-
-  const link =
-    input.value.trim();
+  const box =
+    document.getElementById(
+      "postsList"
+    );
 
 
-  if(!validInstagramLink(link)){
-
-    message.className="error";
-
-    message.textContent=
-      "لطفاً لینک مستقیم کامنت اینستاگرام را وارد کن.";
-
+  if(!box || !currentUser){
     return;
-
   }
 
 
-  comments.unshift({
+  try{
 
-    id:Date.now(),
-
-    link:link,
-
-    username:currentUser,
-
-    date:new Date().toLocaleString("fa-IR")
-
-  });
+    const posts =
+      await db(
+        "posts?select=id,title,instagram_url,user_id,created_at" +
+        "&order=id.asc"
+      );
 
 
-  localStorage.setItem(
-    "linco_comments",
-    JSON.stringify(comments)
-  );
+    const views =
+      await db(
+        "post_views?select=post_id" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
 
 
-  input.value="";
+    const viewedIds =
+      views.map(
+        v=>Number(v.post_id)
+      );
 
-  message.className="success";
 
-  message.textContent=
-    "لینک کامنت اضافه شد.";
+    const unseen =
+      posts.filter(
+        post =>
+          !viewedIds.includes(
+            Number(post.id)
+          )
+      );
 
-  renderComments();
+
+    box.innerHTML="";
+
+
+    if(unseen.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'پست دیده‌نشده‌ای وجود ندارد. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    unseen.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              post.instagram_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="viewPost(
+              ${Number(post.id)},
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            🔗 مشاهده پست
+
+          </a>
+
+
+          <button
+            onclick="copyLink(
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            کپی لینک
+
+          </button>
+
+
+          ${
+            Number(post.user_id) ===
+            Number(currentUser.id)
+
+            ?
+
+            `
+
+            <button
+              class="delete-button"
+              onclick="deletePost(
+                ${Number(post.id)}
+              )"
+            >
+
+              🗑️ حذف پست من
+
+            </button>
+
+            `
+
+            :
+
+            ""
+
+          }
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
 
 }
 
 
-/* ================= RENDER COMMENTS ================= */
+/* =========================================
+   VIEW POST
+========================================= */
 
-function renderComments(){
+async function viewPost(
+  id,
+  url
+){
 
-  const list =
-    document.getElementById("commentList");
-
-
-  if(!list){
+  if(!currentUser){
     return;
   }
 
 
-  if(comments.length===0){
+  try{
 
-    list.innerHTML=
-      '<div class="empty">هنوز کامنتی ثبت نشده است.</div>';
+    await db(
+      "post_views",
+      {
 
-    return;
+        method:"POST",
+
+        headers:{
+
+          "Prefer":
+            "resolution=ignore-duplicates,return=minimal"
+
+        },
+
+        body:
+          JSON.stringify({
+
+            post_id:
+              Number(id),
+
+            user_id:
+              Number(
+                currentUser.id
+              ),
+
+            viewed_at:
+              new Date().toISOString()
+
+          })
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(
+      "خطا در ثبت مشاهده پست:",
+      e
+    );
 
   }
 
 
-  list.innerHTML=
-    comments.map(comment => `
+  setTimeout(
+    ()=>{
 
-      <div class="item">
+      loadPosts();
+
+      loadSeenPosts();
+
+    },
+    300
+  );
+
+}
+
+
+/* =========================================
+   SEEN POSTS
+========================================= */
+
+async function loadSeenPosts(){
+
+  const box =
+    document.getElementById(
+      "seenPostsList"
+    );
+
+
+  if(!box || !currentUser){
+    return;
+  }
+
+
+  try{
+
+    const views =
+      await db(
+        "post_views?select=post_id,viewed_at" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&order=viewed_at.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(views.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی ندیده‌ای. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    let count=0;
+
+
+    for(
+      let i=0;
+      i<views.length;
+      i++
+    ){
+
+      const postId =
+        Number(
+          views[i].post_id
+        );
+
+
+      const posts =
+        await db(
+          "posts?select=id,title,instagram_url,user_id" +
+          "&id=eq." +
+          postId +
+          "&limit=1"
+        );
+
+
+      if(posts.length===0){
+        continue;
+      }
+
+
+      const post =
+        posts[0];
+
+
+      count++;
+
+
+      const div =
+        document.createElement("div");
+
+
+      div.className="item";
+
+
+      div.innerHTML=`
 
         <div class="item-title">
-          💬 لینک کامنت
+
+          ${escapeHTML(
+            post.title ||
+            "پست "+count
+          )}
+
         </div>
 
-        <a
-          href="${escapeHtml(comment.link)}"
-          target="_blank"
-          rel="noopener noreferrer">
 
-          ${escapeHtml(comment.link)}
+        <a
+          href="${escapeHTML(
+            post.instagram_url
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          🔗 مشاهده دوباره
 
         </a>
 
-        <div class="small">
-          ثبت‌شده توسط:
-          ${escapeHtml(comment.username)}
-        </div>
+      `;
 
-        <button
-          onclick="openComment(${JSON.stringify(comment.link)})">
 
-          🔗 مشاهده کامنت
+      box.appendChild(div);
 
-        </button>
+    }
 
-        ${
-          comment.username===currentUser
-          ?
-          `<button
-             class="delete-button"
-             onclick="deleteComment(${comment.id})">
-             حذف لینک من
-           </button>`
-          :
-          ""
-        }
 
-      </div>
+    if(count===0){
 
-    `).join("");
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی ندیده‌ای. 🌱' +
+        '</div>';
+
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
 
 }
 
 
-/* ================= OPEN COMMENT ================= */
+/* =========================================
+   DELETE POST
+========================================= */
 
-function openComment(link){
+async function deletePost(
+  postId
+){
 
-  if(!link){
+  if(!currentUser){
     return;
   }
+
+
+  const confirmed =
+    confirm(
+      "مطمئنی می‌خواهی این پست را حذف کنی؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "posts?select=id,user_id" +
+        "&id=eq." +
+        Number(postId) +
+        "&limit=1"
+      );
+
+
+    if(posts.length===0){
+
+      alert(
+        "پست پیدا نشد."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      Number(posts[0].user_id) !==
+      Number(currentUser.id)
+    ){
+
+      alert(
+        "فقط کسی که پست را ثبت کرده می‌تواند آن را حذف کند."
+      );
+
+      return;
+
+    }
+
+
+    await db(
+      "posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "پست حذف شد ✅"
+    );
+
+
+    loadPosts();
+
+    loadSeenPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   ADD MY COMMENT
+========================================= */
+
+async function addMyComment(){
+
+  if(!currentUser){
+
+    alert("ابتدا وارد شوید.");
+
+    return;
+
+  }
+
+
+  const url =
+    document
+      .getElementById(
+        "myCommentUrl"
+      )
+      .value
+      .trim();
+
+
+  const status =
+    document
+      .getElementById(
+        "myCommentStatus"
+      );
+
+
+  status.innerText="";
+
+
+  if(!url){
+
+    status.innerText =
+      "لینک کامنت را وارد کن.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const existing =
+      await db(
+        "comments?select=id" +
+        "&instagram_comment_url=eq." +
+        encodeURIComponent(url) +
+        "&limit=1"
+      );
+
+
+    if(existing.length>0){
+
+      status.innerText =
+        "این لینک کامنت قبلاً ثبت شده است. 🚫";
+
+      return;
+
+    }
+
+
+    await db(
+      "comments",
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify({
+
+            user_id:
+              currentUser.id,
+
+            instagram_comment_url:
+              url
+
+          })
+
+      }
+    );
+
+
+    document
+      .getElementById(
+        "myCommentUrl"
+      )
+      .value="";
+
+
+    status.innerText =
+      "لینک کامنت ثبت شد ✅";
+
+
+    loadMyComments();
+
+    loadComments();
+
+  }catch(e){
+
+    console.error(e);
+
+
+    if(
+      e.message.includes("23505") ||
+      e.message.includes("duplicate") ||
+      e.message.includes("unique")
+    ){
+
+      status.innerText =
+        "این لینک کامنت قبلاً ثبت شده است. 🚫";
+
+    }else{
+
+      status.innerText =
+        "خطا: " +
+        e.message;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================
+   MY COMMENTS
+========================================= */
+
+async function loadMyComments(){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "myCommentsList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const comments =
+      await db(
+        "comments?select=id,instagram_comment_url" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&order=id.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(comments.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز کامنتی ثبت نکرده‌ای.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    comments.forEach(
+      (comment,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            کامنت ${index+1}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              comment.instagram_comment_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            🔗 مشاهده کامنت
+
+          </a>
+
+
+          <button
+            class="delete-button"
+            onclick="deleteMyComment(
+              ${Number(comment.id)}
+            )"
+          >
+
+            🗑️ حذف کامنت
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   DELETE MY COMMENT
+========================================= */
+
+async function deleteMyComment(
+  commentId
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  const confirmed =
+    confirm(
+      "مطمئنی می‌خواهی این کامنت را حذف کنی؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    const comments =
+      await db(
+        "comments?select=id,user_id" +
+        "&id=eq." +
+        Number(commentId) +
+        "&limit=1"
+      );
+
+
+    if(comments.length===0){
+
+      alert(
+        "کامنت پیدا نشد."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      Number(comments[0].user_id) !==
+      Number(currentUser.id)
+    ){
+
+      alert(
+        "فقط صاحب کامنت می‌تواند آن را حذف کند."
+      );
+
+      return;
+
+    }
+
+
+    await db(
+      "comments?id=eq." +
+      Number(commentId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "کامنت حذف شد ✅"
+    );
+
+
+    loadMyComments();
+
+    loadComments();
+
+    loadSeen();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف کامنت انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   LOAD COMMENTS
+========================================= */
+
+async function loadComments(){
+
+  const box =
+    document.getElementById(
+      "commentsList"
+    );
+
+
+  if(
+    !box ||
+    !currentUser
+  ){
+
+    return;
+
+  }
+
+
+  try{
+
+    const comments =
+      await db(
+        "comments?select=id,instagram_comment_url,user_id" +
+        "&order=id.asc"
+      );
+
+
+    const views =
+      await db(
+        "comment_views?select=comment_id" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
+
+
+    const viewed =
+      views.map(
+        v=>Number(v.comment_id)
+      );
+
+
+    const unseen =
+      comments.filter(
+        c=>{
+
+          const own =
+            Number(c.user_id) ===
+            Number(currentUser.id);
+
+
+          const already =
+            viewed.includes(
+              Number(c.id)
+            );
+
+
+          return !own && !already;
+
+        }
+      );
+
+
+    box.innerHTML="";
+
+
+    if(unseen.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'کامنت دیده‌نشده‌ای وجود ندارد. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    unseen.forEach(
+      (comment,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            کامنت ${index+1}
+
+          </div>
+
+
+          <button
+            onclick="viewComment(
+              ${Number(comment.id)},
+              '${escapeJS(
+                comment.instagram_comment_url
+              )}'
+            )"
+          >
+
+            🔗 مشاهده کامنت
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   VIEW COMMENT
+========================================= */
+
+async function viewComment(
+  id,
+  url
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "comment_views",
+      {
+
+        method:"POST",
+
+        headers:{
+
+          "Prefer":
+            "resolution=ignore-duplicates,return=minimal"
+
+        },
+
+        body:
+          JSON.stringify({
+
+            comment_id:
+              Number(id),
+
+            user_id:
+              Number(
+                currentUser.id
+              ),
+
+            viewed_at:
+              new Date().toISOString()
+
+          })
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.log(
+      "خطا در ثبت مشاهده:",
+      e
+    );
+
+  }
+
 
   window.open(
-    link,
-    "_blank",
-    "noopener,noreferrer"
+    url,
+    "_blank"
+  );
+
+
+  setTimeout(
+    ()=>{
+
+      loadComments();
+
+      loadSeen();
+
+    },
+    300
   );
 
 }
 
 
-/* ================= DELETE COMMENT ================= */
+/* =========================================
+   SEEN COMMENTS
+========================================= */
 
-function deleteComment(id){
+async function loadSeen(){
 
-  comments =
-    comments.filter(
-      comment => comment.id!==id ||
-      comment.username!==currentUser
+  const box =
+    document.getElementById(
+      "seenList"
     );
 
 
-  localStorage.setItem(
-    "linco_comments",
-    JSON.stringify(comments)
-  );
-
-
-  renderComments();
-
-}
-
-
-/* ================= ADD MY POST ================= */
-
-function addMyPost(){
-
-  const input =
-    document.getElementById("myPostLink");
-
-  const message =
-    document.getElementById("myPostMessage");
-
-  const link =
-    input.value.trim();
-
-
-  if(!validInstagramLink(link)){
-
-    message.className="error";
-
-    message.textContent=
-      "لطفاً یک لینک معتبر اینستاگرام وارد کن.";
+  if(
+    !box ||
+    !currentUser
+  ){
 
     return;
 
   }
 
 
-  myPosts.unshift({
+  try{
 
-    id:Date.now(),
-
-    link:link,
-
-    username:currentUser,
-
-    date:new Date().toLocaleString("fa-IR")
-
-  });
-
-
-  localStorage.setItem(
-    "linco_my_posts",
-    JSON.stringify(myPosts)
-  );
+    const views =
+      await db(
+        "comment_views?select=comment_id,viewed_at" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&order=viewed_at.desc"
+      );
 
 
-  input.value="";
-
-  message.className="success";
-
-  message.textContent=
-    "لینک پست پیجت برای همه کاربران ثبت شد.";
-
-  renderMyPosts();
-
-}
+    box.innerHTML="";
 
 
-/* ================= RENDER MY POSTS ================= */
+    if(views.length===0){
 
-function renderMyPosts(){
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز کامنتی ندیده‌ای.' +
+        '</div>';
 
-  const list =
-    document.getElementById("myPostList");
+      return;
 
-
-  if(!list){
-    return;
-  }
-
-
-  if(myPosts.length===0){
-
-    list.innerHTML=
-      '<div class="empty">هنوز پستی در این بخش ثبت نشده است.</div>';
-
-    return;
-
-  }
+    }
 
 
-  list.innerHTML=
-    myPosts.map(post => `
+    let shownCount=0;
 
-      <div class="item my-post-item">
 
-        <span class="my-post-badge">
-          ⭐ پست پیج کاربر
-        </span>
+    for(
+      let i=0;
+      i<views.length;
+      i++
+    ){
+
+      const id =
+        Number(
+          views[i].comment_id
+        );
+
+
+      const comments =
+        await db(
+          "comments?select=id,instagram_comment_url" +
+          "&id=eq." +
+          id +
+          "&limit=1"
+        );
+
+
+      if(
+        comments.length===0
+      ){
+
+        continue;
+
+      }
+
+
+      const comment =
+        comments[0];
+
+
+      shownCount++;
+
+
+      const div =
+        document.createElement("div");
+
+
+      div.className="item";
+
+
+      div.innerHTML=`
 
         <div class="item-title">
 
-          پست منتشرشده توسط:
-          ${escapeHtml(post.username)}
+          کامنت ${shownCount}
 
         </div>
 
-        <a
-          href="${escapeHtml(post.link)}"
-          target="_blank"
-          rel="noopener noreferrer">
 
-          ${escapeHtml(post.link)}
+        <a
+          href="${escapeHTML(
+            comment.instagram_comment_url
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          🔗 مشاهده دوباره
 
         </a>
 
-        <div class="small">
-          ${escapeHtml(post.date)}
-        </div>
+      `;
 
-        ${
-          post.username===currentUser
-          ?
-          `<button
-             class="delete-button"
-             onclick="deleteMyPost(${post.id})">
-             حذف لینک من
-           </button>`
-          :
-          ""
-        }
 
-      </div>
+      box.appendChild(div);
 
-    `).join("");
+    }
+
+
+    if(shownCount===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز کامنتی ندیده‌ای.' +
+        '</div>';
+
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
 
 }
 
 
-/* ================= DELETE MY POST ================= */
+/* =========================================
+   OWN PAGE POSTS
+========================================= */
 
-function deleteMyPost(id){
 
-  myPosts =
-    myPosts.filter(
-      post => post.id!==id ||
-      post.username!==currentUser
+/* ADD OWN POST */
+
+async function addOwnPost(){
+
+  if(!currentUser){
+
+    alert("ابتدا وارد شوید.");
+
+    return;
+
+  }
+
+
+  const title =
+    document
+      .getElementById(
+        "ownPostTitle"
+      )
+      .value
+      .trim();
+
+
+  const url =
+    document
+      .getElementById(
+        "ownPostUrl"
+      )
+      .value
+      .trim();
+
+
+  const status =
+    document
+      .getElementById(
+        "ownPostStatus"
+      );
+
+
+  status.innerText="";
+
+
+  if(!title || !url){
+
+    status.innerText =
+      "عنوان و لینک پست را وارد کن.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const existing =
+      await db(
+        "own_page_posts?select=id" +
+        "&instagram_url=eq." +
+        encodeURIComponent(url) +
+        "&limit=1"
+      );
+
+
+    if(existing.length>0){
+
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
+
+      return;
+
+    }
+
+
+    await db(
+      "own_page_posts",
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify({
+
+            user_id:
+              currentUser.id,
+
+            title:
+              title,
+
+            instagram_url:
+              url
+
+          })
+
+      }
     );
 
 
-  localStorage.setItem(
-    "linco_my_posts",
-    JSON.stringify(myPosts)
+    document
+      .getElementById(
+        "ownPostTitle"
+      )
+      .value="";
+
+
+    document
+      .getElementById(
+        "ownPostUrl"
+      )
+      .value="";
+
+
+    status.innerText =
+      "لینک پست با موفقیت ثبت شد ✅";
+
+
+    loadOwnPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+
+    if(
+      e.message.includes("23505") ||
+      e.message.includes("duplicate") ||
+      e.message.includes("unique")
+    ){
+
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
+
+    }else{
+
+      status.innerText =
+        "خطا: " +
+        e.message;
+
+    }
+
+  }
+
+}
+
+
+/* LOAD OWN POSTS */
+
+async function loadOwnPosts(){
+
+  const box =
+    document.getElementById(
+      "ownPostsList"
+    );
+
+
+  if(
+    !box ||
+    !currentUser
+  ){
+
+    return;
+
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,user_id,title,instagram_url,created_at" +
+        "&order=id.desc"
+      );
+
+
+    const views =
+      await db(
+        "own_page_post_views" +
+        "?select=post_id" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
+
+
+    const viewedIds =
+      views.map(
+        v=>Number(v.post_id)
+      );
+
+
+    const unseen =
+      posts.filter(
+        post =>
+          !viewedIds.includes(
+            Number(post.id)
+          )
+      );
+
+
+    box.innerHTML="";
+
+
+    if(unseen.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'پست جدیدی برای نمایش وجود ندارد. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    unseen.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className =
+          "item own-post-item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <button
+            onclick="viewOwnPost(
+              ${Number(post.id)},
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            📣 مشاهده پست
+
+          </button>
+
+
+          <button
+            onclick="copyLink(
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            کپی لینک
+
+          </button>
+
+
+          ${
+            Number(post.user_id) ===
+            Number(currentUser.id)
+
+            ?
+
+            `
+
+            <button
+              class="delete-button"
+              onclick="deleteOwnPost(
+                ${Number(post.id)}
+              )"
+            >
+
+              🗑️ حذف پست من
+
+            </button>
+
+            `
+
+            :
+
+            ""
+
+          }
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* VIEW OWN POST */
+
+async function viewOwnPost(
+  id,
+  url
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "own_page_post_views",
+      {
+
+        method:"POST",
+
+        headers:{
+
+          "Prefer":
+            "resolution=ignore-duplicates,return=minimal"
+
+        },
+
+        body:
+          JSON.stringify({
+
+            post_id:
+              Number(id),
+
+            user_id:
+              Number(
+                currentUser.id
+              ),
+
+            viewed_at:
+              new Date().toISOString()
+
+          })
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(
+      "خطا در ثبت مشاهده پست:",
+      e
+    );
+
+  }
+
+
+  window.open(
+    url,
+    "_blank"
   );
 
 
-  renderMyPosts();
+  setTimeout(
+    ()=>{
+
+      loadOwnPosts();
+
+      loadSeenOwnPosts();
+
+    },
+    300
+  );
 
 }
 
 
-/* ================= SECURITY ================= */
+/* SEEN OWN POSTS */
 
-function escapeHtml(value){
+async function loadSeenOwnPosts(){
 
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  const box =
+    document.getElementById(
+      "seenOwnPostsList"
+    );
+
+
+  if(
+    !box ||
+    !currentUser
+  ){
+
+    return;
+
+  }
+
+
+  try{
+
+    const views =
+      await db(
+        "own_page_post_views" +
+        "?select=post_id,viewed_at" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&order=viewed_at.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(views.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی را ندیده‌ای. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    let count=0;
+
+
+    for(
+      let i=0;
+      i<views.length;
+      i++
+    ){
+
+      const postId =
+        Number(
+          views[i].post_id
+        );
+
+
+      const posts =
+        await db(
+          "own_page_posts" +
+          "?select=id,title,instagram_url,user_id" +
+          "&id=eq." +
+          postId +
+          "&limit=1"
+        );
+
+
+      if(
+        posts.length===0
+      ){
+
+        continue;
+
+      }
+
+
+      const post =
+        posts[0];
+
+
+      count++;
+
+
+      const div =
+        document.createElement("div");
+
+
+      div.className =
+        "item own-post-item";
+
+
+      div.innerHTML=`
+
+        <div class="item-title">
+
+          ${escapeHTML(
+            post.title ||
+            "پست "+count
+          )}
+
+        </div>
+
+
+        <a
+          href="${escapeHTML(
+            post.instagram_url
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          📣 مشاهده دوباره
+
+        </a>
+
+      `;
+
+
+      box.appendChild(div);
+
+    }
+
+
+    if(count===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی را ندیده‌ای. 🌱' +
+        '</div>';
+
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
 
 }
+
+
+/* DELETE OWN POST */
+
+async function deleteOwnPost(
+  postId
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  const confirmed =
+    confirm(
+      "مطمئنی می‌خواهی این پست را حذف کنی؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,user_id" +
+        "&id=eq." +
+        Number(postId) +
+        "&limit=1"
+      );
+
+
+    if(posts.length===0){
+
+      alert(
+        "پست پیدا نشد."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      Number(posts[0].user_id) !==
+      Number(currentUser.id)
+    ){
+
+      alert(
+        "فقط صاحب این پست می‌تواند آن را حذف کند."
+      );
+
+      return;
+
+    }
+
+
+    await db(
+      "own_page_posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "پست حذف شد ✅"
+    );
+
+
+    loadOwnPosts();
+
+    loadSeenOwnPosts();
+
+
+    if(isAdmin()){
+      loadAdminOwnPosts();
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   CREATE USER - ADMIN
+========================================= */
+
+async function createUser(){
+
+  if(!isAdmin()){
+
+    alert(
+      "فقط ادمین می‌تواند کاربر بسازد."
+    );
+
+    return;
+
+  }
+
+
+  const username =
+    document
+      .getElementById(
+        "newUsername"
+      )
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById(
+        "newPassword"
+      )
+      .value;
+
+
+  const role =
+    document
+      .getElementById(
+        "newRole"
+      )
+      .value;
+
+
+  const status =
+    document
+      .getElementById(
+        "createUserStatus"
+      );
+
+
+  status.innerText="";
+
+
+  if(
+    !username ||
+    !password
+  ){
+
+    status.innerText =
+      "نام کاربری و رمز عبور را وارد کن.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const existing =
+      await db(
+        "users?select=id" +
+        "&username=eq." +
+        encodeURIComponent(username) +
+        "&limit=1"
+      );
+
+
+    if(existing.length>0){
+
+      status.innerText =
+        "این نام کاربری قبلاً وجود دارد.";
+
+      return;
+
+    }
+
+
+    await db(
+      "users",
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify({
+
+            username:
+              username,
+
+            password:
+              password,
+
+            role:
+              role
+
+          })
+
+      }
+    );
+
+
+    document
+      .getElementById(
+        "newUsername"
+      )
+      .value="";
+
+
+    document
+      .getElementById(
+        "newPassword"
+      )
+      .value="";
+
+
+    status.innerText =
+      "کاربر با موفقیت ساخته شد ✅";
+
+
+    loadUsers();
+
+  }catch(e){
+
+    console.error(e);
+
+    status.innerText =
+      "ساخت کاربر انجام نشد: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   LOAD USERS
+========================================= */
+
+async function loadUsers(){
+
+  if(!isAdmin()){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "usersList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const users =
+      await db(
+        "users?select=id,username,role" +
+        "&order=username.asc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(users.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'کاربری وجود ندارد.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    users.forEach(
+      user=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="user";
+
+
+        const roleHTML =
+          user.role === "admin"
+
+          ?
+
+          `
+
+          <div class="admin-label">
+            👑 ادمین
+          </div>
+
+          `
+
+          :
+
+          `
+
+          <div class="user-label">
+            👤 کاربر
+          </div>
+
+          `;
+
+
+        div.innerHTML=`
+
+          <strong>
+
+            ${escapeHTML(
+              user.username
+            )}
+
+          </strong>
+
+
+          <div class="small">
+
+            شناسه کاربر:
+            ${Number(user.id)}
+
+          </div>
+
+
+          ${roleHTML}
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN POSTS
+========================================= */
+
+async function loadAdminPosts(){
+
+  if(!isAdmin()){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "adminPostsList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "posts?select=id,title,instagram_url,user_id" +
+        "&order=id.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(posts.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'پستی وجود ندارد.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    posts.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              post.instagram_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            🔗 مشاهده پست
+
+          </a>
+
+
+          <button
+            class="delete-button admin-delete"
+            onclick="adminDeletePost(
+              ${Number(post.id)}
+            )"
+          >
+
+            🗑️ حذف پست توسط ادمین
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN DELETE POST
+========================================= */
+
+async function adminDeletePost(
+  postId
+){
+
+  if(!isAdmin()){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "ادمین: این پست حذف شود؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "پست حذف شد ✅"
+    );
+
+
+    loadPosts();
+
+    loadSeenPosts();
+
+    loadAdminPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN COMMENTS
+========================================= */
+
+async function loadAdminComments(){
+
+  if(!isAdmin()){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "adminCommentsList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const comments =
+      await db(
+        "comments?select=id,instagram_comment_url,user_id" +
+        "&order=id.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(comments.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'کامنتی وجود ندارد.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    comments.forEach(
+      (comment,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            کامنت ${index+1}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              comment.instagram_comment_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            🔗 مشاهده کامنت
+
+          </a>
+
+
+          <button
+            class="delete-button admin-delete"
+            onclick="adminDeleteComment(
+              ${Number(comment.id)}
+            )"
+          >
+
+            🗑️ حذف کامنت توسط ادمین
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN DELETE COMMENT
+========================================= */
+
+async function adminDeleteComment(
+  commentId
+){
+
+  if(!isAdmin()){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "ادمین: این کامنت حذف شود؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "comments?id=eq." +
+      Number(commentId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "کامنت حذف شد ✅"
+    );
+
+
+    loadMyComments();
+
+    loadComments();
+
+    loadSeen();
+
+    loadAdminComments();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف کامنت انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN OWN PAGE POSTS
+========================================= */
+
+async function loadAdminOwnPosts(){
+
+  if(!isAdmin()){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "adminOwnPostsList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,title,instagram_url,user_id" +
+        "&order=id.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(posts.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'لینک پستی وجود ندارد.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    posts.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className =
+          "item own-post-item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              post.instagram_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            📣 مشاهده پست
+
+          </a>
+
+
+          <button
+            class="delete-button admin-delete"
+            onclick="adminDeleteOwnPost(
+              ${Number(post.id)}
+            )"
+          >
+
+            🗑️ حذف توسط ادمین
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN DELETE OWN POST
+========================================= */
+
+async function adminDeleteOwnPost(
+  postId
+){
+
+  if(!isAdmin()){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "ادمین: این لینک پست حذف شود؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "own_page_posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "لینک پست حذف شد ✅"
+    );
+
+
+    loadOwnPosts();
+
+    loadSeenOwnPosts();
+
+    loadAdminOwnPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف لینک پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyLink(link){
+
+  if(
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ){
+
+    navigator.clipboard
+      .writeText(link)
+      .then(
+        ()=>{
+
+          alert(
+            "لینک کپی شد ✅"
+          );
+
+        }
+      )
+      .catch(
+        ()=>{
+
+          alert(
+            "کپی لینک انجام نشد."
+          );
+
+        }
+      );
+
+  }else{
+
+    alert(link);
+
+  }
+
+}
+
+
+/* =========================================
+   SECURITY HELPERS
+========================================= */
+
+function escapeHTML(text){
+
+  return String(text)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+function escapeJS(text){
+
+  return String(text)
+
+    .replaceAll(
+      "\\",
+      "\\\\"
+    )
+
+    .replaceAll(
+      "'",
+      "\\'"
+    )
+
+    .replaceAll(
+      "\n",
+      "\\n"
+    )
+
+    .replaceAll(
+      "\r",
+      "\\r"
+    );
+
+}
+
+
+/* =========================================
+   LOAD ALL
+========================================= */
+
+function loadAll(){
+
+  loadPosts();
+
+  loadSeenPosts();
+
+  loadMyComments();
+
+  loadComments();
+
+  loadSeen();
+
+  loadOwnPosts();
+
+  loadSeenOwnPosts();
+
+
+  if(isAdmin()){
+
+    loadUsers();
+
+    loadAdminPosts();
+
+    loadAdminComments();
+
+    loadAdminOwnPosts();
+
+  }
+
+}
+
+
+/* =========================================
+   ENTER KEY LOGIN
+========================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Enter" &&
+      document
+        .getElementById(
+          "loginPage"
+        )
+        .style.display !== "none"
+    ){
+
+      login();
+
+    }
+
+  }
+);
+
 
 </script>
 
 </body>
+
 </html>
