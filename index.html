@@ -10,7 +10,7 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>Linko</title>
+<title>لینکو</title>
 
 <style>
 
@@ -22,21 +22,20 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
+  font-family:Tahoma,Arial,sans-serif;
 }
 
 body{
   min-height:100vh;
-  color:#1d2433;
+
+  color:#302b3d;
+
   background:
     radial-gradient(
       circle at top right,
-      #eef2ff 0,
-      #f7f8fc 38%,
-      #f4f6fa 100%
+      #eee7ff 0,
+      #faf7ff 38%,
+      #f7f8fc 100%
     );
 }
 
@@ -44,41 +43,46 @@ button{
   border:0;
   cursor:pointer;
   font-family:inherit;
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease,
-    opacity .2s ease,
-    background .2s ease;
+  transition:.2s ease;
 }
 
 button:hover{
-  transform:translateY(-1px);
+  transform:translateY(-2px);
 }
 
 input,
 select{
   width:100%;
+
   padding:14px 16px;
-  border:1px solid #e2e6ef;
-  border-radius:14px;
+
+  border:1px solid #e6dff2;
+
+  border-radius:15px;
+
   font-size:15px;
+
   outline:none;
+
   background:#fff;
-  color:#222;
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
+
+  color:#302b3d;
+
+  transition:.2s ease;
 }
 
 input:focus,
 select:focus{
-  border-color:#6c63ff;
+
+  border-color:#a78bfa;
+
   box-shadow:
-    0 0 0 4px rgba(108,99,255,.10);
+    0 0 0 4px
+    rgba(167,139,250,.13);
 }
 
 ::placeholder{
-  color:#a0a6b2;
+  color:#aaa3b5;
 }
 
 
@@ -87,86 +91,145 @@ select:focus{
 ========================================= */
 
 .login{
+
   min-height:100vh;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
   padding:24px;
+
   position:relative;
+
   overflow:hidden;
 }
 
 .login::before,
 .login::after{
+
   content:"";
+
   position:absolute;
+
   border-radius:50%;
-  filter:blur(2px);
-  opacity:.7;
+
+  filter:blur(3px);
+
   z-index:0;
 }
 
 .login::before{
-  width:320px;
-  height:320px;
-  background:#e6e3ff;
-  top:-120px;
-  right:-100px;
+
+  width:360px;
+  height:360px;
+
+  background:#e9ddff;
+
+  top:-140px;
+  right:-120px;
+
+  opacity:.8;
 }
 
 .login::after{
-  width:280px;
-  height:280px;
-  background:#dff8f0;
-  bottom:-130px;
-  left:-100px;
+
+  width:330px;
+  height:330px;
+
+  background:#ffe2ef;
+
+  bottom:-150px;
+  left:-120px;
+
+  opacity:.75;
 }
 
 .login-box{
+
   position:relative;
+
   z-index:1;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(16px);
+
   width:100%;
+
   max-width:410px;
-  padding:42px 30px 32px;
-  border-radius:28px;
+
+  padding:44px 30px 34px;
+
+  border-radius:30px;
+
   text-align:center;
+
+  background:
+    rgba(255,255,255,.88);
+
+  backdrop-filter:blur(18px);
+
   box-shadow:
-    0 25px 70px rgba(35,42,70,.13),
-    0 4px 15px rgba(35,42,70,.05);
-  border:1px solid rgba(255,255,255,.8);
+    0 25px 70px
+    rgba(83,63,120,.15),
+
+    0 5px 20px
+    rgba(83,63,120,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.9);
 }
 
+
+/* LOGO */
+
 .logo{
-  width:76px;
-  height:76px;
-  margin:0 auto 16px;
+
+  width:78px;
+  height:78px;
+
+  margin:0 auto 17px;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
-  border-radius:23px;
+
+  border-radius:24px;
+
   background:
     linear-gradient(
       135deg,
-      #6c63ff,
-      #8c7cff
+      #8b5cf6,
+      #c084fc
     );
-  color:white;
-  font-size:26px;
+
+  color:#fff;
+
+  font-size:27px;
+
   font-weight:bold;
+
   box-shadow:
-    0 12px 28px rgba(108,99,255,.28);
+    0 14px 30px
+    rgba(139,92,246,.28);
 }
 
 .login-box h1{
+
   font-size:27px;
+
   margin-bottom:8px;
+
+  color:#30283e;
 }
 
 .login-box p{
-  color:#8a91a0;
+
+  color:#938b9e;
+
   margin-bottom:27px;
+
   font-size:14px;
 }
 
@@ -174,45 +237,72 @@ select:focus{
   margin-bottom:12px;
 }
 
+
+/* =========================================
+   BUTTONS
+========================================= */
+
 .primary{
+
+  width:100%;
+
+  padding:14px;
+
+  border-radius:15px;
+
   background:
     linear-gradient(
       135deg,
-      #5b54e8,
-      #7c70ff
+      #8b5cf6,
+      #b06cf7
     );
-  color:white;
-  width:100%;
-  padding:14px;
-  border-radius:14px;
+
+  color:#fff;
+
   font-size:16px;
+
   font-weight:bold;
+
   box-shadow:
-    0 10px 24px rgba(108,99,255,.22);
+    0 10px 25px
+    rgba(139,92,246,.23);
 }
 
 .primary:hover{
+
   box-shadow:
-    0 14px 28px rgba(108,99,255,.28);
+    0 15px 32px
+    rgba(139,92,246,.30);
 }
 
 .secondary{
-  background:#eef0f5;
-  color:#222;
+
+  background:#f1edf7;
+
+  color:#4e465a;
+
   padding:10px 14px;
+
   border-radius:11px;
 }
 
 .error{
-  color:#d64545;
+
+  color:#d94b70;
+
   margin-top:13px;
+
   word-break:break-word;
+
   font-size:14px;
 }
 
 .success{
-  color:#15945a;
+
+  color:#15966a;
+
   margin-top:13px;
+
   font-size:14px;
 }
 
@@ -222,53 +312,82 @@ select:focus{
 ========================================= */
 
 .app{
+
   display:none;
+
   min-height:100vh;
 }
 
 .header{
+
   position:sticky;
+
   top:0;
+
   z-index:20;
-  background:rgba(255,255,255,.90);
-  backdrop-filter:blur(16px);
-  color:#1d2433;
+
+  background:
+    rgba(255,255,255,.88);
+
+  backdrop-filter:blur(18px);
+
+  color:#302b3d;
+
   padding:15px 22px;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
-  border-bottom:1px solid #e9ecf2;
+
+  border-bottom:
+    1px solid #eee8f5;
 }
 
 .header h1{
+
   font-size:25px;
+
   font-weight:800;
+
   background:
     linear-gradient(
       135deg,
-      #5b54e8,
-      #8b7cff
+      #7c3aed,
+      #c084fc
     );
+
   -webkit-background-clip:text;
+
   -webkit-text-fill-color:transparent;
 }
 
 .logout{
-  background:#f0f1f5;
-  color:#444b59;
+
+  background:#f2edf7;
+
+  color:#625a6d;
+
   padding:9px 16px;
-  border-radius:11px;
+
+  border-radius:12px;
+
   font-size:13px;
+
   font-weight:bold;
 }
 
 .logout:hover{
-  background:#e5e7ed;
+  background:#e9e2f1;
 }
 
 .container{
+
   max-width:940px;
+
   margin:auto;
+
   padding:30px 20px 50px;
 }
 
@@ -278,36 +397,60 @@ select:focus{
 ========================================= */
 
 .welcome{
+
   margin-bottom:28px;
 }
 
 .welcome h2{
+
   font-size:25px;
+
   margin-bottom:8px;
+
+  color:#342d40;
 }
 
 .welcome p{
-  color:#8b92a0;
+
+  color:#938c9e;
+
   margin-top:8px;
+
   font-size:14px;
 }
 
 .cards{
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:18px;
 }
 
 .card{
+
   position:relative;
+
   overflow:hidden;
-  background:rgba(255,255,255,.92);
+
+  background:
+    rgba(255,255,255,.92);
+
   padding:25px;
-  border-radius:22px;
+
+  border-radius:23px;
+
   box-shadow:
-    0 8px 30px rgba(38,45,70,.06);
+    0 8px 30px
+    rgba(75,58,100,.07);
+
   cursor:pointer;
-  border:1px solid #edf0f5;
+
+  border:
+    1px solid #eee8f5;
+
   transition:
     transform .25s ease,
     box-shadow .25s ease,
@@ -315,54 +458,142 @@ select:focus{
 }
 
 .card::after{
+
   content:"";
+
   position:absolute;
-  width:90px;
-  height:90px;
+
+  width:105px;
+  height:105px;
+
   border-radius:50%;
-  background:#f0efff;
-  left:-35px;
-  bottom:-45px;
+
+  background:#f5efff;
+
+  left:-42px;
+
+  bottom:-52px;
 }
 
 .card:hover{
-  transform:translateY(-4px);
+
+  transform:translateY(-5px);
+
   box-shadow:
-    0 15px 35px rgba(38,45,70,.10);
-  border-color:#dcd9ff;
+    0 17px 38px
+    rgba(75,58,100,.12);
+
+  border-color:#d9c8f4;
 }
 
 .card.admin-card{
-  border:1px solid #d8d4ff;
+
+  border:
+    1px solid #dfcff7;
+
   background:
     linear-gradient(
       145deg,
       #fff,
-      #f8f7ff
+      #faf5ff
     );
 }
 
 .icon{
-  width:56px;
-  height:56px;
+
+  width:58px;
+  height:58px;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
-  border-radius:17px;
-  background:#f0efff;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0e8ff,
+      #faeafa
+    );
+
   font-size:27px;
+
   margin-bottom:16px;
+
+  box-shadow:
+    0 7px 17px
+    rgba(139,92,246,.08);
 }
 
 .card h3{
+
   margin-bottom:8px;
+
   font-size:17px;
+
+  color:#393142;
 }
 
 .card p{
-  color:#8b92a0;
+
+  color:#938c9e;
+
   font-size:13px;
+
   line-height:1.7;
+}
+
+
+/* =========================================
+   OWN PAGE POST CARD
+========================================= */
+
+.own-post-card{
+
+  border:
+    1px solid #b9e8d5 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f0fff8
+    ) !important;
+}
+
+.own-post-card::after{
+
+  background:#dcf8eb !important;
+}
+
+.own-post-card .icon{
+
+  background:
+    linear-gradient(
+      135deg,
+      #dff9ec,
+      #e9fff5
+    );
+
+  box-shadow:
+    0 7px 17px
+    rgba(34,197,130,.10);
+}
+
+.own-post-card h3{
+  color:#28785b;
+}
+
+.own-post-card:hover{
+
+  border-color:
+    #91dabb !important;
+
+  box-shadow:
+    0 17px 38px
+    rgba(34,150,100,.12);
 }
 
 
@@ -375,38 +606,124 @@ select:focus{
 }
 
 .back{
+
   background:#fff;
-  color:#525967;
+
+  color:#655d70;
+
   padding:10px 16px;
-  border-radius:12px;
+
+  border-radius:13px;
+
   margin-bottom:20px;
-  border:1px solid #e5e8ee;
+
+  border:
+    1px solid #e8e1ef;
+
   font-size:14px;
+
   box-shadow:
-    0 4px 12px rgba(30,40,70,.04);
+    0 4px 13px
+    rgba(70,55,90,.05);
 }
 
 .back:hover{
-  background:#f7f8fb;
+  background:#faf7fd;
 }
 
 .box{
-  background:rgba(255,255,255,.95);
+
+  background:
+    rgba(255,255,255,.94);
+
   padding:24px;
-  border-radius:22px;
+
+  border-radius:23px;
+
   margin-bottom:20px;
+
   box-shadow:
-    0 8px 30px rgba(38,45,70,.055);
-  border:1px solid #edf0f5;
+    0 9px 30px
+    rgba(75,58,100,.06);
+
+  border:
+    1px solid #eee8f5;
 }
 
 .box h2{
+
   margin-bottom:20px;
+
   font-size:19px;
+
+  color:#393142;
 }
 
-.box h2::first-letter{
-  color:#6c63ff;
+
+/* =========================================
+   OWN POST BOX
+========================================= */
+
+.own-post-box{
+
+  border:
+    1px solid #b9e8d5 !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f5fffa
+    );
+}
+
+.own-post-box h2{
+  color:#28785b;
+}
+
+.own-post-item{
+
+  border:
+    1px solid #cdeee0;
+
+  background:#fbfffd;
+}
+
+.own-post-item:hover{
+
+  border-color:#9edfc3;
+
+  box-shadow:
+    0 8px 22px
+    rgba(34,150,100,.08);
+}
+
+.own-post-item .item-title{
+  color:#28785b;
+}
+
+.own-post-seen{
+  margin-top:28px;
+}
+
+.own-post-seen-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:#6c7780;
+
+  font-size:16px;
+
+  margin-bottom:14px;
+
+  padding-bottom:12px;
+
+  border-bottom:
+    1px solid #e5f1eb;
 }
 
 
@@ -415,81 +732,141 @@ select:focus{
 ========================================= */
 
 .item{
+
   position:relative;
-  border:1px solid #e9ecf2;
-  border-radius:16px;
+
+  border:
+    1px solid #ece6f2;
+
+  border-radius:17px;
+
   padding:17px;
+
   margin-top:12px;
-  background:#fcfcfd;
-  transition:
-    box-shadow .2s ease,
-    transform .2s ease,
-    border-color .2s ease;
+
+  background:#fdfcff;
+
+  transition:.2s ease;
 }
 
 .item:hover{
-  border-color:#dedcff;
+
+  border-color:#ddcff0;
+
   box-shadow:
-    0 7px 20px rgba(40,45,80,.06);
+    0 8px 22px
+    rgba(75,58,100,.07);
+
+  transform:translateY(-1px);
 }
 
 .item-title{
+
   font-weight:bold;
+
   margin-bottom:12px;
-  color:#303746;
+
+  color:#403748;
+
   font-size:15px;
 }
 
 .item button{
-  background:#f0efff;
-  color:#5b54e8;
+
+  background:#f1eaff;
+
+  color:#7647c7;
+
   padding:9px 13px;
+
   border-radius:10px;
+
   font-size:13px;
+
   font-weight:bold;
+
+  margin-left:5px;
+
+  margin-bottom:5px;
+}
+
+.item button:hover{
+  background:#e9ddff;
 }
 
 .item a{
+
   display:block;
-  color:#555e70;
+
+  color:#686071;
+
   margin-bottom:10px;
+
   word-break:break-all;
+
   text-decoration:none;
+
   line-height:1.7;
 }
 
 .item a:hover{
-  color:#5b54e8;
+  color:#814dcc;
 }
 
+
+/* =========================================
+   DELETE
+========================================= */
+
 .delete-button{
-  background:#fff0f0 !important;
-  color:#d44444 !important;
+
+  background:#fff0f3 !important;
+
+  color:#d04b6a !important;
+
   margin-top:10px;
+
   width:100%;
-  border:1px solid #ffd9d9;
+
+  border:
+    1px solid #ffd9e1;
 }
 
 .delete-button:hover{
-  background:#ffe5e5 !important;
+  background:#ffe5eb !important;
 }
 
 .admin-delete{
-  background:#fff0f0 !important;
-  color:#a92828 !important;
-  border-color:#ffd2d2 !important;
+
+  background:#fff0f3 !important;
+
+  color:#c43d5c !important;
+
+  border-color:#ffd2dc !important;
 }
 
+
+/* =========================================
+   EMPTY / STATUS
+========================================= */
+
 .empty{
-  color:#9299a6;
+
+  color:#9b94a3;
+
   padding:18px 5px;
+
   text-align:center;
+
   font-size:14px;
 }
 
 .status{
+
   margin-top:12px;
+
   font-size:14px;
+
   line-height:1.7;
 }
 
@@ -499,8 +876,11 @@ select:focus{
 ========================================= */
 
 .user{
+
   padding:17px 4px;
-  border-bottom:1px solid #edf0f4;
+
+  border-bottom:
+    1px solid #eee9f3;
 }
 
 .user:last-child{
@@ -508,46 +888,69 @@ select:focus{
 }
 
 .small{
-  color:#9299a6;
+
+  color:#9b94a3;
+
   font-size:12px;
+
   margin-top:6px;
 }
 
 .admin-label{
+
   display:inline-block;
-  background:#eeeaff;
-  color:#5b54e8;
+
+  background:#eee4ff;
+
+  color:#7745c8;
+
   padding:5px 9px;
+
   border-radius:8px;
+
   font-size:11px;
+
   margin-top:8px;
+
   font-weight:bold;
 }
 
 .user-label{
+
   display:inline-block;
-  background:#f0f1f4;
-  color:#68707e;
+
+  background:#f2eff5;
+
+  color:#746c7d;
+
   padding:5px 9px;
+
   border-radius:8px;
+
   font-size:11px;
+
   margin-top:8px;
 }
 
 .divider{
+
   height:1px;
-  background:#edf0f4;
+
+  background:#eee9f3;
+
   margin:20px 0;
 }
 
 .danger{
-  background:#fff0f0 !important;
-  color:#a92828 !important;
+
+  background:#fff0f3 !important;
+
+  color:#b72f4f !important;
 }
 
 
 /* =========================================
-   FORM IMPROVEMENTS
+   FORM
 ========================================= */
 
 .box input + br + br{
@@ -596,12 +999,12 @@ select:focus{
 
   .box{
     padding:19px 16px;
-    border-radius:18px;
+    border-radius:19px;
   }
 
   .login-box{
     padding:34px 20px 27px;
-    border-radius:24px;
+    border-radius:25px;
   }
 
 }
@@ -624,11 +1027,6 @@ select:focus{
 
 }
 
-
-/* =========================================
-   SMOOTH SCROLL
-========================================= */
-
 html{
   scroll-behavior:smooth;
 }
@@ -641,9 +1039,9 @@ html{
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      LOGIN
-========================= -->
+========================================= -->
 
 <div
   class="login"
@@ -653,11 +1051,11 @@ html{
   <div class="login-box">
 
     <div class="logo">
-      LK
+      LC
     </div>
 
     <h1>
-      ورود به Linko
+      ورود به لینکو
     </h1>
 
     <p>
@@ -682,7 +1080,7 @@ html{
       class="primary"
       onclick="login()"
     >
-      ورود به Linko
+      ورود به لینکو
     </button>
 
     <div
@@ -695,19 +1093,22 @@ html{
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      APP
-========================= -->
+========================================= -->
 
 <div
   class="app"
   id="app"
 >
 
+
+  <!-- HEADER -->
+
   <div class="header">
 
     <h1>
-      Linko
+      لینکو
     </h1>
 
     <button
@@ -723,9 +1124,9 @@ html{
   <div class="container">
 
 
-    <!-- =====================
+    <!-- =====================================
          HOME
-    ====================== -->
+    ====================================== -->
 
     <div id="homePage">
 
@@ -744,6 +1145,8 @@ html{
 
       <div class="cards">
 
+
+        <!-- POSTS -->
 
         <div
           class="card"
@@ -765,6 +1168,8 @@ html{
         </div>
 
 
+        <!-- MY COMMENTS -->
+
         <div
           class="card"
           onclick="openPage('myCommentsPage')"
@@ -784,6 +1189,8 @@ html{
 
         </div>
 
+
+        <!-- COMMENTS -->
 
         <div
           class="card"
@@ -805,6 +1212,8 @@ html{
         </div>
 
 
+        <!-- SEEN COMMENTS -->
+
         <div
           class="card"
           onclick="openPage('seenPage')"
@@ -824,6 +1233,8 @@ html{
 
         </div>
 
+
+        <!-- SEEN POSTS -->
 
         <div
           class="card"
@@ -845,18 +1256,17 @@ html{
         </div>
 
 
-        <!-- =====================
-             NEW:
-             MY PAGE POST LINK
-        ====================== -->
+        <!-- =================================
+             OWN PAGE POST
+        ================================== -->
 
         <div
-          class="card"
-          onclick="openPage('myPagePostPage')"
+          class="card own-post-card"
+          onclick="openPage('ownPostsPage')"
         >
 
           <div class="icon">
-            📱
+            📣
           </div>
 
           <h3>
@@ -864,38 +1274,13 @@ html{
           </h3>
 
           <p>
-            لینک پست پیج خودت را قرار بده
+            لینک پست خودت را بگذار تا بقیه ببینند
           </p>
 
         </div>
 
 
-        <!-- =====================
-             NEW:
-             EDUCATION
-        ====================== -->
-
-        <div
-          class="card"
-          onclick="openPage('educationPage')"
-        >
-
-          <div class="icon">
-            🎓
-          </div>
-
-          <h3>
-            آموزش
-          </h3>
-
-          <p>
-            آموزش‌ها و مطالب آموزشی
-          </p>
-
-        </div>
-
-
-        <!-- فقط ادمین -->
+        <!-- ADMIN -->
 
         <div
           class="card admin-card"
@@ -918,14 +1303,15 @@ html{
 
         </div>
 
+
       </div>
 
     </div>
 
 
-    <!-- =====================
-         POSTS
-    ====================== -->
+    <!-- =====================================
+         POSTS PAGE
+    ====================================== -->
 
     <div
       class="page"
@@ -990,9 +1376,9 @@ html{
     </div>
 
 
-    <!-- =====================
+    <!-- =====================================
          SEEN POSTS
-    ====================== -->
+    ====================================== -->
 
     <div
       class="page"
@@ -1022,9 +1408,9 @@ html{
     </div>
 
 
-    <!-- =====================
+    <!-- =====================================
          MY COMMENTS
-    ====================== -->
+    ====================================== -->
 
     <div
       class="page"
@@ -1046,7 +1432,11 @@ html{
         </h2>
 
         <p
-          style="margin-bottom:15px;color:#7d8491"
+          style="
+            margin-bottom:15px;
+            color:#7d8491;
+            line-height:1.8;
+          "
         >
           لینک کامنت خودت را وارد کن:
         </p>
@@ -1086,9 +1476,9 @@ html{
     </div>
 
 
-    <!-- =====================
+    <!-- =====================================
          COMMENTS
-    ====================== -->
+    ====================================== -->
 
     <div
       class="page"
@@ -1118,9 +1508,9 @@ html{
     </div>
 
 
-    <!-- =====================
+    <!-- =====================================
          SEEN COMMENTS
-    ====================== -->
+    ====================================== -->
 
     <div
       class="page"
@@ -1150,13 +1540,13 @@ html{
     </div>
 
 
-    <!-- =====================
-         MY PAGE POST LINK
-    ====================== -->
+    <!-- =====================================
+         OWN PAGE POSTS
+    ====================================== -->
 
     <div
       class="page"
-      id="myPagePostPage"
+      id="ownPostsPage"
     >
 
       <button
@@ -1167,59 +1557,83 @@ html{
       </button>
 
 
-      <div class="box">
+      <!-- ADD -->
+
+      <div class="box own-post-box">
 
         <h2>
-          📱 لینک پست پیج خودم
+          📣 لینک پست پیج خودم
         </h2>
 
         <p
           style="
             margin-bottom:15px;
-            color:#7d8491;
-            line-height:1.8;
+            color:#718078;
+            line-height:1.9;
           "
         >
-          لینک پست پیج خودت را اینجا وارد کن:
+          اگر در پیج خودت یک پست منتشر کرده‌ای،
+          لینک همان پست را اینجا قرار بده تا
+          برای همه کاربران لینکو نمایش داده شود.
         </p>
 
-
         <input
-          id="myPagePostUrl"
-          placeholder="https://www.instagram.com/..."
+          id="ownPostTitle"
+          placeholder="عنوان پست"
         >
 
         <br><br>
 
+        <input
+          id="ownPostUrl"
+          placeholder="لینک پست پیج خودت"
+        >
+
+        <br><br>
 
         <button
           class="primary"
-          onclick="saveMyPagePost()"
+          onclick="addOwnPost()"
         >
-          🔗 ثبت لینک پست
+          📣 ثبت لینک پست
         </button>
 
-
         <div
-          id="myPagePostStatus"
+          id="ownPostStatus"
           class="status"
         ></div>
 
       </div>
 
 
+      <!-- ALL POSTS -->
+
       <div class="box">
 
         <h2>
-          📌 لینک پست من
+          📣 پست‌های کاربران
         </h2>
 
-        <div id="myPagePostList">
+        <div id="ownPostsList">
+          در حال دریافت...
+        </div>
 
-          <div class="empty">
-            هنوز لینکی ثبت نکرده‌ای.
-          </div>
+      </div>
 
+
+      <!-- SEEN -->
+
+      <div class="box own-post-seen">
+
+        <div class="own-post-seen-title">
+          👀
+          <span>
+            پست‌هایی که قبلاً دیده شده‌اند
+          </span>
+        </div>
+
+        <div id="seenOwnPostsList">
+          در حال دریافت...
         </div>
 
       </div>
@@ -1227,91 +1641,9 @@ html{
     </div>
 
 
-    <!-- =====================
-         EDUCATION
-    ====================== -->
-
-    <div
-      class="page"
-      id="educationPage"
-    >
-
-      <button
-        class="back"
-        onclick="openPage('homePage')"
-      >
-        ← بازگشت
-      </button>
-
-
-      <div class="box">
-
-        <h2>
-          🎓 آموزش
-        </h2>
-
-
-        <div class="item">
-
-          <div class="item-title">
-            آموزش اول
-          </div>
-
-          <p
-            style="
-              color:#7d8491;
-              line-height:1.9;
-            "
-          >
-            متن آموزش اول را اینجا قرار بده.
-          </p>
-
-        </div>
-
-
-        <div class="item">
-
-          <div class="item-title">
-            آموزش دوم
-          </div>
-
-          <p
-            style="
-              color:#7d8491;
-              line-height:1.9;
-            "
-          >
-            متن آموزش دوم را اینجا قرار بده.
-          </p>
-
-        </div>
-
-
-        <div class="item">
-
-          <div class="item-title">
-            آموزش سوم
-          </div>
-
-          <p
-            style="
-              color:#7d8491;
-              line-height:1.9;
-            "
-          >
-            متن آموزش سوم را اینجا قرار بده.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================
-         USERS / ADMIN
-    ====================== -->
+    <!-- =====================================
+         ADMIN USERS
+    ====================================== -->
 
     <div
       class="page"
@@ -1378,7 +1710,7 @@ html{
       </div>
 
 
-      <!-- USERS LIST -->
+      <!-- USERS -->
 
       <div class="box">
 
@@ -1422,7 +1754,23 @@ html{
 
       </div>
 
+
+      <!-- ADMIN OWN POSTS -->
+
+      <div class="box">
+
+        <h2>
+          📣 مدیریت لینک پست‌های پیج
+        </h2>
+
+        <div id="adminOwnPostsList">
+          در حال دریافت...
+        </div>
+
+      </div>
+
     </div>
+
 
   </div>
 
@@ -1432,9 +1780,9 @@ html{
 <script>
 
 
-/* =====================================
+/* =========================================
    SUPABASE
-===================================== */
+========================================= */
 
 const SUPABASE_URL =
   "https://btgeluoiwpivnjnfptzz.supabase.co";
@@ -1443,11 +1791,14 @@ const SUPABASE_KEY =
   "sb_publishable_ImlRAdr3gKdANgrQcKYbGg_cxiXCAm6";
 
 
-/* =====================================
+/* =========================================
    DATABASE REQUEST
-===================================== */
+========================================= */
 
-async function db(path,options={}){
+async function db(
+  path,
+  options={}
+){
 
   const response =
     await fetch(
@@ -1455,14 +1806,24 @@ async function db(path,options={}){
       "/rest/v1/" +
       path,
       {
+
         ...options,
 
         headers:{
-          "apikey":SUPABASE_KEY,
-          "Content-Type":"application/json",
-          "Prefer":"return=representation",
+
+          "apikey":
+            SUPABASE_KEY,
+
+          "Content-Type":
+            "application/json",
+
+          "Prefer":
+            "return=representation",
+
           ...(options.headers || {})
+
         }
+
       }
     );
 
@@ -1484,9 +1845,7 @@ async function db(path,options={}){
 
 
   if(!text){
-
     return [];
-
   }
 
 
@@ -1503,37 +1862,44 @@ async function db(path,options={}){
 }
 
 
-/* =====================================
+/* =========================================
    CURRENT USER
-===================================== */
+========================================= */
 
 let currentUser = null;
 
 
-/* =====================================
+/* =========================================
    LOGIN
-===================================== */
+========================================= */
 
 async function login(){
 
   const username =
-    document.getElementById("username")
-      .value.trim();
+    document
+      .getElementById("username")
+      .value
+      .trim();
 
 
   const password =
-    document.getElementById("password")
+    document
+      .getElementById("password")
       .value;
 
 
   const error =
-    document.getElementById("loginError");
+    document
+      .getElementById("loginError");
 
 
   error.innerText="";
 
 
-  if(!username || !password){
+  if(
+    !username ||
+    !password
+  ){
 
     error.innerText =
       "نام کاربری و رمز عبور را وارد کن.";
@@ -1586,31 +1952,38 @@ async function login(){
 
     currentUser = {
 
-      id:Number(user.id),
+      id:
+        Number(user.id),
 
-      username:user.username,
+      username:
+        user.username,
 
-      role:user.role || "user"
+      role:
+        user.role || "user"
 
     };
 
 
-    document.getElementById("loginPage")
+    document
+      .getElementById("loginPage")
       .style.display="none";
 
 
-    document.getElementById("app")
+    document
+      .getElementById("app")
       .style.display="block";
 
 
-    document.getElementById("welcome")
+    document
+      .getElementById("welcome")
       .innerText =
-      "خوش آمدید " +
-      currentUser.username +
-      " 🌱";
+        "خوش آمدید " +
+        currentUser.username +
+        " 🌱";
 
 
-    document.getElementById("homePage")
+    document
+      .getElementById("homePage")
       .style.display="block";
 
 
@@ -1618,12 +1991,14 @@ async function login(){
       currentUser.role === "admin"
     ){
 
-      document.getElementById("usersCard")
+      document
+        .getElementById("usersCard")
         .style.display="block";
 
     }else{
 
-      document.getElementById("usersCard")
+      document
+        .getElementById("usersCard")
         .style.display="none";
 
     }
@@ -1644,64 +2019,71 @@ async function login(){
 }
 
 
-/* =====================================
+/* =========================================
    LOGOUT
-===================================== */
+========================================= */
 
 function logout(){
 
   currentUser=null;
 
 
-  document.getElementById("app")
+  document
+    .getElementById("app")
     .style.display="none";
 
 
-  document.getElementById("loginPage")
+  document
+    .getElementById("loginPage")
     .style.display="flex";
 
 
-  document.getElementById("username")
+  document
+    .getElementById("username")
     .value="";
 
 
-  document.getElementById("password")
+  document
+    .getElementById("password")
     .value="";
 
 
-  document.getElementById("loginError")
+  document
+    .getElementById("loginError")
     .innerText="";
 
 
-  document.querySelectorAll(".page")
-    .forEach(p=>{
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      p=>{
+        p.style.display="none";
+      }
+    );
 
-      p.style.display="none";
 
-    });
-
-
-  document.getElementById("homePage")
+  document
+    .getElementById("homePage")
     .style.display="block";
 
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN CHECK
-===================================== */
+========================================= */
 
 function isAdmin(){
 
   return currentUser &&
-         currentUser.role === "admin";
+    currentUser.role === "admin";
 
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN USERS PAGE
-===================================== */
+========================================= */
 
 function openAdminUsers(){
 
@@ -1721,9 +2103,9 @@ function openAdminUsers(){
 }
 
 
-/* =====================================
+/* =========================================
    NAVIGATION
-===================================== */
+========================================= */
 
 function openPage(id){
 
@@ -1741,21 +2123,24 @@ function openPage(id){
   }
 
 
-  document.getElementById("homePage")
+  document
+    .getElementById("homePage")
     .style.display="none";
 
 
-  document.querySelectorAll(".page")
-    .forEach(p=>{
-
-      p.style.display="none";
-
-    });
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      p=>{
+        p.style.display="none";
+      }
+    );
 
 
   if(id==="homePage"){
 
-    document.getElementById("homePage")
+    document
+      .getElementById("homePage")
       .style.display="block";
 
     return;
@@ -1779,9 +2164,9 @@ function openPage(id){
 }
 
 
-/* =====================================
+/* =========================================
    ADD POST
-===================================== */
+========================================= */
 
 async function addPost(){
 
@@ -1795,17 +2180,22 @@ async function addPost(){
 
 
   const title =
-    document.getElementById("postTitle")
-      .value.trim();
+    document
+      .getElementById("postTitle")
+      .value
+      .trim();
 
 
   const url =
-    document.getElementById("postUrl")
-      .value.trim();
+    document
+      .getElementById("postUrl")
+      .value
+      .trim();
 
 
   const status =
-    document.getElementById("postStatus");
+    document
+      .getElementById("postStatus");
 
 
   status.innerText="";
@@ -1825,7 +2215,8 @@ async function addPost(){
 
     const existing =
       await db(
-        "posts?select=id&instagram_url=eq." +
+        "posts?select=id" +
+        "&instagram_url=eq." +
         encodeURIComponent(url) +
         "&limit=1"
       );
@@ -1844,27 +2235,32 @@ async function addPost(){
     await db(
       "posts",
       {
+
         method:"POST",
 
-        body:JSON.stringify({
+        body:
+          JSON.stringify({
 
-          title:title,
+            title:title,
 
-          instagram_url:url,
+            instagram_url:url,
 
-          user_id:currentUser.id
+            user_id:
+              currentUser.id
 
-        })
+          })
 
       }
     );
 
 
-    document.getElementById("postTitle")
+    document
+      .getElementById("postTitle")
       .value="";
 
 
-    document.getElementById("postUrl")
+    document
+      .getElementById("postUrl")
       .value="";
 
 
@@ -1901,20 +2297,20 @@ async function addPost(){
 }
 
 
-/* =====================================
+/* =========================================
    LOAD POSTS
-===================================== */
+========================================= */
 
 async function loadPosts(){
 
   const box =
-    document.getElementById("postsList");
+    document.getElementById(
+      "postsList"
+    );
 
 
   if(!box || !currentUser){
-
     return;
-
   }
 
 
@@ -1931,7 +2327,9 @@ async function loadPosts(){
       await db(
         "post_views?select=post_id" +
         "&user_id=eq." +
-        encodeURIComponent(currentUser.id)
+        encodeURIComponent(
+          currentUser.id
+        )
       );
 
 
@@ -2026,6 +2424,7 @@ async function loadPosts(){
             ?
 
             `
+
             <button
               class="delete-button"
               onclick="deletePost(
@@ -2036,11 +2435,13 @@ async function loadPosts(){
               🗑️ حذف پست من
 
             </button>
+
             `
 
             :
 
             ""
+
           }
 
         `;
@@ -2065,16 +2466,17 @@ async function loadPosts(){
 }
 
 
-/* =====================================
+/* =========================================
    VIEW POST
-===================================== */
+========================================= */
 
-async function viewPost(id,url){
+async function viewPost(
+  id,
+  url
+){
 
   if(!currentUser){
-
     return;
-
   }
 
 
@@ -2083,25 +2485,31 @@ async function viewPost(id,url){
     await db(
       "post_views",
       {
+
         method:"POST",
 
         headers:{
+
           "Prefer":
-          "resolution=ignore-duplicates,return=minimal"
+            "resolution=ignore-duplicates,return=minimal"
+
         },
 
-        body:JSON.stringify({
+        body:
+          JSON.stringify({
 
-          post_id:Number(id),
+            post_id:
+              Number(id),
 
-          user_id:Number(
-            currentUser.id
-          ),
+            user_id:
+              Number(
+                currentUser.id
+              ),
 
-          viewed_at:
-            new Date().toISOString()
+            viewed_at:
+              new Date().toISOString()
 
-        })
+          })
 
       }
     );
@@ -2131,9 +2539,9 @@ async function viewPost(id,url){
 }
 
 
-/* =====================================
+/* =========================================
    SEEN POSTS
-===================================== */
+========================================= */
 
 async function loadSeenPosts(){
 
@@ -2144,9 +2552,7 @@ async function loadSeenPosts(){
 
 
   if(!box || !currentUser){
-
     return;
-
   }
 
 
@@ -2203,9 +2609,7 @@ async function loadSeenPosts(){
 
 
       if(posts.length===0){
-
         continue;
-
       }
 
 
@@ -2278,16 +2682,16 @@ async function loadSeenPosts(){
 }
 
 
-/* =====================================
+/* =========================================
    DELETE POST
-===================================== */
+========================================= */
 
-async function deletePost(postId){
+async function deletePost(
+  postId
+){
 
   if(!currentUser){
-
     return;
-
   }
 
 
@@ -2298,9 +2702,7 @@ async function deletePost(postId){
 
 
   if(!confirmed){
-
     return;
-
   }
 
 
@@ -2358,7 +2760,6 @@ async function deletePost(postId){
 
     loadSeenPosts();
 
-
   }catch(e){
 
     console.error(e);
@@ -2373,9 +2774,9 @@ async function deletePost(postId){
 }
 
 
-/* =====================================
+/* =========================================
    ADD MY COMMENT
-===================================== */
+========================================= */
 
 async function addMyComment(){
 
@@ -2389,15 +2790,19 @@ async function addMyComment(){
 
 
   const url =
-    document.getElementById(
-      "myCommentUrl"
-    ).value.trim();
+    document
+      .getElementById(
+        "myCommentUrl"
+      )
+      .value
+      .trim();
 
 
   const status =
-    document.getElementById(
-      "myCommentStatus"
-    );
+    document
+      .getElementById(
+        "myCommentStatus"
+      );
 
 
   status.innerText="";
@@ -2437,25 +2842,29 @@ async function addMyComment(){
     await db(
       "comments",
       {
+
         method:"POST",
 
-        body:JSON.stringify({
+        body:
+          JSON.stringify({
 
-          user_id:
-            currentUser.id,
+            user_id:
+              currentUser.id,
 
-          instagram_comment_url:
-            url
+            instagram_comment_url:
+              url
 
-        })
+          })
 
       }
     );
 
 
-    document.getElementById(
-      "myCommentUrl"
-    ).value="";
+    document
+      .getElementById(
+        "myCommentUrl"
+      )
+      .value="";
 
 
     status.innerText =
@@ -2465,7 +2874,6 @@ async function addMyComment(){
     loadMyComments();
 
     loadComments();
-
 
   }catch(e){
 
@@ -2494,16 +2902,14 @@ async function addMyComment(){
 }
 
 
-/* =====================================
+/* =========================================
    MY COMMENTS
-===================================== */
+========================================= */
 
 async function loadMyComments(){
 
   if(!currentUser){
-
     return;
-
   }
 
 
@@ -2514,9 +2920,7 @@ async function loadMyComments(){
 
 
   if(!box){
-
     return;
-
   }
 
 
@@ -2613,18 +3017,16 @@ async function loadMyComments(){
 }
 
 
-/* =====================================
+/* =========================================
    DELETE MY COMMENT
-===================================== */
+========================================= */
 
 async function deleteMyComment(
   commentId
 ){
 
   if(!currentUser){
-
     return;
-
   }
 
 
@@ -2635,9 +3037,7 @@ async function deleteMyComment(
 
 
   if(!confirmed){
-
     return;
-
   }
 
 
@@ -2697,7 +3097,6 @@ async function deleteMyComment(
 
     loadSeen();
 
-
   }catch(e){
 
     console.error(e);
@@ -2712,9 +3111,9 @@ async function deleteMyComment(
 }
 
 
-/* =====================================
+/* =========================================
    LOAD COMMENTS
-===================================== */
+========================================= */
 
 async function loadComments(){
 
@@ -2849,9 +3248,9 @@ async function loadComments(){
 }
 
 
-/* =====================================
+/* =========================================
    VIEW COMMENT
-===================================== */
+========================================= */
 
 async function viewComment(
   id,
@@ -2859,9 +3258,7 @@ async function viewComment(
 ){
 
   if(!currentUser){
-
     return;
-
   }
 
 
@@ -2870,27 +3267,31 @@ async function viewComment(
     await db(
       "comment_views",
       {
+
         method:"POST",
 
         headers:{
+
           "Prefer":
-          "resolution=ignore-duplicates,return=minimal"
+            "resolution=ignore-duplicates,return=minimal"
+
         },
 
-        body:JSON.stringify({
+        body:
+          JSON.stringify({
 
-          comment_id:
-            Number(id),
+            comment_id:
+              Number(id),
 
-          user_id:
-            Number(
-              currentUser.id
-            ),
+            user_id:
+              Number(
+                currentUser.id
+              ),
 
-          viewed_at:
-            new Date().toISOString()
+            viewed_at:
+              new Date().toISOString()
 
-        })
+          })
 
       }
     );
@@ -2926,9 +3327,9 @@ async function viewComment(
 }
 
 
-/* =====================================
+/* =========================================
    SEEN COMMENTS
-===================================== */
+========================================= */
 
 async function loadSeen(){
 
@@ -3075,11 +3476,14 @@ async function loadSeen(){
 }
 
 
-/* =====================================
-   MY PAGE POST LINK
-===================================== */
+/* =========================================
+   OWN PAGE POSTS
+========================================= */
 
-function saveMyPagePost(){
+
+/* ADD OWN POST */
+
+async function addOwnPost(){
 
   if(!currentUser){
 
@@ -3090,75 +3494,143 @@ function saveMyPagePost(){
   }
 
 
-  const input =
-    document.getElementById(
-      "myPagePostUrl"
-    );
-
-
-  const status =
-    document.getElementById(
-      "myPagePostStatus"
-    );
+  const title =
+    document
+      .getElementById(
+        "ownPostTitle"
+      )
+      .value
+      .trim();
 
 
   const url =
-    input.value.trim();
+    document
+      .getElementById(
+        "ownPostUrl"
+      )
+      .value
+      .trim();
+
+
+  const status =
+    document
+      .getElementById(
+        "ownPostStatus"
+      );
 
 
   status.innerText="";
 
 
-  if(!url){
+  if(!title || !url){
 
     status.innerText =
-      "لینک پست را وارد کن.";
+      "عنوان و لینک پست را وارد کن.";
 
     return;
 
   }
 
 
-  if(
-    !url.includes("instagram.com")
-  ){
+  try{
+
+    const existing =
+      await db(
+        "own_page_posts?select=id" +
+        "&instagram_url=eq." +
+        encodeURIComponent(url) +
+        "&limit=1"
+      );
+
+
+    if(existing.length>0){
+
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
+
+      return;
+
+    }
+
+
+    await db(
+      "own_page_posts",
+      {
+
+        method:"POST",
+
+        body:
+          JSON.stringify({
+
+            user_id:
+              currentUser.id,
+
+            title:
+              title,
+
+            instagram_url:
+              url
+
+          })
+
+      }
+    );
+
+
+    document
+      .getElementById(
+        "ownPostTitle"
+      )
+      .value="";
+
+
+    document
+      .getElementById(
+        "ownPostUrl"
+      )
+      .value="";
+
 
     status.innerText =
-      "لطفاً لینک پست اینستاگرام را وارد کن.";
+      "لینک پست با موفقیت ثبت شد ✅";
 
-    return;
+
+    loadOwnPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+
+    if(
+      e.message.includes("23505") ||
+      e.message.includes("duplicate") ||
+      e.message.includes("unique")
+    ){
+
+      status.innerText =
+        "این لینک قبلاً ثبت شده است. 🚫";
+
+    }else{
+
+      status.innerText =
+        "خطا: " +
+        e.message;
+
+    }
 
   }
-
-
-  localStorage.setItem(
-    "linko_my_page_post_" +
-    currentUser.id,
-    url
-  );
-
-
-  input.value="";
-
-
-  status.innerText =
-    "لینک پست با موفقیت ثبت شد ✅";
-
-
-  loadMyPagePost();
 
 }
 
 
-/* =====================================
-   LOAD MY PAGE POST
-===================================== */
+/* LOAD OWN POSTS */
 
-function loadMyPagePost(){
+async function loadOwnPosts(){
 
   const box =
     document.getElementById(
-      "myPagePostList"
+      "ownPostsList"
     );
 
 
@@ -3172,67 +3644,486 @@ function loadMyPagePost(){
   }
 
 
-  const url =
-    localStorage.getItem(
-      "linko_my_page_post_" +
-      currentUser.id
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,user_id,title,instagram_url,created_at" +
+        "&order=id.desc"
+      );
+
+
+    const views =
+      await db(
+        "own_page_post_views" +
+        "?select=post_id" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
+
+
+    const viewedIds =
+      views.map(
+        v=>Number(v.post_id)
+      );
+
+
+    const unseen =
+      posts.filter(
+        post =>
+          !viewedIds.includes(
+            Number(post.id)
+          )
+      );
+
+
+    box.innerHTML="";
+
+
+    if(unseen.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'پست جدیدی برای نمایش وجود ندارد. 🌱' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    unseen.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className =
+          "item own-post-item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <button
+            onclick="viewOwnPost(
+              ${Number(post.id)},
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            📣 مشاهده پست
+
+          </button>
+
+
+          <button
+            onclick="copyLink(
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+
+            کپی لینک
+
+          </button>
+
+
+          ${
+            Number(post.user_id) ===
+            Number(currentUser.id)
+
+            ?
+
+            `
+
+            <button
+              class="delete-button"
+              onclick="deleteOwnPost(
+                ${Number(post.id)}
+              )"
+            >
+
+              🗑️ حذف پست من
+
+            </button>
+
+            `
+
+            :
+
+            ""
+
+          }
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
     );
 
 
-  if(!url){
+  }catch(e){
 
-    box.innerHTML =
-      '<div class="empty">' +
-      'هنوز لینکی ثبت نکرده‌ای.' +
-      '</div>';
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* VIEW OWN POST */
+
+async function viewOwnPost(
+  id,
+  url
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "own_page_post_views",
+      {
+
+        method:"POST",
+
+        headers:{
+
+          "Prefer":
+            "resolution=ignore-duplicates,return=minimal"
+
+        },
+
+        body:
+          JSON.stringify({
+
+            post_id:
+              Number(id),
+
+            user_id:
+              Number(
+                currentUser.id
+              ),
+
+            viewed_at:
+              new Date().toISOString()
+
+          })
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(
+      "خطا در ثبت مشاهده پست:",
+      e
+    );
+
+  }
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+
+  setTimeout(
+    ()=>{
+
+      loadOwnPosts();
+
+      loadSeenOwnPosts();
+
+    },
+    300
+  );
+
+}
+
+
+/* SEEN OWN POSTS */
+
+async function loadSeenOwnPosts(){
+
+  const box =
+    document.getElementById(
+      "seenOwnPostsList"
+    );
+
+
+  if(
+    !box ||
+    !currentUser
+  ){
 
     return;
 
   }
 
 
-  box.innerHTML = `
+  try{
 
-    <div class="item">
-
-      <div class="item-title">
-
-        📌 پست پیج من
-
-      </div>
-
-
-      <a
-        href="${escapeHTML(url)}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        🔗 مشاهده پست
-
-      </a>
+    const views =
+      await db(
+        "own_page_post_views" +
+        "?select=post_id,viewed_at" +
+        "&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&order=viewed_at.desc"
+      );
 
 
-      <button
-        onclick="copyLink(
-          '${escapeJS(url)}'
-        )"
-      >
+    box.innerHTML="";
 
-        کپی لینک
 
-      </button>
+    if(views.length===0){
 
-    </div>
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی را ندیده‌ای. 🌱' +
+        '</div>';
 
-  `;
+      return;
+
+    }
+
+
+    let count=0;
+
+
+    for(
+      let i=0;
+      i<views.length;
+      i++
+    ){
+
+      const postId =
+        Number(
+          views[i].post_id
+        );
+
+
+      const posts =
+        await db(
+          "own_page_posts" +
+          "?select=id,title,instagram_url,user_id" +
+          "&id=eq." +
+          postId +
+          "&limit=1"
+        );
+
+
+      if(
+        posts.length===0
+      ){
+
+        continue;
+
+      }
+
+
+      const post =
+        posts[0];
+
+
+      count++;
+
+
+      const div =
+        document.createElement("div");
+
+
+      div.className =
+        "item own-post-item";
+
+
+      div.innerHTML=`
+
+        <div class="item-title">
+
+          ${escapeHTML(
+            post.title ||
+            "پست "+count
+          )}
+
+        </div>
+
+
+        <a
+          href="${escapeHTML(
+            post.instagram_url
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          📣 مشاهده دوباره
+
+        </a>
+
+      `;
+
+
+      box.appendChild(div);
+
+    }
+
+
+    if(count===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'هنوز پستی را ندیده‌ای. 🌱' +
+        '</div>';
+
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
 
 }
 
 
-/* =====================================
+/* DELETE OWN POST */
+
+async function deleteOwnPost(
+  postId
+){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  const confirmed =
+    confirm(
+      "مطمئنی می‌خواهی این پست را حذف کنی؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,user_id" +
+        "&id=eq." +
+        Number(postId) +
+        "&limit=1"
+      );
+
+
+    if(posts.length===0){
+
+      alert(
+        "پست پیدا نشد."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      Number(posts[0].user_id) !==
+      Number(currentUser.id)
+    ){
+
+      alert(
+        "فقط صاحب این پست می‌تواند آن را حذف کند."
+      );
+
+      return;
+
+    }
+
+
+    await db(
+      "own_page_posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "پست حذف شد ✅"
+    );
+
+
+    loadOwnPosts();
+
+    loadSeenOwnPosts();
+
+
+    if(isAdmin()){
+      loadAdminOwnPosts();
+    }
+
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
    CREATE USER - ADMIN
-===================================== */
+========================================= */
 
 async function createUser(){
 
@@ -3248,33 +4139,44 @@ async function createUser(){
 
 
   const username =
-    document.getElementById(
-      "newUsername"
-    ).value.trim();
+    document
+      .getElementById(
+        "newUsername"
+      )
+      .value
+      .trim();
 
 
   const password =
-    document.getElementById(
-      "newPassword"
-    ).value;
+    document
+      .getElementById(
+        "newPassword"
+      )
+      .value;
 
 
   const role =
-    document.getElementById(
-      "newRole"
-    ).value;
+    document
+      .getElementById(
+        "newRole"
+      )
+      .value;
 
 
   const status =
-    document.getElementById(
-      "createUserStatus"
-    );
+    document
+      .getElementById(
+        "createUserStatus"
+      );
 
 
   status.innerText="";
 
 
-  if(!username || !password){
+  if(
+    !username ||
+    !password
+  ){
 
     status.innerText =
       "نام کاربری و رمز عبور را وارد کن.";
@@ -3308,30 +4210,39 @@ async function createUser(){
     await db(
       "users",
       {
+
         method:"POST",
 
-        body:JSON.stringify({
+        body:
+          JSON.stringify({
 
-          username:username,
+            username:
+              username,
 
-          password:password,
+            password:
+              password,
 
-          role:role
+            role:
+              role
 
-        })
+          })
 
       }
     );
 
 
-    document.getElementById(
-      "newUsername"
-    ).value="";
+    document
+      .getElementById(
+        "newUsername"
+      )
+      .value="";
 
 
-    document.getElementById(
-      "newPassword"
-    ).value="";
+    document
+      .getElementById(
+        "newPassword"
+      )
+      .value="";
 
 
     status.innerText =
@@ -3339,7 +4250,6 @@ async function createUser(){
 
 
     loadUsers();
-
 
   }catch(e){
 
@@ -3354,16 +4264,14 @@ async function createUser(){
 }
 
 
-/* =====================================
+/* =========================================
    LOAD USERS
-===================================== */
+========================================= */
 
 async function loadUsers(){
 
   if(!isAdmin()){
-
     return;
-
   }
 
 
@@ -3374,9 +4282,7 @@ async function loadUsers(){
 
 
   if(!box){
-
     return;
-
   }
 
 
@@ -3420,21 +4326,21 @@ async function loadUsers(){
           ?
 
           `
+
           <div class="admin-label">
-
             👑 ادمین
-
           </div>
+
           `
 
           :
 
           `
+
           <div class="user-label">
-
             👤 کاربر
-
           </div>
+
           `;
 
 
@@ -3481,16 +4387,14 @@ async function loadUsers(){
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN POSTS
-===================================== */
+========================================= */
 
 async function loadAdminPosts(){
 
   if(!isAdmin()){
-
     return;
-
   }
 
 
@@ -3501,9 +4405,7 @@ async function loadAdminPosts(){
 
 
   if(!box){
-
     return;
-
   }
 
 
@@ -3599,9 +4501,9 @@ async function loadAdminPosts(){
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN DELETE POST
-===================================== */
+========================================= */
 
 async function adminDeletePost(
   postId
@@ -3625,9 +4527,7 @@ async function adminDeletePost(
 
 
   if(!confirmed){
-
     return;
-
   }
 
 
@@ -3653,7 +4553,6 @@ async function adminDeletePost(
 
     loadAdminPosts();
 
-
   }catch(e){
 
     console.error(e);
@@ -3668,16 +4567,14 @@ async function adminDeletePost(
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN COMMENTS
-===================================== */
+========================================= */
 
 async function loadAdminComments(){
 
   if(!isAdmin()){
-
     return;
-
   }
 
 
@@ -3688,9 +4585,7 @@ async function loadAdminComments(){
 
 
   if(!box){
-
     return;
-
   }
 
 
@@ -3783,9 +4678,9 @@ async function loadAdminComments(){
 }
 
 
-/* =====================================
+/* =========================================
    ADMIN DELETE COMMENT
-===================================== */
+========================================= */
 
 async function adminDeleteComment(
   commentId
@@ -3809,9 +4704,7 @@ async function adminDeleteComment(
 
 
   if(!confirmed){
-
     return;
-
   }
 
 
@@ -3839,7 +4732,6 @@ async function adminDeleteComment(
 
     loadAdminComments();
 
-
   }catch(e){
 
     console.error(e);
@@ -3854,9 +4746,191 @@ async function adminDeleteComment(
 }
 
 
-/* =====================================
+/* =========================================
+   ADMIN OWN PAGE POSTS
+========================================= */
+
+async function loadAdminOwnPosts(){
+
+  if(!isAdmin()){
+    return;
+  }
+
+
+  const box =
+    document.getElementById(
+      "adminOwnPostsList"
+    );
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const posts =
+      await db(
+        "own_page_posts" +
+        "?select=id,title,instagram_url,user_id" +
+        "&order=id.desc"
+      );
+
+
+    box.innerHTML="";
+
+
+    if(posts.length===0){
+
+      box.innerHTML =
+        '<div class="empty">' +
+        'لینک پستی وجود ندارد.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    posts.forEach(
+      (post,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className =
+          "item own-post-item";
+
+
+        div.innerHTML=`
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست "+(index+1)
+            )}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              post.instagram_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            📣 مشاهده پست
+
+          </a>
+
+
+          <button
+            class="delete-button admin-delete"
+            onclick="adminDeleteOwnPost(
+              ${Number(post.id)}
+            )"
+          >
+
+            🗑️ حذف توسط ادمین
+
+          </button>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =========================================
+   ADMIN DELETE OWN POST
+========================================= */
+
+async function adminDeleteOwnPost(
+  postId
+){
+
+  if(!isAdmin()){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "ادمین: این لینک پست حذف شود؟"
+    );
+
+
+  if(!confirmed){
+    return;
+  }
+
+
+  try{
+
+    await db(
+      "own_page_posts?id=eq." +
+      Number(postId),
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    alert(
+      "لینک پست حذف شد ✅"
+    );
+
+
+    loadOwnPosts();
+
+    loadSeenOwnPosts();
+
+    loadAdminOwnPosts();
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف لینک پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =========================================
    COPY LINK
-===================================== */
+========================================= */
 
 function copyLink(link){
 
@@ -3895,9 +4969,9 @@ function copyLink(link){
 }
 
 
-/* =====================================
+/* =========================================
    SECURITY HELPERS
-===================================== */
+========================================= */
 
 function escapeHTML(text){
 
@@ -3958,9 +5032,9 @@ function escapeJS(text){
 }
 
 
-/* =====================================
+/* =========================================
    LOAD ALL
-===================================== */
+========================================= */
 
 function loadAll(){
 
@@ -3974,7 +5048,9 @@ function loadAll(){
 
   loadSeen();
 
-  loadMyPagePost();
+  loadOwnPosts();
+
+  loadSeenOwnPosts();
 
 
   if(isAdmin()){
@@ -3985,14 +5061,16 @@ function loadAll(){
 
     loadAdminComments();
 
+    loadAdminOwnPosts();
+
   }
 
 }
 
 
-/* =====================================
+/* =========================================
    ENTER KEY LOGIN
-===================================== */
+========================================= */
 
 document.addEventListener(
   "keydown",
@@ -4000,9 +5078,11 @@ document.addEventListener(
 
     if(
       event.key === "Enter" &&
-      document.getElementById(
-        "loginPage"
-      ).style.display !== "none"
+      document
+        .getElementById(
+          "loginPage"
+        )
+        .style.display !== "none"
     ){
 
       login();
@@ -4011,6 +5091,7 @@ document.addEventListener(
 
   }
 );
+
 
 </script>
 
