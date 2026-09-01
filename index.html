@@ -60,7 +60,7 @@ select:focus{
   color:#aaa3b5;
 }
 
-/* LOGIN */
+/* ================= LOGIN ================= */
 
 .login{
   min-height:100vh;
@@ -87,6 +87,7 @@ select:focus{
   background:#e9ddff;
   top:-140px;
   right:-120px;
+  opacity:.8;
 }
 
 .login::after{
@@ -95,6 +96,7 @@ select:focus{
   background:#ffe2ef;
   bottom:-150px;
   left:-120px;
+  opacity:.75;
 }
 
 .login-box{
@@ -161,15 +163,17 @@ select:focus{
   color:#d94b70;
   margin-top:13px;
   font-size:14px;
+  line-height:1.8;
 }
 
 .success{
   color:#15966a;
   margin-top:13px;
   font-size:14px;
+  line-height:1.8;
 }
 
-/* APP */
+/* ================= APP ================= */
 
 .app{
   display:none;
@@ -212,6 +216,8 @@ select:focus{
   padding:30px 20px 50px;
 }
 
+/* ================= HOME ================= */
+
 .welcome{
   margin-bottom:28px;
 }
@@ -225,6 +231,7 @@ select:focus{
   color:#938c9e;
   margin-top:8px;
   font-size:14px;
+  line-height:1.8;
 }
 
 .cards{
@@ -273,7 +280,7 @@ select:focus{
   margin-bottom:16px;
 }
 
-/* SPECIAL CARD */
+/* ================= MY POST CARD ================= */
 
 .my-post-card{
   border:2px solid #f0b94b;
@@ -288,7 +295,7 @@ select:focus{
   color:#9a6910;
 }
 
-/* PAGES */
+/* ================= PAGES ================= */
 
 .page{
   display:none;
@@ -325,6 +332,8 @@ select:focus{
   margin-bottom:18px;
 }
 
+/* ================= ITEMS ================= */
+
 .item{
   border:1px solid #ece6f2;
   border-radius:17px;
@@ -349,6 +358,10 @@ select:focus{
   line-height:1.7;
 }
 
+.item a:hover{
+  color:#814dcc;
+}
+
 .item button{
   background:#f1eaff;
   color:#7647c7;
@@ -365,7 +378,7 @@ select:focus{
   color:#d04b6a !important;
   width:100%;
   border:1px solid #ffd9e1;
-  margin-top:10px;
+  margin-top:10px !important;
 }
 
 .empty{
@@ -375,7 +388,7 @@ select:focus{
   font-size:14px;
 }
 
-/* MY POSTS */
+/* ================= MY POSTS ================= */
 
 .my-post-page{
   background:linear-gradient(180deg,#fffdf5,#fffaf0);
@@ -405,56 +418,54 @@ select:focus{
   font-weight:bold;
 }
 
-/* TIPS */
+/* ================= EDUCATION ================= */
 
-.tip{
-  padding:16px;
-  border-radius:16px;
-  margin-top:12px;
-  line-height:2;
+.education-text{
+  color:#51495c;
   font-size:14px;
+  line-height:2.2;
 }
 
-.tip.good{
+.education-text h3{
+  color:#5d3fa3;
+  font-size:18px;
+  margin-top:25px;
+  margin-bottom:10px;
+}
+
+.education-text .section-title{
+  color:#5d3fa3;
+  font-weight:bold;
+  font-size:17px;
+  margin-top:28px;
+  margin-bottom:10px;
+}
+
+.education-text .example{
+  background:#f6f1ff;
+  border:1px solid #e2d6ff;
+  padding:15px;
+  border-radius:15px;
+  margin:12px 0;
+}
+
+.education-text .warning{
+  background:#fff7ed;
+  border:1px solid #fde0bd;
+  padding:15px;
+  border-radius:15px;
+  margin:12px 0;
+}
+
+.education-text .good{
   background:#edfff7;
   border:1px solid #c5f0dc;
-  color:#176b4b;
+  padding:15px;
+  border-radius:15px;
+  margin:12px 0;
 }
 
-.tip.bad{
-  background:#fff1f4;
-  border:1px solid #ffd2dc;
-  color:#9d3850;
-}
-
-.tip.info{
-  background:#f2efff;
-  border:1px solid #ddd3ff;
-  color:#5b43a0;
-}
-
-/* HELP */
-
-.step{
-  display:flex;
-  gap:13px;
-  margin-top:16px;
-  line-height:2;
-}
-
-.step-number{
-  min-width:32px;
-  height:32px;
-  border-radius:50%;
-  background:#8b5cf6;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-}
-
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -491,6 +502,11 @@ select:focus{
   .login-box{
     padding:34px 20px 27px;
     border-radius:25px;
+  }
+
+  .education-text{
+    font-size:13px;
+    line-height:2.1;
   }
 }
 
@@ -565,7 +581,7 @@ html{
 
   <main class="container">
 
-    <!-- HOME -->
+    <!-- ================= HOME ================= -->
 
     <section id="homePage" class="page">
 
@@ -584,8 +600,6 @@ html{
 
       <div class="cards">
 
-        <!-- POST -->
-
         <div class="card" onclick="showPage('postPage')">
 
           <div class="icon">📣</div>
@@ -595,13 +609,11 @@ html{
           </h3>
 
           <p>
-            لینک یک پست از اینستاگرام را که متعلق به خودت نیست اضافه کن تا دیگر کاربران بتوانند آن را ببینند و در صورت تمایل برای آن کامنت بگذارند.
+            لینک یک پست از اینستاگرام را اضافه کن تا دیگر کاربران بتوانند آن را ببینند.
           </p>
 
         </div>
 
-
-        <!-- COMMENT -->
 
         <div class="card" onclick="showPage('commentPage')">
 
@@ -612,13 +624,11 @@ html{
           </h3>
 
           <p>
-            لینک کامنت تبلیغاتی‌ای را که زیر یک پست گذاشته‌ای اضافه کن تا کاربران بتوانند همان کامنت را پیدا کنند و روی آن تعامل انجام دهند.
+            لینک کامنت خودت را ثبت کن تا سایر کاربران بتوانند آن را مشاهده کنند.
           </p>
 
         </div>
 
-
-        <!-- MY POST -->
 
         <div
           class="card my-post-card"
@@ -631,13 +641,11 @@ html{
           </h3>
 
           <p>
-            اگر در پیج خودت پستی منتشر کرده‌ای، لینک آن را اینجا قرار بده تا برای همه کاربران لینکو نمایش داده شود.
+            اگر در پیج خودت پستی منتشر کرده‌ای، لینک آن را اینجا قرار بده تا برای کاربران لینکو نمایش داده شود.
           </p>
 
         </div>
 
-
-        <!-- EDUCATION -->
 
         <div
           class="card"
@@ -650,7 +658,7 @@ html{
           </h3>
 
           <p>
-            اگر برای اولین بار وارد لینکو شده‌ای، این بخش را بخوان تا دقیقاً بدانی هر قسمت چه کاری انجام می‌دهد.
+            آموزش کامل استفاده از لینکو را اینجا بخوان.
           </p>
 
         </div>
@@ -676,8 +684,6 @@ html{
 
         <p class="description">
           اینجا لینک یک پست اینستاگرامی را قرار بده.
-          منظور پستی است که در پیج شخص دیگری منتشر شده، نه پست پیج خودت.
-          کاربران لینکو می‌توانند لینک را باز کنند و در صورت تمایل برای آن کامنت بگذارند.
         </p>
 
         <input
@@ -719,12 +725,11 @@ html{
       <div class="box">
 
         <h2>
-          💬 اشتراک لینک کامنت تبلیغاتی
+          💬 اشتراک لینک کامنت
         </h2>
 
         <p class="description">
-          اگر زیر یک پست اینستاگرامی کامنتی گذاشته‌ای که هدفش معرفی یا تبلیغ آن پست بوده، لینک همان کامنت را اینجا قرار بده.
-          کاربران می‌توانند کامنت را باز کنند و آن را ریپلای یا تأیید کنند یا برای آن سؤال بپرسند تا تعامل آن کامنت بیشتر شود.
+          اگر زیر یک پست اینستاگرامی کامنتی گذاشته‌ای، لینک همان کامنت را اینجا قرار بده.
         </p>
 
         <input
@@ -812,7 +817,7 @@ html{
     </section>
 
 
-    <!-- ================= EDUCATION ================= -->
+    <!-- ================= EDUCATION PAGE ================= -->
 
     <section id="educationPage" class="page">
 
@@ -824,209 +829,449 @@ html{
       <div class="box">
 
         <h2>
-          📚 آموزش کامل لینکو
+          📚 آموزش کامل استفاده از لینکو
         </h2>
 
-        <p class="description">
-          اگر برای اولین بار وارد لینکو شده‌ای، این راهنما همه چیز را مرحله‌به‌مرحله توضیح می‌دهد.
-        </p>
+
+        <div class="education-text">
+
+          <p>
+            به <b>لینکو</b> خوش آمدی 🌱
+          </p>
+
+          <p>
+            لینکو محلی برای به اشتراک گذاشتن لینک پست‌ها و کامنت‌های اینستاگرام بین کاربران است تا کاربران بتوانند در معرفی و افزایش فعالیت روی آن‌ها به یکدیگر کمک کنند.
+          </p>
+
+          <p>
+            کار با لینکو خیلی ساده است. فقط کافی است بدانیم هر بخش چه کاربردی دارد.
+          </p>
 
 
-        <div class="step">
+          <div class="section-title">
+            🏠 صفحه اصلی لینکو
+          </div>
 
-          <div class="step-number">۱</div>
+          <p>
+            بعد از ورود، چند بخش اصلی را می‌بینی:
+          </p>
 
-          <div>
-            <b>لینکو چه کاری انجام می‌دهد؟</b>
+
+          <div class="example">
+            <b>📸 پست‌های اینستاگرام</b>
             <br>
-            لینکو محلی برای به اشتراک گذاشتن لینک‌های اینستاگرامی بین کاربران است.
-            کاربران می‌توانند لینک پست‌ها، لینک کامنت‌های تبلیغاتی و لینک پست‌های پیج خودشان را ثبت کنند.
+            اینجا لینک پست‌هایی قرار می‌گیرد که کاربران از اینستاگرام در لینکو ثبت کرده‌اند.
+            <br><br>
+            مثلاً اگر در اینستاگرام یک پست جالب از یک پیج دیدی و می‌خواهی آن پست را برای فعالیت و معرفی در اختیار کاربران لینکو قرار بدهی، می‌توانی لینک همان پست را در این بخش ثبت کنی.
           </div>
 
-        </div>
 
-
-        <div class="step">
-
-          <div class="step-number">۲</div>
-
-          <div>
-            <b>اشتراک لینک پست یعنی چه؟</b>
+          <div class="example">
+            <b>💬 ثبت لینک کامنت من</b>
             <br>
-            اگر پستی را در اینستاگرام دیدی و می‌خواهی دیگر کاربران لینکو برای آن تعامل ایجاد کنند،
-            لینک همان پست را در بخش «اشتراک لینک پست» قرار بده.
-            این پست متعلق به پیج دیگری است و لازم نیست پست خودت باشد.
+            اگر زیر یک پست اینستاگرامی کامنتی برای تبلیغ گذاشته‌ای، می‌توانی لینک همان کامنت را اینجا ثبت کنی.
+            <br><br>
+            سپس سایر کاربران لینکو می‌توانند آن کامنت را پیدا کنند و روی آن فعالیت انجام دهند.
           </div>
 
-        </div>
 
-
-        <div class="step">
-
-          <div class="step-number">۳</div>
-
-          <div>
-            <b>اشتراک لینک کامنت چیست؟</b>
+          <div class="example">
+            <b>🔗 لینک کامنت‌ها</b>
             <br>
-            اگر زیر یک پست اینستاگرامی کامنتی گذاشته‌ای که در آن آن پست را معرفی کرده‌ای،
-            می‌توانی لینک مستقیم همان کامنت را در لینکو قرار بدهی.
-            کاربران می‌توانند کامنت را باز کنند و روی آن تعامل انجام دهند.
+            در این قسمت کامنت‌هایی را می‌بینی که سایر کاربران در (ثبت لینک کامنت من) لینکو ثبت کرده‌اند.
+            <br><br>
+            با ورود به هر مورد، می‌توانی کامنت را در اینستاگرام مشاهده کنی و فعالیت موردنظر را روی آن انجام بدهی.
+            <br><br>
+            هر کامنتی که روش بزنی از این قسمت حذف میشه و وارد بخش کامنت های دیده شده میشه.
           </div>
 
-        </div>
 
-
-        <div class="step">
-
-          <div class="step-number">۴</div>
-
-          <div>
-            <b>روی کامنت چه کاری انجام می‌شود؟</b>
+          <div class="example">
+            <b>✅ کامنت‌های دیده‌شده</b>
             <br>
-            کاربر می‌تواند کامنت ثبت‌شده را در اینستاگرام باز کند و در صورت تمایل آن را ریپلای کند،
-            تأیید کند یا یک سؤال مرتبط بپرسد.
-            هدف این است که کامنت بهتر دیده شود و گفت‌وگو شکل بگیرد.
+            کامنت‌هایی که قبلاً از طریق لینکو مشاهده کرده‌ای، در این بخش قرار می‌گیرند تا گیج نشی.
           </div>
 
-        </div>
 
-
-        <div class="step">
-
-          <div class="step-number">۵</div>
-
-          <div>
-            <b>لینک پست پیج خودم چیست؟</b>
+          <div class="example">
+            <b>📚 پست‌های دیده‌شده</b>
             <br>
-            این قسمت کاملاً جداست.
-            اگر خودت در پیج اینستاگرامت پستی منتشر کرده‌ای،
-            لینک آن پست را در این قسمت قرار بده.
-            لینک برای همه کاربران لینکو نمایش داده می‌شود.
-            هر کاربر فقط می‌تواند لینک‌هایی را که خودش ثبت کرده حذف کند.
+            پست‌هایی که قبلاً از طریق لینکو مشاهده کرده‌ای، در این قسمت قرار می‌گیرند تا گیج نشی.
           </div>
 
-        </div>
 
-      </div>
-
-
-      <!-- WRITING -->
-
-      <div class="box">
-
-        <h2>
-          ✍️ درباره کامنت‌ها چه بنویسیم؟
-        </h2>
-
-        <div class="tip good">
-
-          <b>بهتر است:</b>
-          <br><br>
-
-          • کامنت واقعاً مرتبط با محتوای پست باشد.
-          <br>
-          • اگر نظری داری، همان نظر را طبیعی و واضح بنویسی.
-          <br>
-          • اگر سؤال می‌پرسی، سؤال واقعی و مرتبط باشد.
-          <br>
-          • از جملات مختلف و طبیعی استفاده کنی.
-          <br>
-          • اگر پاسخ می‌دهی، پاسخ تو واقعاً به موضوع پست مربوط باشد.
-
-        </div>
-
-
-        <div class="tip bad">
-
-          <b>از این کارها خودداری کن:</b>
-          <br><br>
-
-          • ارسال کامنت‌های تکراری و کپی‌شده.
-          <br>
-          • گذاشتن تعداد زیادی کامنت پشت سر هم.
-          <br>
-          • کامنت‌های بی‌ربط به محتوای پست.
-          <br>
-          • ارسال متن تبلیغاتی یکسان زیر پست‌های مختلف.
-          <br>
-          • ایجاد تعامل مصنوعی یا فریبنده.
-          <br>
-          • مزاحمت برای صاحب پیج یا سایر کاربران.
-
-        </div>
-
-
-        <div class="tip info">
-
-          <b>نکته مهم:</b>
-          <br><br>
-
-          هیچ روشی وجود ندارد که بتواند تضمین کند یک حساب اینستاگرام هرگز محدود نمی‌شود.
-          بهتر است فعالیت‌ها طبیعی، مرتبط با محتوا و مطابق قوانین اینستاگرام باشند.
-
-        </div>
-
-      </div>
-
-
-      <!-- GUIDE -->
-
-      <div class="box">
-
-        <h2>
-          🧭 ترتیب استفاده از لینکو
-        </h2>
-
-        <div class="step">
-
-          <div class="step-number">۱</div>
-
-          <div>
-            وارد لینکو شو.
+          <div class="example">
+            <b>⭐ پست‌های پیج خودم</b>
+            <br>
+            اگر در پیج خودت پستی منتشر کرده‌ای، می‌توانی لینک آن را در بخش «لینک پست پیج خودم» قرار بدهی.
+            <br><br>
+            این لینک برای کاربران لینکو نمایش داده می‌شود و فقط خودت می‌توانی لینک ثبت‌شده توسط خودت را حذف کنی.
           </div>
 
-        </div>
 
-        <div class="step">
-
-          <div class="step-number">۲</div>
-
-          <div>
-            اگر می‌خواهی دیگران روی یک پست اینستاگرامی تعامل کنند،
-            لینک پست را در «اشتراک لینک پست» قرار بده.
+          <div class="section-title">
+            1️⃣ چگونه یک پست اینستاگرام را در لینکو ثبت کنیم؟
           </div>
 
-        </div>
+          <p>
+            فرض کن در اینستاگرام یک پست از یک پیج پیدا کرده‌ای و می‌خواهی آن پست را در اختیار کاربران لینکو قرار بدهی.
+          </p>
 
-        <div class="step">
+          <p>
+            <b>مرحله ۱:</b>
+            وارد پست موردنظر در اینستاگرام شو.
+            <br><br>
 
-          <div class="step-number">۳</div>
+            <b>مرحله ۲:</b>
+            گزینه اشتراک‌گذاری یا منوی مربوط به پست را باز کن.
+            <br><br>
 
-          <div>
-            اگر خودت زیر آن پست یک کامنت تبلیغاتی گذاشته‌ای،
-            لینک مستقیم همان کامنت را در «اشتراک لینک کامنت» قرار بده.
+            <b>مرحله ۳:</b>
+            گزینه <b>Copy link / کپی لینک</b> را بزن.
+            <br><br>
+
+            <b>مرحله ۴:</b>
+            وارد لینکو شو و بخش:
+            <br>
+            📸 <b>پست‌های اینستاگرام</b>
+            <br><br>
+
+            <b>مرحله ۵:</b>
+            برای پست یک عنوان کوتاه بنویس
+            (مثلا میتونی بنویسی موضوعش چیه)
+            <br><br>
+
+            <b>مرحله ۶:</b>
+            لینک پست را در قسمت لینک قرار بده.
+            (paste کن)
+            <br><br>
+
+            <b>مرحله ۷:</b>
+            روی <b>➕ ثبت پست</b> بزن.
+          </p>
+
+          <div class="good">
+            تمام! 🎉
+            <br>
+            حالا آن پست در لینکو قرار گرفته و کاربران دیگر می‌توانند آن را ببینند و فعالیت مربوط به آن را انجام دهند.
           </div>
 
-        </div>
 
-        <div class="step">
-
-          <div class="step-number">۴</div>
-
-          <div>
-            کاربران می‌توانند لینک کامنت را باز کنند و در صورت تمایل
-            پاسخ یا سؤال مرتبطی برای آن بنویسند.
+          <div class="section-title">
+            💡 عنوان پست را چه بنویسیم؟ (پیشنهادی)
           </div>
 
-        </div>
+          <p>
+            عنوان فقط برای این است که وقتی کاربران در لینکو پست را می‌بینند، بدانند با چه چیزی روبه‌رو هستند.
+            <br><br>
+            عنوان را کوتاه و واضح بنویس.
+            <br><br>
 
-        <div class="step">
+            مثلاً:
+            <br>
+            <b>پست آموزشی</b>
+            <br>
+            <b>پست معرفی محصول</b>
+            <br>
+            <b>پست جدید پیج</b>
+            <br>
+            <b>پست درباره آموزش عربی</b>
+            <br><br>
 
-          <div class="step-number">۵</div>
+            لازم نیست عنوان شامل توضیحات طولانی باشد.
+          </p>
 
-          <div>
-            اگر پست متعلق به پیج خودت است،
-            به‌جای بخش‌های قبلی از «لینک پست پیج خودم» استفاده کن.
+
+          <div class="section-title">
+            2️⃣ چگونه لینک کامنت خودمان را ثبت کنیم؟
+          </div>
+
+          <p>
+            این بخش مربوط به کامنتی است که <b>خودت در اینستاگرام گذاشته‌ای.</b>
+            <br><br>
+
+            مثلاً فرض کن در اینستاگرام یک پست را پیدا کرده‌ای و زیر آن پست، یک کامنت مرتبط برای معرفی امام ع نوشته‌ای.
+            <br><br>
+
+            حالا می‌توانی لینک همان کامنت را در لینکو ثبت کنی.
+          </p>
+
+          <p>
+            <b>۱.</b> وارد اینستاگرام شو.
+            <br><br>
+            <b>۲.</b> کامنتی را که خودت گذاشته‌ای پیدا کن.
+            <br><br>
+            <b>۳.</b> لینک همان کامنت را کپی کن.
+            <br><br>
+            <b>۴.</b> وارد لینکو شو.
+            <br><br>
+            <b>۵.</b> بخش:
+            <br>
+            💬 <b>ثبت لینک کامنت من</b>
+            <br><br>
+            <b>۶.</b> لینک کامنت را وارد کن.
+            <br><br>
+            <b>۷.</b> روی <b>🟢 ثبت لینک</b> بزن.
+          </p>
+
+          <p>
+            بعد از ثبت، کامنت تو در اختیار سایر کاربران لینکو قرار می‌گیرد.
+          </p>
+
+
+          <div class="section-title">
+            🔗 3️⃣ با لینک کامنت‌های دیگران چه کار کنیم؟
+          </div>
+
+          <p>
+            حالا نوبت به بخش:
+            <br>
+            <b>🔗 لینک کامنت‌ها</b>
+            <br><br>
+
+            می‌رسد.
+            <br><br>
+
+            در این قسمت، لینک کامنت‌هایی را می‌بینی که کاربران دیگر در لینکو ثبت کرده‌اند.
+          </p>
+
+          <p>
+            روی:
+            <br>
+            <b>🔗 مشاهده کامنت</b>
+            <br><br>
+            بزن.
+            <br><br>
+
+            لینکو تو را به کامنت مربوطه در اینستاگرام می‌برد.
+            <br><br>
+
+            حالا می‌توانی روی همان کامنت فعالیت انجام بدهی.
+          </p>
+
+
+          <div class="example">
+            <b>💬 ریپلای کردن</b>
+            <br>
+            به کامنت پاسخ بدهی تا یک پاسخ جدید زیر آن ایجاد شود.
+            <br><br>
+
+            <b>👍 تأیید یا حمایت</b>
+            <br>
+            در صورت مناسب بودن، با یک تعامل مناسب از کامنت حمایت کنی.
+            <br><br>
+
+            <b>❓ سؤال پرسیدن</b>
+            <br>
+            یک سؤال مرتبط درباره موضوع کامنت بپرسی تا یک گفت‌وگو زیر آن شکل بگیرد.
+          </div>
+
+          <p>
+            هدف این بخش این است که کامنت‌هایی که کاربران در لینکو ثبت کرده‌اند، فقط دیده نشوند؛ بلکه کاربران دیگر روی آن‌ها فعالیت کنند و با ایجاد ریپلای و گفت‌وگو، فعالیت بیشتری زیر کامنت شکل بگیرد.
+          </p>
+
+
+          <div class="section-title">
+            🔄 سیستم لینکو چطور کار می‌کند؟
+          </div>
+
+          <p>
+            برای اینکه خیلی راحت متوجه شوی، یک مثال بزنیم:
+          </p>
+
+          <div class="example">
+
+            👤 <b>نفر اول</b>
+            <br>
+            در اینستاگرام یک پست از یک پیج را پیدا می‌کند.
+            <br>
+            لینک آن پست را در <b>📸 پست‌های اینستاگرام</b> لینکو قرار می‌دهد.
+
+            <br><br>
+            ⬇️
+
+            <br><br>
+
+            👥 <b>کاربران دیگر</b>
+            <br>
+            پست را در لینکو می‌بینند و وارد لینک آن در اینستاگرام می‌شوند و فعالیت موردنظر را انجام می‌دهند.
+
+            <br><br>
+            ⬇️
+
+            <br><br>
+
+            👤 <b>نفر اول یا یک کاربر دیگر</b>
+            <br>
+            در اینستاگرام زیر یک پست، یک کامنت تبلیغاتی مرتبط می‌گذارد.
+
+            <br><br>
+            ⬇️
+
+            <br><br>
+
+            لینک آن کامنت را در:
+            <br>
+            <b>💬 ثبت لینک کامنت من</b>
+            <br>
+            قرار می‌دهد.
+
+            <br><br>
+            ⬇️
+
+            <br><br>
+
+            👥 <b>کاربران دیگر</b>
+            <br>
+            به قسمت:
+            <br>
+            <b>🔗 لینک کامنت‌ها</b>
+            <br>
+            می‌روند.
+            <br><br>
+
+            کامنت را باز می‌کنند و روی آن <b>ریپلای، تأیید یا سؤال مرتبط</b> انجام می‌دهند.
+          </div>
+
+          <p>
+            به این شکل، کاربران لینکو در معرفی امام ع و ایجاد فعالیت روی کامنت‌های یکدیگر مشارکت می‌کنند. 🌱
+          </p>
+
+
+          <div class="section-title">
+            👀 پست‌های دیده‌شده یعنی چه؟
+          </div>
+
+          <p>
+            لینکو پست‌هایی را که مشاهده کرده‌ای برای حساب تو ثبت می‌کند.
+            <br><br>
+
+            بنابراین وقتی یک پست را از بخش <b>📸 پست‌های اینستاگرام</b> باز می‌کنی، دیگر لازم نیست همان پست دوباره در فهرست پست‌های دیده‌نشده برایت نمایش داده شود.
+            <br><br>
+
+            اگر بعداً خواستی دوباره آن را پیدا کنی، به:
+            <br>
+            <b>📚 پست‌های دیده‌شده</b>
+            <br>
+            برو.
+          </p>
+
+
+          <div class="section-title">
+            ✅ کامنت‌های دیده‌شده
+          </div>
+
+          <p>
+            همین سیستم برای کامنت‌ها هم وجود دارد.
+            <br><br>
+
+            وقتی یک کامنت را از بخش:
+            <br>
+            <b>🔗 لینک کامنت‌ها</b>
+            <br>
+            مشاهده می‌کنی، لینکو آن را برای حساب تو به‌عنوان دیده‌شده ثبت می‌کند.
+            <br><br>
+
+            بعداً می‌توانی آن را در:
+            <br>
+            <b>✅ کامنت‌های دیده‌شده</b>
+            <br>
+            پیدا کنی.
+          </p>
+
+
+          <div class="section-title">
+            🗑️ حذف پست یا کامنت
+          </div>
+
+          <p>
+            اگر خودت یک لینک پست در لینکو ثبت کرده‌ای و دیگر نمی‌خواهی در فهرست باشد، می‌توانی آن را حذف کنی.
+            <br><br>
+
+            برای کامنت‌هایی که خودت ثبت کرده‌ای نیز می‌توانی از گزینه:
+            <br>
+            <b>🗑️ حذف کامنت</b>
+            <br>
+            استفاده کنی.
+          </p>
+
+
+          <div class="section-title">
+            ✍️ هنگام نوشتن کامنت و ریپلای به چه چیزهایی توجه کنیم؟
+          </div>
+
+          <div class="good">
+
+            برای اینکه فعالیت‌ها طبیعی، مفید و محترمانه باشند:
+
+            <br><br>
+
+            ✅ متن را مرتبط با موضوع پست یا کامنت بنویس.
+            <br>
+            ✅ اگر سؤال می‌پرسی، سؤال واقعاً مربوط به موضوع باشد.
+            <br>
+            ✅ اگر ریپلای می‌کنی، پاسخ با کامنت قبلی ارتباط داشته باشد.
+            <br>
+            ✅ از توهین، محتوای نامناسب و اطلاعات نادرست خودداری کن.
+            <br>
+            ✅ متن‌های تکراری و بی‌ربط را به‌صورت انبوه ارسال نکن.
+            <br>
+            ✅ قوانین اینستاگرام و قوانین صفحه‌ای که در آن فعالیت می‌کنی را رعایت کن.
+
+          </div>
+
+
+          <div class="warning">
+
+            ❌ از کامنت‌های کاملاً بی‌ربط و مزاحم استفاده نکن.
+            <br>
+            ❌ برای جلب توجه، اطلاعات دروغ یا ادعاهای گمراه‌کننده ننویس.
+            <br>
+            ❌ فعالیت را به شکل اسپم انجام نده.
+
+          </div>
+
+
+          <p>
+            رعایت این موارد باعث می‌شود فعالیت کاربران برای دیگران هم تجربه بهتری ایجاد کند.
+          </p>
+
+
+          <div class="section-title">
+            ⭐ خلاصه لینکو
+          </div>
+
+          <p>
+            اگر بخواهیم خیلی ساده بگوییم:
+            <br><br>
+
+            📸 <b>پست دیدی؟</b>
+            <br>
+            <b>لینک پست را در لینکو ثبت کن.</b>
+
+            <br><br>
+
+            💬 <b>کامنت تبلیغاتی گذاشتی؟</b>
+            <br>
+            <b>لینک همان کامنت را در لینکو ثبت کن.</b>
+
+            <br><br>
+
+            🔗 <b>کامنت دیگران را دیدی؟</b>
+            <br>
+            <b>وارد کامنت شو و فعالیت موردنظر را روی آن انجام بده.</b>
+
+            <br><br>
+
+            📚 <b>چیزی را قبلاً دیده‌ای؟</b>
+            <br>
+            <b>از بخش پست‌ها و کامنت‌های دیده‌شده دوباره پیدایش کن.</b>
+          </p>
+
+          <div class="example">
+            <b>همین! 🌱</b>
+            <br><br>
+            لینکو یعنی همکاری کاربران برای معرفی پست‌ها و ایجاد فعالیت روی کامنت‌ها.
           </div>
 
         </div>
@@ -1042,19 +1287,39 @@ html{
 
 <script>
 
-/* ================= DATA ================= */
+/* ================= SAFE DATA ================= */
 
-let users =
-  JSON.parse(localStorage.getItem("linco_users") || "[]");
+function loadData(key){
 
-let posts =
-  JSON.parse(localStorage.getItem("linco_posts") || "[]");
+  try{
 
-let comments =
-  JSON.parse(localStorage.getItem("linco_comments") || "[]");
+    const data = localStorage.getItem(key);
 
-let myPosts =
-  JSON.parse(localStorage.getItem("linco_my_posts") || "[]");
+    if(!data){
+      return [];
+    }
+
+    const parsed = JSON.parse(data);
+
+    return Array.isArray(parsed) ? parsed : [];
+
+  }catch(error){
+
+    console.warn("داده خراب بود:",key);
+
+    localStorage.removeItem(key);
+
+    return [];
+
+  }
+
+}
+
+
+let users = loadData("linco_users");
+let posts = loadData("linco_posts");
+let comments = loadData("linco_comments");
+let myPosts = loadData("linco_my_posts");
 
 let currentUser =
   localStorage.getItem("linco_current_user") || "";
@@ -1062,13 +1327,24 @@ let currentUser =
 
 /* ================= START ================= */
 
-window.addEventListener("load",function(){
+window.addEventListener("DOMContentLoaded",function(){
 
-  if(currentUser){
+  try{
 
-    showApp();
+    if(currentUser){
 
-  }else{
+      showApp();
+
+    }else{
+
+      document.getElementById("loginPage").style.display="flex";
+      document.getElementById("app").style.display="none";
+
+    }
+
+  }catch(error){
+
+    console.error(error);
 
     document.getElementById("loginPage").style.display="flex";
     document.getElementById("app").style.display="none";
@@ -1120,10 +1396,8 @@ function register(){
 
 
   users.push({
-
     username:username,
     password:password
-
   });
 
 
@@ -1171,6 +1445,7 @@ function login(){
   if(!user){
 
     message.className="error";
+
     message.textContent=
       "نام کاربری یا رمز عبور اشتباه است.";
 
@@ -1196,12 +1471,30 @@ function login(){
 
 function showApp(){
 
-  document.getElementById("loginPage").style.display="none";
+  const loginPage =
+    document.getElementById("loginPage");
 
-  document.getElementById("app").style.display="block";
+  const app =
+    document.getElementById("app");
 
-  document.getElementById("welcomeName").textContent=
-    currentUser;
+  const welcomeName =
+    document.getElementById("welcomeName");
+
+
+  if(!loginPage || !app){
+    return;
+  }
+
+
+  loginPage.style.display="none";
+
+  app.style.display="block";
+
+
+  if(welcomeName){
+    welcomeName.textContent=currentUser;
+  }
+
 
   showPage("homePage");
 
@@ -1246,23 +1539,17 @@ function showPage(pageId){
 
 
   if(pageId==="postPage"){
-
     renderPosts();
-
   }
 
 
   if(pageId==="commentPage"){
-
     renderComments();
-
   }
 
 
   if(pageId==="myPostPage"){
-
     renderMyPosts();
-
   }
 
 
@@ -1349,6 +1636,11 @@ function renderPosts(){
     document.getElementById("postList");
 
 
+  if(!list){
+    return;
+  }
+
+
   if(posts.length===0){
 
     list.innerHTML=
@@ -1372,7 +1664,9 @@ function renderPosts(){
           href="${escapeHtml(post.link)}"
           target="_blank"
           rel="noopener noreferrer">
+
           ${escapeHtml(post.link)}
+
         </a>
 
         <div class="small">
@@ -1485,6 +1779,11 @@ function renderComments(){
     document.getElementById("commentList");
 
 
+  if(!list){
+    return;
+  }
+
+
   if(comments.length===0){
 
     list.innerHTML=
@@ -1501,7 +1800,7 @@ function renderComments(){
       <div class="item">
 
         <div class="item-title">
-          💬 لینک کامنت تبلیغاتی
+          💬 لینک کامنت
         </div>
 
         <a
@@ -1519,9 +1818,9 @@ function renderComments(){
         </div>
 
         <button
-          onclick="openComment('${escapeHtml(comment.link)}')">
+          onclick="openComment(${JSON.stringify(comment.link)})">
 
-          باز کردن کامنت
+          🔗 مشاهده کامنت
 
         </button>
 
@@ -1547,6 +1846,10 @@ function renderComments(){
 /* ================= OPEN COMMENT ================= */
 
 function openComment(link){
+
+  if(!link){
+    return;
+  }
 
   window.open(
     link,
@@ -1644,6 +1947,11 @@ function renderMyPosts(){
     document.getElementById("myPostList");
 
 
+  if(!list){
+    return;
+  }
+
+
   if(myPosts.length===0){
 
     list.innerHTML=
@@ -1728,7 +2036,7 @@ function deleteMyPost(id){
 
 function escapeHtml(value){
 
-  return String(value)
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
