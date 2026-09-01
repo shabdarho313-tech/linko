@@ -4,7 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>Linko</title>
 
@@ -28,7 +32,12 @@ body{
   min-height:100vh;
   color:#1d2433;
   background:
-    radial-gradient(circle at top right,#eef2ff 0,#f7f8fc 38%,#f4f6fa 100%);
+    radial-gradient(
+      circle at top right,
+      #eef2ff 0,
+      #f7f8fc 38%,
+      #f4f6fa 100%
+    );
 }
 
 button{
@@ -64,7 +73,8 @@ select{
 input:focus,
 select:focus{
   border-color:#6c63ff;
-  box-shadow:0 0 0 4px rgba(108,99,255,.10);
+  box-shadow:
+    0 0 0 4px rgba(108,99,255,.10);
 }
 
 ::placeholder{
@@ -136,11 +146,17 @@ select:focus{
   align-items:center;
   justify-content:center;
   border-radius:23px;
-  background:linear-gradient(135deg,#6c63ff,#8c7cff);
+  background:
+    linear-gradient(
+      135deg,
+      #6c63ff,
+      #8c7cff
+    );
   color:white;
   font-size:26px;
   font-weight:bold;
-  box-shadow:0 12px 28px rgba(108,99,255,.28);
+  box-shadow:
+    0 12px 28px rgba(108,99,255,.28);
 }
 
 .login-box h1{
@@ -159,18 +175,25 @@ select:focus{
 }
 
 .primary{
-  background:linear-gradient(135deg,#5b54e8,#7c70ff);
+  background:
+    linear-gradient(
+      135deg,
+      #5b54e8,
+      #7c70ff
+    );
   color:white;
   width:100%;
   padding:14px;
   border-radius:14px;
   font-size:16px;
   font-weight:bold;
-  box-shadow:0 10px 24px rgba(108,99,255,.22);
+  box-shadow:
+    0 10px 24px rgba(108,99,255,.22);
 }
 
 .primary:hover{
-  box-shadow:0 14px 28px rgba(108,99,255,.28);
+  box-shadow:
+    0 14px 28px rgba(108,99,255,.28);
 }
 
 .secondary{
@@ -220,7 +243,12 @@ select:focus{
 .header h1{
   font-size:25px;
   font-weight:800;
-  background:linear-gradient(135deg,#5b54e8,#8b7cff);
+  background:
+    linear-gradient(
+      135deg,
+      #5b54e8,
+      #8b7cff
+    );
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -307,7 +335,11 @@ select:focus{
 .card.admin-card{
   border:1px solid #d8d4ff;
   background:
-    linear-gradient(145deg,#fff,#f8f7ff);
+    linear-gradient(
+      145deg,
+      #fff,
+      #f8f7ff
+    );
 }
 
 .icon{
@@ -350,7 +382,8 @@ select:focus{
   margin-bottom:20px;
   border:1px solid #e5e8ee;
   font-size:14px;
-  box-shadow:0 4px 12px rgba(30,40,70,.04);
+  box-shadow:
+    0 4px 12px rgba(30,40,70,.04);
 }
 
 .back:hover{
@@ -396,7 +429,8 @@ select:focus{
 
 .item:hover{
   border-color:#dedcff;
-  box-shadow:0 7px 20px rgba(40,45,80,.06);
+  box-shadow:
+    0 7px 20px rgba(40,45,80,.06);
 }
 
 .item-title{
@@ -603,6 +637,7 @@ html{
 
 </head>
 
+
 <body>
 
 
@@ -610,7 +645,10 @@ html{
      LOGIN
 ========================= -->
 
-<div class="login" id="loginPage">
+<div
+  class="login"
+  id="loginPage"
+>
 
   <div class="login-box">
 
@@ -661,7 +699,10 @@ html{
      APP
 ========================= -->
 
-<div class="app" id="app">
+<div
+  class="app"
+  id="app"
+>
 
   <div class="header">
 
@@ -804,6 +845,56 @@ html{
         </div>
 
 
+        <!-- =====================
+             NEW:
+             MY PAGE POST LINK
+        ====================== -->
+
+        <div
+          class="card"
+          onclick="openPage('myPagePostPage')"
+        >
+
+          <div class="icon">
+            📱
+          </div>
+
+          <h3>
+            لینک پست پیج خودم
+          </h3>
+
+          <p>
+            لینک پست پیج خودت را قرار بده
+          </p>
+
+        </div>
+
+
+        <!-- =====================
+             NEW:
+             EDUCATION
+        ====================== -->
+
+        <div
+          class="card"
+          onclick="openPage('educationPage')"
+        >
+
+          <div class="icon">
+            🎓
+          </div>
+
+          <h3>
+            آموزش
+          </h3>
+
+          <p>
+            آموزش‌ها و مطالب آموزشی
+          </p>
+
+        </div>
+
+
         <!-- فقط ادمین -->
 
         <div
@@ -826,7 +917,6 @@ html{
           </p>
 
         </div>
-
 
       </div>
 
@@ -955,7 +1045,9 @@ html{
           💬 ثبت لینک کامنت من
         </h2>
 
-        <p style="margin-bottom:15px;color:#7d8491">
+        <p
+          style="margin-bottom:15px;color:#7d8491"
+        >
           لینک کامنت خودت را وارد کن:
         </p>
 
@@ -1051,6 +1143,165 @@ html{
 
         <div id="seenList">
           در حال دریافت...
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================
+         MY PAGE POST LINK
+    ====================== -->
+
+    <div
+      class="page"
+      id="myPagePostPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <div class="box">
+
+        <h2>
+          📱 لینک پست پیج خودم
+        </h2>
+
+        <p
+          style="
+            margin-bottom:15px;
+            color:#7d8491;
+            line-height:1.8;
+          "
+        >
+          لینک پست پیج خودت را اینجا وارد کن:
+        </p>
+
+
+        <input
+          id="myPagePostUrl"
+          placeholder="https://www.instagram.com/..."
+        >
+
+        <br><br>
+
+
+        <button
+          class="primary"
+          onclick="saveMyPagePost()"
+        >
+          🔗 ثبت لینک پست
+        </button>
+
+
+        <div
+          id="myPagePostStatus"
+          class="status"
+        ></div>
+
+      </div>
+
+
+      <div class="box">
+
+        <h2>
+          📌 لینک پست من
+        </h2>
+
+        <div id="myPagePostList">
+
+          <div class="empty">
+            هنوز لینکی ثبت نکرده‌ای.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================
+         EDUCATION
+    ====================== -->
+
+    <div
+      class="page"
+      id="educationPage"
+    >
+
+      <button
+        class="back"
+        onclick="openPage('homePage')"
+      >
+        ← بازگشت
+      </button>
+
+
+      <div class="box">
+
+        <h2>
+          🎓 آموزش
+        </h2>
+
+
+        <div class="item">
+
+          <div class="item-title">
+            آموزش اول
+          </div>
+
+          <p
+            style="
+              color:#7d8491;
+              line-height:1.9;
+            "
+          >
+            متن آموزش اول را اینجا قرار بده.
+          </p>
+
+        </div>
+
+
+        <div class="item">
+
+          <div class="item-title">
+            آموزش دوم
+          </div>
+
+          <p
+            style="
+              color:#7d8491;
+              line-height:1.9;
+            "
+          >
+            متن آموزش دوم را اینجا قرار بده.
+          </p>
+
+        </div>
+
+
+        <div class="item">
+
+          <div class="item-title">
+            آموزش سوم
+          </div>
+
+          <p
+            style="
+              color:#7d8491;
+              line-height:1.9;
+            "
+          >
+            متن آموزش سوم را اینجا قرار بده.
+          </p>
+
         </div>
 
       </div>
@@ -1173,7 +1424,6 @@ html{
 
     </div>
 
-
   </div>
 
 </div>
@@ -1181,15 +1431,16 @@ html{
 
 <script>
 
+
 /* =====================================
    SUPABASE
 ===================================== */
 
 const SUPABASE_URL =
-"https://btgeluoiwpivnjnfptzz.supabase.co";
+  "https://btgeluoiwpivnjnfptzz.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_ImlRAdr3gKdANgrQcKYbGg_cxiXCAm6";
+  "sb_publishable_ImlRAdr3gKdANgrQcKYbGg_cxiXCAm6";
 
 
 /* =====================================
@@ -1233,7 +1484,9 @@ async function db(path,options={}){
 
 
   if(!text){
+
     return [];
+
   }
 
 
@@ -1267,9 +1520,11 @@ async function login(){
     document.getElementById("username")
       .value.trim();
 
+
   const password =
     document.getElementById("password")
       .value;
+
 
   const error =
     document.getElementById("loginError");
@@ -1376,7 +1631,6 @@ async function login(){
 
     loadAll();
 
-
   }catch(e){
 
     console.error(e);
@@ -1421,7 +1675,9 @@ function logout(){
 
   document.querySelectorAll(".page")
     .forEach(p=>{
+
       p.style.display="none";
+
     });
 
 
@@ -1491,7 +1747,9 @@ function openPage(id){
 
   document.querySelectorAll(".page")
     .forEach(p=>{
+
       p.style.display="none";
+
     });
 
 
@@ -1540,9 +1798,11 @@ async function addPost(){
     document.getElementById("postTitle")
       .value.trim();
 
+
   const url =
     document.getElementById("postUrl")
       .value.trim();
+
 
   const status =
     document.getElementById("postStatus");
@@ -1603,6 +1863,7 @@ async function addPost(){
     document.getElementById("postTitle")
       .value="";
 
+
     document.getElementById("postUrl")
       .value="";
 
@@ -1613,10 +1874,10 @@ async function addPost(){
 
     loadPosts();
 
-
   }catch(e){
 
     console.error(e);
+
 
     if(
       e.message.includes("23505") ||
@@ -1651,7 +1912,9 @@ async function loadPosts(){
 
 
   if(!box || !currentUser){
+
     return;
+
   }
 
 
@@ -1715,11 +1978,14 @@ async function loadPosts(){
         div.innerHTML=`
 
           <div class="item-title">
+
             ${escapeHTML(
               post.title ||
               "پست "+(index+1)
             )}
+
           </div>
+
 
           <a
             href="${escapeHTML(
@@ -1734,8 +2000,11 @@ async function loadPosts(){
               )}'
             )"
           >
+
             🔗 مشاهده پست
+
           </a>
+
 
           <button
             onclick="copyLink(
@@ -1744,13 +2013,18 @@ async function loadPosts(){
               )}'
             )"
           >
+
             کپی لینک
+
           </button>
+
 
           ${
             Number(post.user_id) ===
             Number(currentUser.id)
+
             ?
+
             `
             <button
               class="delete-button"
@@ -1758,10 +2032,14 @@ async function loadPosts(){
                 ${Number(post.id)}
               )"
             >
+
               🗑️ حذف پست من
+
             </button>
             `
+
             :
+
             ""
           }
 
@@ -1794,7 +2072,9 @@ async function loadPosts(){
 async function viewPost(id,url){
 
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -1839,8 +2119,11 @@ async function viewPost(id,url){
 
   setTimeout(
     ()=>{
+
       loadPosts();
+
       loadSeenPosts();
+
     },
     300
   );
@@ -1861,7 +2144,9 @@ async function loadSeenPosts(){
 
 
   if(!box || !currentUser){
+
     return;
+
   }
 
 
@@ -1903,7 +2188,9 @@ async function loadSeenPosts(){
     ){
 
       const postId =
-        Number(views[i].post_id);
+        Number(
+          views[i].post_id
+        );
 
 
       const posts =
@@ -1916,7 +2203,9 @@ async function loadSeenPosts(){
 
 
       if(posts.length===0){
+
         continue;
+
       }
 
 
@@ -1937,11 +2226,14 @@ async function loadSeenPosts(){
       div.innerHTML=`
 
         <div class="item-title">
+
           ${escapeHTML(
             post.title ||
             "پست "+count
           )}
+
         </div>
+
 
         <a
           href="${escapeHTML(
@@ -1950,7 +2242,9 @@ async function loadSeenPosts(){
           target="_blank"
           rel="noopener noreferrer"
         >
+
           🔗 مشاهده دوباره
+
         </a>
 
       `;
@@ -1991,7 +2285,9 @@ async function loadSeenPosts(){
 async function deletePost(postId){
 
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -2002,7 +2298,9 @@ async function deletePost(postId){
 
 
   if(!confirmed){
+
     return;
+
   }
 
 
@@ -2057,6 +2355,7 @@ async function deletePost(postId){
 
 
     loadPosts();
+
     loadSeenPosts();
 
 
@@ -2164,6 +2463,7 @@ async function addMyComment(){
 
 
     loadMyComments();
+
     loadComments();
 
 
@@ -2201,7 +2501,9 @@ async function addMyComment(){
 async function loadMyComments(){
 
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -2212,7 +2514,9 @@ async function loadMyComments(){
 
 
   if(!box){
+
     return;
+
   }
 
 
@@ -2257,8 +2561,11 @@ async function loadMyComments(){
         div.innerHTML=`
 
           <div class="item-title">
+
             کامنت ${index+1}
+
           </div>
+
 
           <a
             href="${escapeHTML(
@@ -2267,8 +2574,11 @@ async function loadMyComments(){
             target="_blank"
             rel="noopener noreferrer"
           >
+
             🔗 مشاهده کامنت
+
           </a>
+
 
           <button
             class="delete-button"
@@ -2276,7 +2586,9 @@ async function loadMyComments(){
               ${Number(comment.id)}
             )"
           >
+
             🗑️ حذف کامنت
+
           </button>
 
         `;
@@ -2310,7 +2622,9 @@ async function deleteMyComment(
 ){
 
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -2321,7 +2635,9 @@ async function deleteMyComment(
 
 
   if(!confirmed){
+
     return;
+
   }
 
 
@@ -2376,7 +2692,9 @@ async function deleteMyComment(
 
 
     loadMyComments();
+
     loadComments();
+
     loadSeen();
 
 
@@ -2410,7 +2728,9 @@ async function loadComments(){
     !box ||
     !currentUser
   ){
+
     return;
+
   }
 
 
@@ -2488,8 +2808,11 @@ async function loadComments(){
         div.innerHTML=`
 
           <div class="item-title">
+
             کامنت ${index+1}
+
           </div>
+
 
           <button
             onclick="viewComment(
@@ -2499,7 +2822,9 @@ async function loadComments(){
               )}'
             )"
           >
+
             🔗 مشاهده کامنت
+
           </button>
 
         `;
@@ -2534,7 +2859,9 @@ async function viewComment(
 ){
 
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -2587,8 +2914,11 @@ async function viewComment(
 
   setTimeout(
     ()=>{
+
       loadComments();
+
       loadSeen();
+
     },
     300
   );
@@ -2612,7 +2942,9 @@ async function loadSeen(){
     !box ||
     !currentUser
   ){
+
     return;
+
   }
 
 
@@ -2671,7 +3003,9 @@ async function loadSeen(){
       if(
         comments.length===0
       ){
+
         continue;
+
       }
 
 
@@ -2692,8 +3026,11 @@ async function loadSeen(){
       div.innerHTML=`
 
         <div class="item-title">
+
           کامنت ${shownCount}
+
         </div>
+
 
         <a
           href="${escapeHTML(
@@ -2702,7 +3039,9 @@ async function loadSeen(){
           target="_blank"
           rel="noopener noreferrer"
         >
+
           🔗 مشاهده دوباره
+
         </a>
 
       `;
@@ -2732,6 +3071,161 @@ async function loadSeen(){
       e.message;
 
   }
+
+}
+
+
+/* =====================================
+   MY PAGE POST LINK
+===================================== */
+
+function saveMyPagePost(){
+
+  if(!currentUser){
+
+    alert("ابتدا وارد شوید.");
+
+    return;
+
+  }
+
+
+  const input =
+    document.getElementById(
+      "myPagePostUrl"
+    );
+
+
+  const status =
+    document.getElementById(
+      "myPagePostStatus"
+    );
+
+
+  const url =
+    input.value.trim();
+
+
+  status.innerText="";
+
+
+  if(!url){
+
+    status.innerText =
+      "لینک پست را وارد کن.";
+
+    return;
+
+  }
+
+
+  if(
+    !url.includes("instagram.com")
+  ){
+
+    status.innerText =
+      "لطفاً لینک پست اینستاگرام را وارد کن.";
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "linko_my_page_post_" +
+    currentUser.id,
+    url
+  );
+
+
+  input.value="";
+
+
+  status.innerText =
+    "لینک پست با موفقیت ثبت شد ✅";
+
+
+  loadMyPagePost();
+
+}
+
+
+/* =====================================
+   LOAD MY PAGE POST
+===================================== */
+
+function loadMyPagePost(){
+
+  const box =
+    document.getElementById(
+      "myPagePostList"
+    );
+
+
+  if(
+    !box ||
+    !currentUser
+  ){
+
+    return;
+
+  }
+
+
+  const url =
+    localStorage.getItem(
+      "linko_my_page_post_" +
+      currentUser.id
+    );
+
+
+  if(!url){
+
+    box.innerHTML =
+      '<div class="empty">' +
+      'هنوز لینکی ثبت نکرده‌ای.' +
+      '</div>';
+
+    return;
+
+  }
+
+
+  box.innerHTML = `
+
+    <div class="item">
+
+      <div class="item-title">
+
+        📌 پست پیج من
+
+      </div>
+
+
+      <a
+        href="${escapeHTML(url)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        🔗 مشاهده پست
+
+      </a>
+
+
+      <button
+        onclick="copyLink(
+          '${escapeJS(url)}'
+        )"
+      >
+
+        کپی لینک
+
+      </button>
+
+    </div>
+
+  `;
 
 }
 
@@ -2867,7 +3361,9 @@ async function createUser(){
 async function loadUsers(){
 
   if(!isAdmin()){
+
     return;
+
   }
 
 
@@ -2878,7 +3374,9 @@ async function loadUsers(){
 
 
   if(!box){
+
     return;
+
   }
 
 
@@ -2918,16 +3416,24 @@ async function loadUsers(){
 
         const roleHTML =
           user.role === "admin"
+
           ?
+
           `
           <div class="admin-label">
+
             👑 ادمین
+
           </div>
           `
+
           :
+
           `
           <div class="user-label">
+
             👤 کاربر
+
           </div>
           `;
 
@@ -2935,15 +3441,21 @@ async function loadUsers(){
         div.innerHTML=`
 
           <strong>
+
             ${escapeHTML(
               user.username
             )}
+
           </strong>
 
+
           <div class="small">
+
             شناسه کاربر:
             ${Number(user.id)}
+
           </div>
+
 
           ${roleHTML}
 
@@ -2976,7 +3488,9 @@ async function loadUsers(){
 async function loadAdminPosts(){
 
   if(!isAdmin()){
+
     return;
+
   }
 
 
@@ -2987,7 +3501,9 @@ async function loadAdminPosts(){
 
 
   if(!box){
+
     return;
+
   }
 
 
@@ -3028,11 +3544,14 @@ async function loadAdminPosts(){
         div.innerHTML=`
 
           <div class="item-title">
+
             ${escapeHTML(
               post.title ||
               "پست "+(index+1)
             )}
+
           </div>
+
 
           <a
             href="${escapeHTML(
@@ -3041,8 +3560,11 @@ async function loadAdminPosts(){
             target="_blank"
             rel="noopener noreferrer"
           >
+
             🔗 مشاهده پست
+
           </a>
+
 
           <button
             class="delete-button admin-delete"
@@ -3050,7 +3572,9 @@ async function loadAdminPosts(){
               ${Number(post.id)}
             )"
           >
+
             🗑️ حذف پست توسط ادمین
+
           </button>
 
         `;
@@ -3101,7 +3625,9 @@ async function adminDeletePost(
 
 
   if(!confirmed){
+
     return;
+
   }
 
 
@@ -3122,7 +3648,9 @@ async function adminDeletePost(
 
 
     loadPosts();
+
     loadSeenPosts();
+
     loadAdminPosts();
 
 
@@ -3147,7 +3675,9 @@ async function adminDeletePost(
 async function loadAdminComments(){
 
   if(!isAdmin()){
+
     return;
+
   }
 
 
@@ -3158,7 +3688,9 @@ async function loadAdminComments(){
 
 
   if(!box){
+
     return;
+
   }
 
 
@@ -3199,8 +3731,11 @@ async function loadAdminComments(){
         div.innerHTML=`
 
           <div class="item-title">
+
             کامنت ${index+1}
+
           </div>
+
 
           <a
             href="${escapeHTML(
@@ -3209,8 +3744,11 @@ async function loadAdminComments(){
             target="_blank"
             rel="noopener noreferrer"
           >
+
             🔗 مشاهده کامنت
+
           </a>
+
 
           <button
             class="delete-button admin-delete"
@@ -3218,7 +3756,9 @@ async function loadAdminComments(){
               ${Number(comment.id)}
             )"
           >
+
             🗑️ حذف کامنت توسط ادمین
+
           </button>
 
         `;
@@ -3269,7 +3809,9 @@ async function adminDeleteComment(
 
 
   if(!confirmed){
+
     return;
+
   }
 
 
@@ -3290,8 +3832,11 @@ async function adminDeleteComment(
 
 
     loadMyComments();
+
     loadComments();
+
     loadSeen();
+
     loadAdminComments();
 
 
@@ -3324,16 +3869,20 @@ function copyLink(link){
       .writeText(link)
       .then(
         ()=>{
+
           alert(
             "لینک کپی شد ✅"
           );
+
         }
       )
       .catch(
         ()=>{
+
           alert(
             "کپی لینک انجام نشد."
           );
+
         }
       );
 
@@ -3425,6 +3974,8 @@ function loadAll(){
 
   loadSeen();
 
+  loadMyPagePost();
+
 
   if(isAdmin()){
 
@@ -3464,4 +4015,5 @@ document.addEventListener(
 </script>
 
 </body>
+
 </html>
