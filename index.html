@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linko</title>
+<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-<style>
+«»
+
+<title>Linko</title><style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -24,13 +24,15 @@ button{
   cursor:pointer;
 }
 
-input{
+input,
+select{
   width:100%;
   padding:14px;
   border:1px solid #ddd;
   border-radius:12px;
   font-size:15px;
   outline:none;
+  background:white;
 }
 
 .login{
@@ -73,6 +75,13 @@ input{
   padding:14px;
   border-radius:12px;
   font-size:16px;
+}
+
+.secondary{
+  background:#ddd;
+  color:#111;
+  padding:10px 14px;
+  border-radius:10px;
 }
 
 .error{
@@ -139,6 +148,10 @@ input{
   cursor:pointer;
 }
 
+.card.admin-card{
+  border:2px solid #111;
+}
+
 .icon{
   font-size:32px;
   margin-bottom:12px;
@@ -201,6 +214,10 @@ input{
   width:100%;
 }
 
+.admin-delete{
+  background:#8b0000 !important;
+}
+
 .item a{
   display:block;
   color:#111;
@@ -228,363 +245,511 @@ input{
   margin-top:5px;
 }
 
-.admin-badge{
+.admin-label{
   display:inline-block;
   background:#111;
   color:white;
   padding:5px 9px;
-  border-radius:8px;
+  border-radius:7px;
   font-size:12px;
   margin-top:7px;
 }
 
-.admin-box{
-  border:2px solid #eee;
+.user-label{
+  display:inline-block;
+  background:#eee;
+  color:#555;
+  padding:5px 9px;
+  border-radius:7px;
+  font-size:12px;
+  margin-top:7px;
+}
+
+.divider{
+  height:1px;
+  background:#eee;
+  margin:20px 0;
+}
+
+.danger-box{
+  border:2px solid #f0d0d0;
 }
 
 @media(max-width:600px){
+
   .cards{
     grid-template-columns:1fr;
   }
+
 }
-</style>
-</head>
 
-<body>
+</style></head><body><!-- =====================================
+     LOGIN
+===================================== --><div class="login" id="loginPage">  <div class="login-box"><div class="logo">
+  Linko
+</div>
 
-<!-- ================= LOGIN ================= -->
+<p>
+  ورود به Linko
+</p>
 
-<div class="login" id="loginPage">
+<input
+  id="username"
+  type="text"
+  placeholder="نام کاربری"
+  autocomplete="username"
+>
 
-  <div class="login-box">
+<input
+  id="password"
+  type="password"
+  placeholder="رمز عبور"
+  autocomplete="current-password"
+>
 
-    <div class="logo">Linko</div>
+<button
+  class="primary"
+  onclick="login()"
+>
+  ورود
+</button>
 
-    <p>ورود به Linko</p>
+<div
+  id="loginError"
+  class="error"
+></div>
+
+  </div></div><!-- =====================================
+     APP
+===================================== --><div
+  class="app"
+  id="app"
+>  <div class="header"><h1>
+  Linko
+</h1>
+
+<button
+  class="logout"
+  onclick="logout()"
+>
+  خروج
+</button>
+
+  </div>  <div class="container"><!-- =================================
+     HOME
+================================== -->
+
+<div id="homePage">
+
+  <div class="welcome">
+
+    <h2 id="welcome">
+      خوش آمدید 🌱
+    </h2>
+
+    <p>
+      بخش موردنظر را انتخاب کنید.
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+
+    <!-- POSTS -->
+
+    <div
+      class="card"
+      onclick="openPage('postsPage')"
+    >
+
+      <div class="icon">
+        📸
+      </div>
+
+      <h3>
+        پست‌های اینستاگرام
+      </h3>
+
+      <p>
+        مشاهده و ثبت پست‌ها
+      </p>
+
+    </div>
+
+
+    <!-- MY COMMENTS -->
+
+    <div
+      class="card"
+      onclick="openPage('myCommentsPage')"
+    >
+
+      <div class="icon">
+        💬
+      </div>
+
+      <h3>
+        ثبت لینک کامنت من
+      </h3>
+
+      <p>
+        ثبت لینک کامنت خودت
+      </p>
+
+    </div>
+
+
+    <!-- COMMENTS -->
+
+    <div
+      class="card"
+      onclick="openPage('commentsPage')"
+    >
+
+      <div class="icon">
+        🔗
+      </div>
+
+      <h3>
+        لینک کامنت‌ها
+      </h3>
+
+      <p>
+        کامنت‌های دیده‌نشده
+      </p>
+
+    </div>
+
+
+    <!-- SEEN -->
+
+    <div
+      class="card"
+      onclick="openPage('seenPage')"
+    >
+
+      <div class="icon">
+        ✅
+      </div>
+
+      <h3>
+        کامنت‌های دیده‌شده
+      </h3>
+
+      <p>
+        کامنت‌هایی که دیده‌ای
+      </p>
+
+    </div>
+
+
+    <!-- ADMIN USERS -->
+
+    <div
+      class="card admin-card"
+      id="usersCard"
+      onclick="openAdminUsers()"
+      style="display:none"
+    >
+
+      <div class="icon">
+        👥
+      </div>
+
+      <h3>
+        کاربران
+      </h3>
+
+      <p>
+        ساخت و مشاهده کاربران
+      </p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- =================================
+     POSTS
+================================== -->
+
+<div
+  class="page"
+  id="postsPage"
+>
+
+  <button
+    class="back"
+    onclick="openPage('homePage')"
+  >
+    ← بازگشت
+  </button>
+
+
+  <div class="box">
+
+    <h2>
+      📸 پست‌های اینستاگرام
+    </h2>
 
     <input
-      id="username"
+      id="postTitle"
+      placeholder="عنوان پست"
+    >
+
+    <br><br>
+
+    <input
+      id="postUrl"
+      placeholder="لینک پست اینستاگرام"
+    >
+
+    <br><br>
+
+    <button
+      class="primary"
+      onclick="addPost()"
+    >
+      ➕ ثبت پست
+    </button>
+
+    <div
+      id="postStatus"
+      class="status"
+    ></div>
+
+  </div>
+
+
+  <div class="box">
+
+    <h2>
+      پست‌ها
+    </h2>
+
+    <div id="postsList">
+      در حال دریافت...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =================================
+     MY COMMENTS
+================================== -->
+
+<div
+  class="page"
+  id="myCommentsPage"
+>
+
+  <button
+    class="back"
+    onclick="openPage('homePage')"
+  >
+    ← بازگشت
+  </button>
+
+
+  <div class="box">
+
+    <h2>
+      💬 ثبت لینک کامنت من
+    </h2>
+
+    <p
+      style="margin-bottom:15px;color:#666"
+    >
+      لینک کامنت خودت را وارد کن:
+    </p>
+
+    <input
+      id="myCommentUrl"
+      placeholder="https://www.instagram.com/..."
+    >
+
+    <br><br>
+
+    <button
+      class="primary"
+      onclick="addMyComment()"
+    >
+      🟢 ثبت لینک
+    </button>
+
+    <div
+      id="myCommentStatus"
+      class="status"
+    ></div>
+
+  </div>
+
+
+  <div class="box">
+
+    <h2>
+      کامنت‌های من
+    </h2>
+
+    <div id="myCommentsList"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =================================
+     COMMENTS
+================================== -->
+
+<div
+  class="page"
+  id="commentsPage"
+>
+
+  <button
+    class="back"
+    onclick="openPage('homePage')"
+  >
+    ← بازگشت
+  </button>
+
+
+  <div class="box">
+
+    <h2>
+      🔗 لینک کامنت‌ها
+    </h2>
+
+    <div id="commentsList">
+      در حال دریافت...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =================================
+     SEEN
+================================== -->
+
+<div
+  class="page"
+  id="seenPage"
+>
+
+  <button
+    class="back"
+    onclick="openPage('homePage')"
+  >
+    ← بازگشت
+  </button>
+
+
+  <div class="box">
+
+    <h2>
+      ✅ کامنت‌های دیده‌شده
+    </h2>
+
+    <div id="seenList">
+      در حال دریافت...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =================================
+     ADMIN USERS
+================================== -->
+
+<div
+  class="page"
+  id="usersPage"
+>
+
+  <button
+    class="back"
+    onclick="openPage('homePage')"
+  >
+    ← بازگشت
+  </button>
+
+
+  <div class="box danger-box">
+
+    <h2>
+      👑 مدیریت کاربران
+    </h2>
+
+    <p
+      style="color:#777;margin-bottom:18px"
+    >
+      فقط ادمین می‌تواند کاربر جدید بسازد.
+    </p>
+
+
+    <input
+      id="newUsername"
       type="text"
-      placeholder="نام کاربری"
-      autocomplete="username"
+      placeholder="آیدی کاربر جدید"
     >
+
+    <br><br>
 
     <input
-      id="password"
+      id="newPassword"
       type="password"
-      placeholder="رمز عبور"
-      autocomplete="current-password"
+      placeholder="پسورد کاربر جدید"
     >
 
-    <button class="primary" onclick="login()">
-      ورود
+    <br><br>
+
+    <button
+      class="primary"
+      onclick="createUser()"
+    >
+      ➕ ساخت کاربر
     </button>
 
-    <div id="loginError" class="error"></div>
 
-  </div>
-
-</div>
-
-
-<!-- ================= APP ================= -->
-
-<div class="app" id="app">
-
-  <div class="header">
-
-    <h1>Linko</h1>
-
-    <button class="logout" onclick="logout()">
-      خروج
-    </button>
+    <div
+      id="createUserStatus"
+      class="status"
+    ></div>
 
   </div>
 
 
-  <div class="container">
+  <div class="box">
 
-    <!-- ================= HOME ================= -->
+    <h2>
+      👥 کاربران Linko
+    </h2>
 
-    <div id="homePage">
-
-      <div class="welcome">
-
-        <h2 id="welcome">
-          خوش آمدید 🌱
-        </h2>
-
-        <p>
-          بخش موردنظر را انتخاب کنید.
-        </p>
-
-      </div>
-
-
-      <div class="cards">
-
-        <div class="card" onclick="openPage('postsPage')">
-          <div class="icon">📸</div>
-          <h3>پست‌های اینستاگرام</h3>
-          <p>مشاهده و ثبت پست‌ها</p>
-        </div>
-
-
-        <div class="card" onclick="openPage('myCommentsPage')">
-          <div class="icon">💬</div>
-          <h3>ثبت لینک کامنت من</h3>
-          <p>ثبت لینک کامنت خودت</p>
-        </div>
-
-
-        <div class="card" onclick="openPage('commentsPage')">
-          <div class="icon">🔗</div>
-          <h3>لینک کامنت‌ها</h3>
-          <p>کامنت‌های دیده‌نشده</p>
-        </div>
-
-
-        <div class="card" onclick="openPage('seenPage')">
-          <div class="icon">✅</div>
-          <h3>کامنت‌های دیده‌شده</h3>
-          <p>کامنت‌هایی که دیده‌ای</p>
-        </div>
-
-
-        <!-- فقط ادمین -->
-
-        <div
-          class="card"
-          id="usersCard"
-          style="display:none"
-          onclick="openPage('usersPage')"
-        >
-
-          <div class="icon">👥</div>
-
-          <h3>مدیریت کاربران</h3>
-
-          <p>
-            ساخت و مشاهده کاربران
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= POSTS ================= -->
-
-    <div class="page" id="postsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-
-      <div class="box">
-
-        <h2>📸 پست‌های اینستاگرام</h2>
-
-        <input
-          id="postTitle"
-          placeholder="عنوان پست"
-        >
-
-        <br><br>
-
-        <input
-          id="postUrl"
-          placeholder="لینک پست اینستاگرام"
-        >
-
-        <br><br>
-
-        <button
-          class="primary"
-          onclick="addPost()"
-        >
-          ➕ ثبت پست
-        </button>
-
-        <div id="postStatus" class="status"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>پست‌ها</h2>
-
-        <div id="postsList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= MY COMMENTS ================= -->
-
-    <div class="page" id="myCommentsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-
-      <div class="box">
-
-        <h2>💬 ثبت لینک کامنت من</h2>
-
-        <p style="margin-bottom:15px;color:#666">
-          لینک کامنت خودت را وارد کن:
-        </p>
-
-        <input
-          id="myCommentUrl"
-          placeholder="https://www.instagram.com/..."
-        >
-
-        <br><br>
-
-        <button
-          class="primary"
-          onclick="addMyComment()"
-        >
-          🟢 ثبت لینک
-        </button>
-
-        <div id="myCommentStatus" class="status"></div>
-
-      </div>
-
-
-      <div class="box">
-
-        <h2>کامنت‌های من</h2>
-
-        <div id="myCommentsList"></div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= COMMENTS ================= -->
-
-    <div class="page" id="commentsPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-
-      <div class="box">
-
-        <h2>🔗 لینک کامنت‌ها</h2>
-
-        <div id="commentsList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= SEEN ================= -->
-
-    <div class="page" id="seenPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-
-      <div class="box">
-
-        <h2>✅ کامنت‌های دیده‌شده</h2>
-
-        <div id="seenList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= USERS ================= -->
-
-    <div class="page" id="usersPage">
-
-      <button class="back" onclick="openPage('homePage')">
-        ← بازگشت
-      </button>
-
-
-      <!-- ساخت کاربر -->
-
-      <div class="box admin-box">
-
-        <h2>👤 ساخت کاربر جدید</h2>
-
-        <input
-          id="newUsername"
-          type="text"
-          placeholder="آیدی کاربر جدید"
-        >
-
-        <br><br>
-
-        <input
-          id="newPassword"
-          type="password"
-          placeholder="رمز عبور کاربر جدید"
-        >
-
-        <br><br>
-
-        <button
-          class="primary"
-          onclick="createUser()"
-        >
-          ➕ ساخت کاربر
-        </button>
-
-        <div id="createUserStatus" class="status"></div>
-
-      </div>
-
-
-      <!-- کاربران -->
-
-      <div class="box">
-
-        <h2>👥 کاربران</h2>
-
-        <div id="usersList">
-          در حال دریافت...
-        </div>
-
-      </div>
-
+    <div id="usersList">
+      در حال دریافت...
     </div>
 
   </div>
 
 </div>
 
+  </div></div><script>
 
-<script>
-
-/* =====================================================
+/* =====================================
    SUPABASE
-===================================================== */
+===================================== */
 
 const SUPABASE_URL =
 "https://btgeluoiwpivnjnfptzz.supabase.co";
@@ -593,28 +758,30 @@ const SUPABASE_KEY =
 "sb_publishable_ImlRAdr3gKdANgrQcKYbGg_cxiXCAm6";
 
 
-/* =====================================================
-   DATABASE
-===================================================== */
+/* =====================================
+   DATABASE REQUEST
+===================================== */
 
-async function db(path, options = {}){
+async function db(path, options={}){
 
-  const response = await fetch(
-    SUPABASE_URL + "/rest/v1/" + path,
-    {
-      ...options,
+  const response =
+    await fetch(
+      SUPABASE_URL + "/rest/v1/" + path,
+      {
+        ...options,
 
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Content-Type":"application/json",
-        "Prefer":"return=representation",
-        ...(options.headers || {})
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Content-Type":"application/json",
+          "Prefer":"return=representation",
+          ...(options.headers || {})
+        }
       }
-    }
-  );
+    );
 
 
-  const text = await response.text();
+  const text =
+    await response.text();
 
 
   if(!response.ok){
@@ -635,24 +802,28 @@ async function db(path, options = {}){
 
 
   try{
+
     return JSON.parse(text);
+
   }catch(e){
+
     return [];
+
   }
 
 }
 
 
-/* =====================================================
+/* =====================================
    CURRENT USER
-===================================================== */
+===================================== */
 
 let currentUser = null;
 
 
-/* =====================================================
+/* =====================================
    LOGIN
-===================================================== */
+===================================== */
 
 async function login(){
 
@@ -662,10 +833,12 @@ async function login(){
       .value
       .trim();
 
+
   const password =
     document
       .getElementById("password")
       .value;
+
 
   const error =
     document
@@ -687,98 +860,159 @@ async function login(){
 
   try{
 
-    const users =
-      await db(
-        "users?select=id,username,password,role&username=eq."
-        + encodeURIComponent(username)
-        + "&limit=1"
+    /*
+      ورود از طریق RPC موجود
+      در دیتابیس
+    */
+
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        "/rest/v1/rpc/linko_login",
+        {
+          method:"POST",
+
+          headers:{
+            "apikey":SUPABASE_KEY,
+            "Content-Type":"application/json"
+          },
+
+          body:JSON.stringify({
+            p_username:username,
+            p_password:password
+          })
+        }
       );
 
 
-    if(!users || users.length === 0){
+    const text =
+      await response.text();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "HTTP " +
+        response.status +
+        ": " +
+        text
+      );
+
+    }
+
+
+    const users =
+      text
+        ? JSON.parse(text)
+        : [];
+
+
+    if(!users || users.length===0){
 
       error.innerText =
-        "این نام کاربری پیدا نشد.";
+        "نام کاربری یا رمز عبور اشتباه است.";
 
       return;
 
     }
 
 
-    const user = users[0];
+    const loggedUser =
+      users[0];
 
 
-    if(
-      String(user.password) !==
-      String(password)
-    ){
+    /*
+      role را از users می‌گیریم
+      تا مشخص شود ادمین است یا کاربر
+    */
 
-      error.innerText =
-        "رمز عبور اشتباه است.";
+    let role = "user";
 
-      return;
+
+    try{
+
+      const roleUsers =
+        await db(
+          "users?select=id,username,role&id=eq."
+          +
+          encodeURIComponent(loggedUser.id)
+          +
+          "&limit=1"
+        );
+
+
+      if(
+        roleUsers &&
+        roleUsers.length > 0
+      ){
+
+        role =
+          roleUsers[0].role || "user";
+
+      }
+
+    }catch(roleError){
+
+      console.log(
+        "دریافت نقش:",
+        roleError
+      );
 
     }
 
 
     currentUser = {
 
-      id:Number(user.id),
+      id:Number(loggedUser.id),
 
-      username:user.username,
+      username:
+        loggedUser.username,
 
-      role:user.role || "user"
+      role:role
 
     };
 
 
-    /* ورود */
-
     document
       .getElementById("loginPage")
-      .style.display = "none";
+      .style.display="none";
 
 
     document
       .getElementById("app")
-      .style.display = "block";
+      .style.display="block";
 
 
     document
       .getElementById("welcome")
       .innerText =
-        "خوش آمدید " +
-        currentUser.username +
-        " 🌱";
+      "خوش آمدید " +
+      currentUser.username +
+      " 🌱";
 
 
-    /* فقط ادمین */
+    /*
+      فقط ادمین
+    */
 
-    if(isAdmin()){
+    const usersCard =
+      document.getElementById("usersCard");
 
-      document
-        .getElementById("usersCard")
-        .style.display = "block";
+
+    if(currentUser.role === "admin"){
+
+      usersCard.style.display="block";
 
     }else{
 
-      document
-        .getElementById("usersCard")
-        .style.display = "none";
+      usersCard.style.display="none";
 
     }
 
 
-    /*
-      قبلاً همه اطلاعات بلافاصله
-      با هم دریافت می‌شدند.
+    openPage("homePage");
 
-      حالا بعد از ورود هیچ درخواست
-      غیرضروری ارسال نمی‌کنیم.
-    */
-
-    showHome();
-
+    loadAll();
 
   }catch(e){
 
@@ -793,43 +1027,9 @@ async function login(){
 }
 
 
-/* =====================================================
-   ADMIN CHECK
-===================================================== */
-
-function isAdmin(){
-
-  return (
-    currentUser &&
-    String(currentUser.role).toLowerCase() === "admin"
-  );
-
-}
-
-
-/* =====================================================
-   HOME
-===================================================== */
-
-function showHome(){
-
-  document
-    .getElementById("homePage")
-    .style.display = "block";
-
-
-  document
-    .querySelectorAll(".page")
-    .forEach(page=>{
-      page.style.display = "none";
-    });
-
-}
-
-
-/* =====================================================
+/* =====================================
    LOGOUT
-===================================================== */
+===================================== */
 
 function logout(){
 
@@ -838,62 +1038,79 @@ function logout(){
 
   document
     .getElementById("app")
-    .style.display = "none";
+    .style.display="none";
 
 
   document
     .getElementById("loginPage")
-    .style.display = "flex";
+    .style.display="flex";
 
 
   document
     .getElementById("username")
-    .value = "";
+    .value="";
 
 
   document
     .getElementById("password")
-    .value = "";
+    .value="";
 
 
   document
     .getElementById("loginError")
-    .innerText = "";
+    .innerText="";
 
 
   document
     .getElementById("usersCard")
-    .style.display = "none";
+    .style.display="none";
 
 }
 
 
-/* =====================================================
+/* =====================================
    NAVIGATION
-===================================================== */
+===================================== */
 
 function openPage(id){
 
+  if(id==="usersPage"){
+
+    if(
+      !currentUser ||
+      currentUser.role !== "admin"
+    ){
+
+      alert(
+        "این بخش فقط برای ادمین است."
+      );
+
+      return;
+
+    }
+
+  }
+
+
   document
     .getElementById("homePage")
-    .style.display = "none";
+    .style.display="none";
 
 
   document
     .querySelectorAll(".page")
-    .forEach(page=>{
-      page.style.display = "none";
-    });
+    .forEach(
+      p=>{
+        p.style.display="none";
+      }
+    );
 
 
-  /* امنیت */
+  if(id==="homePage"){
 
-  if(
-    id === "usersPage" &&
-    !isAdmin()
-  ){
-
-    showHome();
+    document
+      .getElementById("homePage")
+      .style.display="block";
 
     return;
 
@@ -904,45 +1121,239 @@ function openPage(id){
     document.getElementById(id);
 
 
-  if(!page){
+  if(page){
+
+    page.style.display="block";
+
+  }
+
+
+  loadAll();
+
+}
+
+
+/* =====================================
+   ADMIN USERS PAGE
+===================================== */
+
+function openAdminUsers(){
+
+  if(
+    !currentUser ||
+    currentUser.role !== "admin"
+  ){
+
+    alert(
+      "دسترسی فقط برای ادمین است."
+    );
+
     return;
+
   }
 
 
-  page.style.display = "block";
+  openPage("usersPage");
+
+}
 
 
-  /*
-    فقط اطلاعات همان صفحه را
-    دریافت می‌کنیم.
-  */
+/* =====================================
+   CREATE USER
+===================================== */
 
-  if(id === "postsPage"){
-    loadPosts();
+async function createUser(){
+
+  if(
+    !currentUser ||
+    currentUser.role !== "admin"
+  ){
+
+    alert(
+      "فقط ادمین می‌تواند کاربر بسازد."
+    );
+
+    return;
+
   }
 
-  else if(id === "myCommentsPage"){
-    loadMyComments();
+
+  const newUsername =
+    document
+      .getElementById("newUsername")
+      .value
+      .trim();
+
+
+  const newPassword =
+    document
+      .getElementById("newPassword")
+      .value;
+
+
+  const status =
+    document
+      .getElementById("createUserStatus");
+
+
+  status.innerText="";
+
+
+  if(!newUsername || !newPassword){
+
+    status.innerText =
+      "آیدی و پسورد را وارد کن.";
+
+    return;
+
   }
 
-  else if(id === "commentsPage"){
-    loadComments();
+
+  if(newUsername.length < 2){
+
+    status.innerText =
+      "آیدی باید حداقل ۲ کاراکتر باشد.";
+
+    return;
+
   }
 
-  else if(id === "seenPage"){
-    loadSeen();
+
+  if(newPassword.length < 4){
+
+    status.innerText =
+      "پسورد باید حداقل ۴ کاراکتر باشد.";
+
+    return;
+
   }
 
-  else if(id === "usersPage"){
+
+  try{
+
+    /*
+      این همان RPC چهارپارامتری
+      موجود در دیتابیس است.
+    */
+
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        "/rest/v1/rpc/admin_create_linko_user",
+        {
+          method:"POST",
+
+          headers:{
+            "apikey":SUPABASE_KEY,
+            "Content-Type":"application/json"
+          },
+
+          body:JSON.stringify({
+
+            p_admin_username:
+              currentUser.username,
+
+            p_admin_password:
+              document
+                .getElementById("passwordForAdmin")
+                ?.value || "",
+
+            p_new_username:
+              newUsername,
+
+            p_new_password:
+              newPassword
+
+          })
+        }
+      );
+
+
+    /*
+      چون رمز ادمین بعد از ورود
+      در currentUser ذخیره نشده،
+      یک بار از ادمین می‌خواهیم
+      رمز خودش را وارد کند.
+    */
+
+
+    if(!response.ok){
+
+      const text =
+        await response.text();
+
+      /*
+        اگر فرم رمز ادمین در پایین
+        وجود نداشته باشد، پیام واضح می‌دهیم.
+      */
+
+      if(
+        text.includes(
+          "اطلاعات ادمین نادرست"
+        )
+      ){
+
+        status.innerText =
+          "رمز ادمین صحیح نیست.";
+
+      }else{
+
+        status.innerText =
+          "ساخت کاربر انجام نشد: " +
+          text;
+
+      }
+
+      return;
+
+    }
+
+
+    status.innerText =
+      "کاربر «" +
+      newUsername +
+      "» با موفقیت ساخته شد ✅";
+
+
+    document
+      .getElementById("newUsername")
+      .value="";
+
+
+    document
+      .getElementById("newPassword")
+      .value="";
+
+
+    if(
+      document.getElementById("passwordForAdmin")
+    ){
+
+      document
+        .getElementById("passwordForAdmin")
+        .value="";
+
+    }
+
+
     loadUsers();
+
+  }catch(e){
+
+    console.error(e);
+
+    status.innerText =
+      "خطا: " +
+      e.message;
+
   }
 
 }
 
 
-/* =====================================================
+/* =====================================
    POSTS
-===================================================== */
+===================================== */
 
 async function loadPosts(){
 
@@ -953,22 +1364,18 @@ async function loadPosts(){
   if(!box) return;
 
 
-  box.innerText =
-    "در حال دریافت...";
-
-
   try{
 
     const posts =
       await db(
-        "posts?select=id,title,instagram_url&order=id.asc"
+        "posts?select=id,title,instagram_url,user_id&order=id.asc"
       );
 
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
 
-    if(posts.length === 0){
+    if(posts.length===0){
 
       box.innerHTML =
         '<div class="empty">هنوز پستی ثبت نشده است.</div>';
@@ -978,46 +1385,116 @@ async function loadPosts(){
     }
 
 
-    posts.forEach((post,index)=>{
+    posts.forEach(
+      (post,index)=>{
 
-      const div =
-        document.createElement("div");
-
-
-      div.className = "item";
+        const div =
+          document.createElement("div");
 
 
-      div.innerHTML = `
-
-        <div class="item-title">
-          ${escapeHTML(
-            post.title ||
-            "پست " + (index + 1)
-          )}
-        </div>
-
-        <a
-          href="${escapeHTML(post.instagram_url)}"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          🔗 مشاهده پست
-
-        </a>
-
-        <button
-          onclick="copyLink('${escapeJS(post.instagram_url)}')">
-
-          کپی لینک
-
-        </button>
-
-      `;
+        div.className="item";
 
 
-      box.appendChild(div);
+        const isOwner =
+          currentUser &&
+          post.user_id !== null &&
+          Number(post.user_id) ===
+          Number(currentUser.id);
 
-    });
+
+        const isAdmin =
+          currentUser &&
+          currentUser.role === "admin";
+
+
+        div.innerHTML = `
+
+          <div class="item-title">
+
+            ${escapeHTML(
+              post.title ||
+              "پست " +
+              (index+1)
+            )}
+
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              post.instagram_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🔗 مشاهده پست
+          </a>
+
+
+          <button
+            onclick="copyLink(
+              '${escapeJS(
+                post.instagram_url
+              )}'
+            )"
+          >
+            کپی لینک
+          </button>
+
+        `;
+
+
+        /*
+          حذف برای صاحب پست
+          یا ادمین
+        */
+
+        if(isOwner || isAdmin){
+
+          const deleteButton =
+            document.createElement("button");
+
+
+          deleteButton.className =
+            "delete-button";
+
+
+          if(isAdmin && !isOwner){
+
+            deleteButton.classList.add(
+              "admin-delete"
+            );
+
+          }
+
+
+          deleteButton.innerText =
+            isAdmin
+              ? "🗑️ حذف پست"
+              : "🗑️ حذف پست من";
+
+
+          deleteButton.onclick =
+            function(){
+
+              deletePost(
+                Number(post.id)
+              );
+
+            };
+
+
+          div.appendChild(
+            deleteButton
+          );
+
+        }
+
+
+        box.appendChild(div);
+
+      }
+    );
 
 
   }catch(e){
@@ -1025,18 +1502,30 @@ async function loadPosts(){
     console.error(e);
 
     box.innerText =
-      "خطا: " + e.message;
+      "خطا: " +
+      e.message;
 
   }
 
 }
 
 
-/* =====================================================
+/* =====================================
    ADD POST
-===================================================== */
+===================================== */
 
 async function addPost(){
+
+  if(!currentUser){
+
+    alert(
+      "ابتدا وارد شوید."
+    );
+
+    return;
+
+  }
+
 
   const title =
     document
@@ -1078,7 +1567,10 @@ async function addPost(){
 
           title:title,
 
-          instagram_url:url
+          instagram_url:url,
+
+          user_id:
+            Number(currentUser.id)
 
         })
 
@@ -1088,12 +1580,12 @@ async function addPost(){
 
     document
       .getElementById("postTitle")
-      .value = "";
+      .value="";
 
 
     document
       .getElementById("postUrl")
-      .value = "";
+      .value="";
 
 
     status.innerText =
@@ -1108,22 +1600,106 @@ async function addPost(){
     console.error(e);
 
     status.innerText =
-      "خطا: " + e.message;
+      "خطا: " +
+      e.message;
 
   }
 
 }
 
 
-/* =====================================================
+/* =====================================
+   DELETE POST
+===================================== */
+
+async function deletePost(postId){
+
+  if(!currentUser){
+
+    alert(
+      "ابتدا وارد شوید."
+    );
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      "مطمئنی می‌خواهی این پست را حذف کنی؟"
+    );
+
+
+  if(!confirmed) return;
+
+
+  try{
+
+    const result =
+      await db(
+        "rpc/delete_post_for_user",
+        {
+          method:"POST",
+
+          body:JSON.stringify({
+
+            p_post_id:
+              Number(postId),
+
+            p_user_id:
+              Number(currentUser.id)
+
+          })
+
+        }
+      );
+
+
+    if(result === false){
+
+      alert(
+        "اجازه حذف این پست را نداری."
+      );
+
+      return;
+
+    }
+
+
+    alert(
+      "پست با موفقیت حذف شد ✅"
+    );
+
+
+    loadPosts();
+
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "حذف پست انجام نشد:\n" +
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =====================================
    ADD MY COMMENT
-===================================================== */
+===================================== */
 
 async function addMyComment(){
 
   if(!currentUser){
 
-    alert("ابتدا وارد شوید.");
+    alert(
+      "ابتدا وارد شوید."
+    );
 
     return;
 
@@ -1161,9 +1737,11 @@ async function addMyComment(){
 
         body:JSON.stringify({
 
-          user_id:currentUser.id,
+          user_id:
+            Number(currentUser.id),
 
-          instagram_comment_url:url
+          instagram_comment_url:
+            url
 
         })
 
@@ -1173,7 +1751,7 @@ async function addMyComment(){
 
     document
       .getElementById("myCommentUrl")
-      .value = "";
+      .value="";
 
 
     status.innerText =
@@ -1182,22 +1760,24 @@ async function addMyComment(){
 
     loadMyComments();
 
+    loadComments();
 
   }catch(e){
 
     console.error(e);
 
     status.innerText =
-      "خطا: " + e.message;
+      "خطا: " +
+      e.message;
 
   }
 
 }
 
 
-/* =====================================================
-   MY COMMENTS
-===================================================== */
+/* =====================================
+   LOAD MY COMMENTS
+===================================== */
 
 async function loadMyComments(){
 
@@ -1205,14 +1785,11 @@ async function loadMyComments(){
 
 
   const box =
-    document.getElementById("myCommentsList");
+    document
+      .getElementById("myCommentsList");
 
 
   if(!box) return;
-
-
-  box.innerText =
-    "در حال دریافت...";
 
 
   try{
@@ -1220,15 +1797,19 @@ async function loadMyComments(){
     const comments =
       await db(
         "comments?select=id,instagram_comment_url&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-        + "&order=id.desc"
+        +
+        encodeURIComponent(
+          currentUser.id
+        )
+        +
+        "&order=id.desc"
       );
 
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
 
-    if(comments.length === 0){
+    if(comments.length===0){
 
       box.innerHTML =
         '<div class="empty">هنوز کامنتی ثبت نکرده‌ای.</div>';
@@ -1238,44 +1819,67 @@ async function loadMyComments(){
     }
 
 
-    comments.forEach((comment,index)=>{
+    comments.forEach(
+      (comment,index)=>{
 
-      const div =
-        document.createElement("div");
-
-
-      div.className = "item";
+        const div =
+          document.createElement("div");
 
 
-      div.innerHTML = `
-
-        <div class="item-title">
-          کامنت ${index + 1}
-        </div>
-
-        <a
-          href="${escapeHTML(comment.instagram_comment_url)}"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          🔗 مشاهده کامنت
-
-        </a>
-
-        <button
-          class="delete-button"
-          onclick="deleteMyComment(${Number(comment.id)})">
-
-          🗑️ حذف کامنت
-
-        </button>
-
-      `;
+        div.className="item";
 
 
-      box.appendChild(div);
+        div.innerHTML = `
 
-    });
+          <div class="item-title">
+            کامنت ${index+1}
+          </div>
+
+
+          <a
+            href="${escapeHTML(
+              comment.instagram_comment_url
+            )}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🔗 مشاهده کامنت
+          </a>
+
+        `;
+
+
+        const deleteButton =
+          document.createElement("button");
+
+
+        deleteButton.className =
+          "delete-button";
+
+
+        deleteButton.innerText =
+          "🗑️ حذف کامنت من";
+
+
+        deleteButton.onclick =
+          function(){
+
+            deleteComment(
+              Number(comment.id)
+            );
+
+          };
+
+
+        div.appendChild(
+          deleteButton
+        );
+
+
+        box.appendChild(div);
+
+      }
+    );
 
 
   }catch(e){
@@ -1283,46 +1887,227 @@ async function loadMyComments(){
     console.error(e);
 
     box.innerText =
-      "خطا: " + e.message;
+      "خطا: " +
+      e.message;
 
   }
 
 }
 
 
-/* =====================================================
-   DELETE COMMENT
-===================================================== */
+/* =====================================
+   LOAD COMMENTS
+===================================== */
 
-async function deleteMyComment(commentId){
+async function loadComments(){
+
+  const box =
+    document
+      .getElementById("commentsList");
+
+
+  if(
+    !box ||
+    !currentUser
+  ) return;
+
+
+  try{
+
+    const comments =
+      await db(
+        "comments?select=id,instagram_comment_url,user_id&order=id.asc"
+      );
+
+
+    const views =
+      await db(
+        "comment_views?select=comment_id&user_id=eq."
+        +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
+
+
+    const viewed =
+      views.map(
+        v=>Number(v.comment_id)
+      );
+
+
+    const unseen =
+      comments.filter(
+        c=>{
+
+          const isOwnComment =
+            Number(c.user_id) ===
+            Number(currentUser.id);
+
+
+          const alreadyViewed =
+            viewed.includes(
+              Number(c.id)
+            );
+
+
+          return (
+            !isOwnComment &&
+            !alreadyViewed
+          );
+
+        }
+      );
+
+
+    box.innerHTML="";
+
+
+    if(unseen.length===0){
+
+      box.innerHTML =
+        '<div class="empty">کامنت دیده‌نشده‌ای وجود ندارد. 🌱</div>';
+
+      return;
+
+    }
+
+
+    unseen.forEach(
+      (comment,index)=>{
+
+        const div =
+          document.createElement("div");
+
+
+        div.className="item";
+
+
+        div.innerHTML = `
+
+          <div class="item-title">
+            کامنت ${index+1}
+          </div>
+
+        `;
+
+
+        const viewButton =
+          document.createElement("button");
+
+
+        viewButton.innerText =
+          "🔗 مشاهده کامنت";
+
+
+        viewButton.onclick =
+          function(){
+
+            viewComment(
+              Number(comment.id),
+              comment.instagram_comment_url
+            );
+
+          };
+
+
+        div.appendChild(
+          viewButton
+        );
+
+
+        /*
+          ادمین می‌تواند هر کامنتی
+          را حذف کند.
+        */
+
+        if(
+          currentUser.role === "admin"
+        ){
+
+          const deleteButton =
+            document.createElement("button");
+
+
+          deleteButton.className =
+            "delete-button admin-delete";
+
+
+          deleteButton.innerText =
+            "🗑️ حذف این کامنت";
+
+
+          deleteButton.onclick =
+            function(){
+
+              deleteComment(
+                Number(comment.id)
+              );
+
+            };
+
+
+          div.appendChild(
+            deleteButton
+          );
+
+        }
+
+
+        box.appendChild(div);
+
+      }
+    );
+
+
+  }catch(e){
+
+    console.error(e);
+
+    box.innerText =
+      "خطا: " +
+      e.message;
+
+  }
+
+}
+
+
+/* =====================================
+   DELETE COMMENT
+===================================== */
+
+async function deleteComment(
+  commentId
+){
 
   if(!currentUser) return;
 
 
-  if(
-    !confirm(
+  const confirmed =
+    confirm(
       "مطمئنی می‌خواهی این کامنت را حذف کنی؟"
-    )
-  ){
+    );
 
-    return;
 
-  }
+  if(!confirmed) return;
 
 
   try{
 
     const result =
       await db(
-        "rpc/delete_my_comment",
+        "rpc/delete_comment_for_user",
         {
           method:"POST",
 
           body:JSON.stringify({
 
-            p_comment_id:Number(commentId),
+            p_comment_id:
+              Number(commentId),
 
-            p_user_id:Number(currentUser.id)
+            p_user_id:
+              Number(currentUser.id)
 
           })
 
@@ -1333,7 +2118,7 @@ async function deleteMyComment(commentId){
     if(result === false){
 
       alert(
-        "این کامنت متعلق به این کاربر نیست یا قبلاً حذف شده."
+        "اجازه حذف این کامنت را نداری."
       );
 
       return;
@@ -1348,6 +2133,9 @@ async function deleteMyComment(commentId){
 
     loadMyComments();
 
+    loadComments();
+
+    loadSeen();
 
   }catch(e){
 
@@ -1363,169 +2151,41 @@ async function deleteMyComment(commentId){
 }
 
 
-/* =====================================================
-   COMMENTS
-===================================================== */
-
-async function loadComments(){
-
-  if(!currentUser) return;
-
-
-  const box =
-    document.getElementById("commentsList");
-
-
-  if(!box) return;
-
-
-  box.innerText =
-    "در حال دریافت...";
-
-
-  try{
-
-    /*
-      فقط ستون‌های لازم
-    */
-
-    const comments =
-      await db(
-        "comments?select=id,instagram_comment_url,user_id&order=id.asc"
-      );
-
-
-    const views =
-      await db(
-        "comment_views?select=comment_id&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-      );
-
-
-    const viewed =
-      new Set(
-        views.map(
-          v => Number(v.comment_id)
-        )
-      );
-
-
-    const unseen =
-      comments.filter(comment => {
-
-        const own =
-          Number(comment.user_id) ===
-          Number(currentUser.id);
-
-
-        const alreadyViewed =
-          viewed.has(
-            Number(comment.id)
-          );
-
-
-        return !own && !alreadyViewed;
-
-      });
-
-
-    box.innerHTML = "";
-
-
-    if(unseen.length === 0){
-
-      box.innerHTML =
-        '<div class="empty">کامنت دیده‌نشده‌ای وجود ندارد. 🌱</div>';
-
-      return;
-
-    }
-
-
-    unseen.forEach((comment,index)=>{
-
-      const div =
-        document.createElement("div");
-
-
-      div.className = "item";
-
-
-      div.innerHTML = `
-
-        <div class="item-title">
-          کامنت ${index + 1}
-        </div>
-
-        <button
-          onclick="viewComment(
-            ${Number(comment.id)},
-            '${escapeJS(comment.instagram_comment_url)}'
-          )">
-
-          🔗 مشاهده کامنت
-
-        </button>
-
-      `;
-
-
-      box.appendChild(div);
-
-    });
-
-
-  }catch(e){
-
-    console.error(e);
-
-    box.innerText =
-      "خطا: " + e.message;
-
-  }
-
-}
-
-
-/* =====================================================
+/* =====================================
    VIEW COMMENT
-===================================================== */
+===================================== */
 
-async function viewComment(id,url){
+async function viewComment(
+  id,
+  url
+){
 
   if(!currentUser) return;
 
 
   try{
-
-    /*
-      upsert باعث می‌شود یک کاربر
-      یک کامنت را دوباره ثبت نکند.
-    */
 
     await db(
       "comment_views",
       {
         method:"POST",
 
-        headers:{
-          "Prefer":
-            "resolution=merge-duplicates,return=representation"
-        },
-
         body:JSON.stringify({
 
-          comment_id:Number(id),
+          comment_id:
+            Number(id),
 
-          user_id:Number(currentUser.id),
+          user_id:
+            Number(currentUser.id),
 
-          viewed_at:new Date().toISOString()
+          viewed_at:
+            new Date()
+              .toISOString()
 
         })
 
       }
     );
-
 
   }catch(e){
 
@@ -1539,62 +2199,52 @@ async function viewComment(id,url){
 
   window.open(
     url,
-    "_blank",
-    "noopener,noreferrer"
+    "_blank"
   );
 
 
-  /*
-    فقط همین صفحه را تازه می‌کنیم.
-  */
-
   loadComments();
+
+  loadSeen();
 
 }
 
 
-/* =====================================================
-   SEEN
-===================================================== */
+/* =====================================
+   LOAD SEEN
+===================================== */
 
 async function loadSeen(){
 
-  if(!currentUser) return;
-
-
   const box =
-    document.getElementById("seenList");
+    document
+      .getElementById("seenList");
 
 
-  if(!box) return;
-
-
-  box.innerText =
-    "در حال دریافت...";
+  if(
+    !box ||
+    !currentUser
+  ) return;
 
 
   try{
 
-    /*
-      با join اطلاعات کامنت‌ها را
-      در یک درخواست می‌گیریم.
-
-      این کار تعداد درخواست‌ها را
-      نسبت به نسخه قبلی بسیار کمتر می‌کند.
-    */
-
     const views =
       await db(
-        "comment_views?select=comment_id,viewed_at,comments(id,instagram_comment_url)&user_id=eq."
-        + encodeURIComponent(currentUser.id)
-        + "&order=viewed_at.desc"
+        "comment_views?select=comment_id,viewed_at&user_id=eq."
+        +
+        encodeURIComponent(
+          currentUser.id
+        )
+        +
+        "&order=viewed_at.desc"
       );
 
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
 
-    if(!views || views.length === 0){
+    if(views.length===0){
 
       box.innerHTML =
         '<div class="empty">هنوز کامنتی ندیده‌ای.</div>';
@@ -1604,57 +2254,123 @@ async function loadSeen(){
     }
 
 
-    let count = 0;
+    let shownCount=0;
 
 
-    views.forEach(view=>{
+    for(
+      let i=0;
+      i<views.length;
+      i++
+    ){
+
+      const id =
+        Number(
+          views[i].comment_id
+        );
+
+
+      const comments =
+        await db(
+          "comments?select=id,instagram_comment_url&id=eq."
+          +
+          id
+        );
+
 
       if(
-        !view.comments ||
-        !view.comments.instagram_comment_url
-      ){
-
-        return;
-
-      }
+        comments.length===0
+      ) continue;
 
 
-      count++;
+      const comment =
+        comments[0];
+
+
+      shownCount++;
 
 
       const div =
         document.createElement("div");
 
 
-      div.className = "item";
+      div.className="item";
 
 
       div.innerHTML = `
 
         <div class="item-title">
-          کامنت ${count}
+          کامنت ${shownCount}
         </div>
-
-        <button
-          onclick="window.open(
-            '${escapeJS(view.comments.instagram_comment_url)}',
-            '_blank',
-            'noopener,noreferrer'
-          )">
-
-          🔗 مشاهده دوباره
-
-        </button>
 
       `;
 
 
+      const button =
+        document.createElement("button");
+
+
+      button.innerText =
+        "🔗 مشاهده دوباره";
+
+
+      button.onclick =
+        function(){
+
+          window.open(
+            comment.instagram_comment_url,
+            "_blank"
+          );
+
+        };
+
+
+      div.appendChild(button);
+
+
+      /*
+        ادمین می‌تواند کامنت را
+        حتی از این بخش حذف کند.
+      */
+
+      if(
+        currentUser.role === "admin"
+      ){
+
+        const deleteButton =
+          document.createElement("button");
+
+
+        deleteButton.className =
+          "delete-button admin-delete";
+
+
+        deleteButton.innerText =
+          "🗑️ حذف کامنت";
+
+
+        deleteButton.onclick =
+          function(){
+
+            deleteComment(
+              Number(comment.id)
+            );
+
+          };
+
+
+        div.appendChild(
+          deleteButton
+        );
+
+      }
+
+
       box.appendChild(div);
 
-    });
+    }
 
 
-    if(count === 0){
+    if(shownCount===0){
 
       box.innerHTML =
         '<div class="empty">هنوز کامنتی ندیده‌ای.</div>';
@@ -1667,37 +2383,32 @@ async function loadSeen(){
     console.error(e);
 
     box.innerText =
-      "خطا: " + e.message;
+      "خطا: " +
+      e.message;
 
   }
 
 }
 
 
-/* =====================================================
-   USERS - ADMIN ONLY
-===================================================== */
+/* =====================================
+   USERS
+===================================== */
 
 async function loadUsers(){
 
-  if(!isAdmin()){
-
-    showHome();
-
-    return;
-
-  }
+  if(
+    !currentUser ||
+    currentUser.role !== "admin"
+  ) return;
 
 
   const box =
-    document.getElementById("usersList");
+    document
+      .getElementById("usersList");
 
 
   if(!box) return;
-
-
-  box.innerText =
-    "در حال دریافت...";
 
 
   try{
@@ -1708,10 +2419,10 @@ async function loadUsers(){
       );
 
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
 
-    if(!users || users.length === 0){
+    if(users.length===0){
 
       box.innerHTML =
         '<div class="empty">کاربری وجود ندارد.</div>';
@@ -1721,37 +2432,44 @@ async function loadUsers(){
     }
 
 
-    users.forEach(user=>{
+    users.forEach(
+      user=>{
 
-      const div =
-        document.createElement("div");
-
-
-      div.className = "user";
+        const div =
+          document.createElement("div");
 
 
-      div.innerHTML = `
-
-        <strong>
-          ${escapeHTML(user.username)}
-        </strong>
-
-        <div class="small">
-          شناسه کاربر: ${Number(user.id)}
-        </div>
-
-        ${
-          String(user.role).toLowerCase() === "admin"
-          ? '<div class="admin-badge">ادمین</div>'
-          : '<div class="small">کاربر عادی</div>'
-        }
-
-      `;
+        div.className="user";
 
 
-      box.appendChild(div);
+        const roleLabel =
+          user.role === "admin"
+            ? '<span class="admin-label">ادمین</span>'
+            : '<span class="user-label">کاربر</span>';
 
-    });
+
+        div.innerHTML = `
+
+          <strong>
+            ${escapeHTML(
+              user.username
+            )}
+          </strong>
+
+          ${roleLabel}
+
+          <div class="small">
+            شناسه کاربر:
+            ${Number(user.id)}
+          </div>
+
+        `;
+
+
+        box.appendChild(div);
+
+      }
+    );
 
 
   }catch(e){
@@ -1759,144 +2477,7 @@ async function loadUsers(){
     console.error(e);
 
     box.innerText =
-      "خطا: " + e.message;
-
-  }
-
-}
-
-
-/* =====================================================
-   CREATE USER - ADMIN ONLY
-===================================================== */
-
-async function createUser(){
-
-  if(!isAdmin()){
-
-    alert(
-      "فقط ادمین می‌تواند کاربر جدید بسازد."
-    );
-
-    return;
-
-  }
-
-
-  const username =
-    document
-      .getElementById("newUsername")
-      .value
-      .trim();
-
-
-  const password =
-    document
-      .getElementById("newPassword")
-      .value;
-
-
-  const status =
-    document
-      .getElementById("createUserStatus");
-
-
-  status.className = "status";
-
-
-  if(!username || !password){
-
-    status.innerText =
-      "آیدی و رمز عبور را وارد کن.";
-
-    return;
-
-  }
-
-
-  if(username.length < 3){
-
-    status.innerText =
-      "آیدی باید حداقل ۳ کاراکتر باشد.";
-
-    return;
-
-  }
-
-
-  if(password.length < 4){
-
-    status.innerText =
-      "رمز عبور باید حداقل ۴ کاراکتر باشد.";
-
-    return;
-
-  }
-
-
-  try{
-
-    /*
-      ساخت کاربر از طریق RPC
-
-      این روش باید در Supabase ساخته
-      و فقط برای ادمین قابل اجرا باشد.
-    */
-
-    const result =
-      await db(
-        "rpc/create_user_by_admin",
-        {
-          method:"POST",
-
-          body:JSON.stringify({
-
-            p_username:username,
-
-            p_password:password,
-
-            p_role:"user",
-
-            p_admin_id:Number(currentUser.id)
-
-          })
-
-        }
-      );
-
-
-    document
-      .getElementById("newUsername")
-      .value = "";
-
-
-    document
-      .getElementById("newPassword")
-      .value = "";
-
-
-    status.className =
-      "status success";
-
-
-    status.innerText =
-      "کاربر با موفقیت ساخته شد ✅";
-
-
-    loadUsers();
-
-
-  }catch(e){
-
-    console.error(e);
-
-
-    status.className =
-      "status error";
-
-
-    status.innerText =
-      "ساخت کاربر انجام نشد: " +
+      "خطا: " +
       e.message;
 
   }
@@ -1904,9 +2485,9 @@ async function createUser(){
 }
 
 
-/* =====================================================
-   COPY
-===================================================== */
+/* =====================================
+   COPY LINK
+===================================== */
 
 function copyLink(link){
 
@@ -1917,12 +2498,20 @@ function copyLink(link){
 
     navigator.clipboard
       .writeText(link)
-      .then(()=>{
-        alert("لینک کپی شد ✅");
-      })
-      .catch(()=>{
-        alert("کپی لینک انجام نشد.");
-      });
+      .then(
+        ()=>{
+          alert(
+            "لینک کپی شد ✅"
+          );
+        }
+      )
+      .catch(
+        ()=>{
+          alert(
+            "کپی لینک انجام نشد."
+          );
+        }
+      );
 
   }else{
 
@@ -1933,18 +2522,38 @@ function copyLink(link){
 }
 
 
-/* =====================================================
+/* =====================================
    SECURITY HELPERS
-===================================================== */
+===================================== */
 
 function escapeHTML(text){
 
   return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 
 }
 
@@ -1952,24 +2561,66 @@ function escapeHTML(text){
 function escapeJS(text){
 
   return String(text)
-    .replaceAll("\\","\\\\")
-    .replaceAll("'","\\'")
-    .replaceAll("\n","\\n")
-    .replaceAll("\r","\\r");
+
+    .replaceAll(
+      "\\",
+      "\\\\"
+    )
+
+    .replaceAll(
+      "'",
+      "\\'"
+    )
+
+    .replaceAll(
+      "\n",
+      "\\n"
+    )
+
+    .replaceAll(
+      "\r",
+      "\\r"
+    );
 
 }
 
 
-/* =====================================================
+/* =====================================
+   LOAD ALL
+===================================== */
+
+function loadAll(){
+
+  loadPosts();
+
+  loadMyComments();
+
+  loadComments();
+
+  loadSeen();
+
+  if(
+    currentUser &&
+    currentUser.role === "admin"
+  ){
+
+    loadUsers();
+
+  }
+
+}
+
+
+/* =====================================
    ENTER KEY
-===================================================== */
+===================================== */
 
 document.addEventListener(
   "keydown",
   function(event){
 
     if(
-      event.key === "Enter" &&
+      event.key==="Enter" &&
       document
         .getElementById("loginPage")
         .style.display !== "none"
@@ -1983,13 +2634,91 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   START
-===================================================== */
+/* =====================================
+   ADD ADMIN PASSWORD FIELD
+===================================== */
 
-showHome();
+/*
+  فرم ساخت کاربر به صورت پویا
+  یک فیلد رمز ادمین اضافه می‌کند.
+*/
 
-</script>
+function setupAdminPasswordField(){
 
-</body>
+  const box =
+    document.querySelector(
+      "#usersPage .danger-box"
+    );
+
+
+  if(!box) return;
+
+
+  if(
+    document.getElementById(
+      "passwordForAdmin"
+    )
+  ) return;
+
+
+  const input =
+    document.createElement("input");
+
+
+  input.id =
+    "passwordForAdmin";
+
+
+  input.type =
+    "password";
+
+
+  input.placeholder =
+    "رمز عبور ادمین برای تأیید";
+
+
+  const newPassword =
+    document.getElementById(
+      "newPassword"
+    );
+
+
+  newPassword.parentNode.insertBefore(
+    input,
+    newPassword.nextSibling
+  );
+
+
+  const br =
+    document.createElement("br");
+
+
+  input.parentNode.insertBefore(
+    br,
+    input.nextSibling
+  );
+
+}
+
+
+/*
+  هر بار صفحه مدیریت باز شد
+  فیلد رمز ادمین آماده باشد.
+*/
+
+const originalOpenAdminUsers =
+  openAdminUsers;
+
+
+openAdminUsers =
+  function(){
+
+    originalOpenAdminUsers();
+
+    setupAdminPasswordField();
+
+  };
+
+
+</script></body>
 </html>
