@@ -3831,7 +3831,7 @@ async function loadComments(){
   
     const comments =  
       await db(  
-        "comments?select=id,instagram_comment_url,user_id" +  
+        "comments?select=id,title,instagram_comment_url,user_id" +  
         "&order=id.asc"  
       );  
   
