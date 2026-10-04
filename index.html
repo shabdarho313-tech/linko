@@ -5325,11 +5325,14 @@ async function loadAdminComments(){
   
         div.innerHTML=`  
   
-          <div class="item-title">  
-  
-            کامنت ${index+1}  
-  
-          </div>  
+<div class="item-title">
+
+  ${escapeHTML(
+    comment.title ||
+    "کامنت "+(index+1)
+  )}
+
+</div>
   
   
           <a  
