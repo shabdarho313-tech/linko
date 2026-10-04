@@ -3533,16 +3533,19 @@ const url =
   
         method:"POST",  
   
-        body:  
-          JSON.stringify({  
-  
-            user_id:  
-              currentUser.id,  
-  
-            instagram_comment_url:  
-              url  
-  
-          })  
+body:
+  JSON.stringify({
+
+    user_id:
+      currentUser.id,
+
+    title:
+      title,
+
+    instagram_comment_url:
+      url
+
+  })
   
       }  
     );  
