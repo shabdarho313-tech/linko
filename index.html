@@ -4123,11 +4123,14 @@ async function loadSeen(){
   
       div.innerHTML=`  
   
-        <div class="item-title">  
-  
-          کامنت ${shownCount}  
-  
-        </div>  
+<div class="item-title">
+
+  ${escapeHTML(
+    comment.title ||
+    "کامنت "+shownCount
+  )}
+
+</div>
   
   
         <a  
