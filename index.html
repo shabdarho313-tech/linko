@@ -3496,14 +3496,14 @@ const url =
   status.innerText="";  
   
   
-  if(!url){  
-  
-    status.innerText =  
-      "لینک کامنت را وارد کن.";  
-  
-    return;  
-  
-  }  
+  if(!title || !url){
+
+  status.innerText =
+    "موضوع و لینک کامنت را وارد کن.";
+
+  return;
+
+}
   
   
   try{  
