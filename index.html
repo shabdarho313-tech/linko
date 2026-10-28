@@ -1251,6 +1251,71 @@ body {
   transform: scale(0.985);
 }
 
+
+/* ===== LAVENDER ROYAL MAGIC ===== */
+
+body {
+  background-image:
+    radial-gradient(circle at 8% 12%, #d8baff 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 25%, #c8a2ff 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 70%, #ead8ff 0 3px, transparent 4px),
+    radial-gradient(circle at 92% 82%, #d8baff 0 2px, transparent 3px) !important;
+  background-size: 95px 110px, 125px 140px, 115px 130px, 100px 120px;
+}
+
+/* کارت‌های فانتزی */
+.card {
+  border: 1px solid #e6d4ff !important;
+  box-shadow:
+    0 8px 25px rgba(139, 92, 190, 0.12),
+    0 0 0 3px rgba(239, 225, 255, 0.45) !important;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:active {
+  transform: scale(.98);
+  box-shadow: 0 4px 15px rgba(139, 92, 190, .2) !important;
+}
+
+/* دکمه‌های سلطنتی */
+button {
+  border-radius: 16px;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+button:active {
+  transform: scale(.97);
+  filter: brightness(.97);
+}
+
+/* تزئینات ستاره‌ای */
+.welcome::after {
+  content: "✧  ✦  ♡  ✧";
+  display: block;
+  margin-top: 12px;
+  color: #a77ad8;
+  letter-spacing: 7px;
+  font-size: 19px;
+}
+
+/* رنگ متن‌ها */
+.welcome h2 {
+  color: #57327f !important;
+  text-shadow: 0 2px 12px rgba(190, 155, 235, .2);
+}
+
+/* نوارهای ورودی */
+input, textarea, select {
+  border-color: #e2d0fa !important;
+  border-radius: 14px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #b895ed !important;
+  box-shadow: 0 0 0 3px rgba(184, 149, 237, .18);
+}
+
   
 </style>  </head>  <body>  <!-- =========================================  
      LOGIN  
