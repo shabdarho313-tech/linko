@@ -1316,6 +1316,54 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(184, 149, 237, .18);
 }
 
+/* ===== ROYAL SIX-POINTED STARS ✡ ===== */
+
+body {
+  background-image:
+    radial-gradient(circle at 8% 12%, #d8baff 0 2px, transparent 3px),
+    radial-gradient(circle at 88% 25%, #c8a2ff 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 70%, #ead8ff 0 3px, transparent 4px),
+    radial-gradient(circle at 92% 82%, #d8baff 0 2px, transparent 3px) !important;
+}
+
+/* ستاره‌های شش‌پر تزئینی */
+.welcome::before {
+  content: "✡";
+  display: block;
+  color: #a77ad8;
+  font-size: 27px;
+  text-align: left;
+  margin: 0 12px 8px;
+  text-shadow: 0 0 12px #d8baff;
+}
+
+.welcome::after {
+  content: "✡  ✧  ✡  ✦  ✡";
+  display: block;
+  margin-top: 14px;
+  color: #a77ad8;
+  letter-spacing: 8px;
+  font-size: 20px;
+  text-shadow: 0 0 10px #e3cfff;
+}
+
+/* ستاره در گوشه کارت‌ها */
+.card {
+  position: relative;
+}
+
+.card::before {
+  content: "✡";
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  color: #b18bdf;
+  font-size: 17px;
+  opacity: .8;
+  pointer-events: none;
+}
+
+
   
 </style>  </head>  <body>  <!-- =========================================  
      LOGIN  
