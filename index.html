@@ -1429,6 +1429,36 @@ body {
   }
 }
 
+
+/* نمایش پرچم در بالای صفحه لینکو */
+
+body::before {
+  content: "البیعة الله";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(82%, 320px);
+  min-height: 95px;
+  box-sizing: border-box;
+  margin: 24px auto;
+
+  background: linear-gradient(145deg, #ffffff, #fffdfd);
+  color: #91b99b;
+
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  direction: rtl;
+
+  border: 1px solid #e6d7f8;
+  border-radius: 12px 28px;
+  box-shadow: 0 8px 24px #cbb3e640;
+
+  outline: 2px solid #f0e5ff;
+  outline-offset: 4px;
+}
+  
   
 </style>  </head>  <body>  <!-- =========================================  
      LOGIN  
