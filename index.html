@@ -1364,6 +1364,71 @@ body {
 }
 
 
+/* ===== WHITE FLAG • AL-BAY'A TULLAH ===== */
+
+.bayaat-flag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(88%, 340px);
+  min-height: 100px;
+  margin: 22px auto 28px;
+  padding: 20px 16px;
+  box-sizing: border-box;
+
+  background: linear-gradient(145deg, #ffffff, #fffdfd);
+  border: 1px solid #e8dcf6;
+  border-radius: 12px 28px 12px 28px;
+
+  box-shadow:
+    0 8px 24px rgba(158, 126, 190, .16),
+    inset 0 0 18px rgba(238, 228, 248, .35);
+
+  animation: flagFloat 4s ease-in-out infinite;
+}
+
+/* نوشته سبز پاستیلی */
+.bayaat-flag span {
+  color: #91b99b;
+  font-family: inherit;
+  font-size: clamp(23px, 6vw, 32px);
+  font-weight: 700;
+  text-align: center;
+  direction: rtl;
+  text-shadow: 0 1px 1px rgba(100, 150, 110, .10);
+}
+
+/* تزئینات ستاره شش‌پر */
+.bayaat-flag::before {
+  content: "✡";
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  color: #c0a0e8;
+  font-size: 17px;
+  opacity: .8;
+}
+
+.bayaat-flag::after {
+  content: "✡";
+  position: absolute;
+  bottom: 7px;
+  right: 12px;
+  color: #c0a0e8;
+  font-size: 17px;
+  opacity: .8;
+}
+
+@keyframes flagFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
   
 </style>  </head>  <body>  <!-- =========================================  
      LOGIN  
